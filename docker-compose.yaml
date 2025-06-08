@@ -60,7 +60,7 @@ services:
 
   spark:
     build:
-      context: .
+      context: ./spark
       dockerfile: Dockerfile.spark-custom
     container_name: spark
     hostname: spark-master
@@ -79,13 +79,13 @@ services:
       - "8081:8080"   # UI
     volumes:
       - ./airflow/data:/opt/airflow/data
-      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./spark/conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     networks:
       - dqops_lakehouse_network
 
   spark-worker:
     build:
-      context: .
+      context: ./spark
       dockerfile: Dockerfile.spark-custom
     container_name: spark-worker
     depends_on:
@@ -103,14 +103,14 @@ services:
       MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
     volumes:
       - ./airflow/data:/opt/airflow/data
-      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./spark/conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     networks:
       - dqops_lakehouse_network
 
       
   spark-thrift:
     build:
-      context: .
+      context: ./spark
       dockerfile: Dockerfile.spark-custom
     container_name: spark-thrift
     command: [
@@ -126,7 +126,7 @@ services:
       - "10000:10000"  # JDBC port
     volumes:
       - ./airflow/data:/opt/airflow/data
-      - ./conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+      - ./spark/conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     depends_on:
       spark:
         condition: service_started 
