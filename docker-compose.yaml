@@ -107,14 +107,38 @@ services:
     networks:
       - dqops_lakehouse_network
 
-      
+  spark-worker-2:
+    build:
+      context: ./spark
+      dockerfile: Dockerfile.spark-custom
+    container_name: spark-worker-2
+    depends_on:
+      - spark
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_WORKER_MEMORY: "2g"
+      SPARK_WORKER_CORES: "4"
+      SPARK_DAEMON_MEMORY: "1g"
+      SPARK_DRIVER_MEMORY: "2g"
+      SPARK_EXECUTOR_MEMORRY: 1G
+      PYSPARK_PYTHON: python3
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+    volumes:
+      - ./airflow/data:/opt/airflow/data
+      - ./spark/conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
+    networks:
+      - dqops_lakehouse_network
+
   spark-thrift:
     build:
       context: ./spark
       dockerfile: Dockerfile.spark-custom
     container_name: spark-thrift
     command: [
-      "/opt/bitnami/spark/sbin/start-thriftserver.sh"
+      "/opt/bitnami/spark/sbin/start-thriftserver.sh",
+      "--conf", "spark.cores.max=4"
     ]
     environment:
       SPARK_MASTER_URL: spark://spark-master:7077
@@ -133,7 +157,6 @@ services:
       #   condition: service_healthy
     networks:
       - dqops_lakehouse_network
-
 
 networks:
   dqops_lakehouse_network:

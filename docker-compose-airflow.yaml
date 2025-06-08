@@ -17,11 +17,11 @@ x-airflow-common: &airflow-common
     - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
     - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
   volumes:
-    - ./dags:/opt/airflow/dags
-    - ./logs:/opt/airflow/logs
-    - ./plugins:/opt/airflow/plugins
-    - ./include:/opt/airflow/include
-    - ./data:/opt/airflow/data
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/logs:/opt/airflow/logs
+    - ./airflow/plugins:/opt/airflow/plugins
+    - ./airflow/include:/opt/airflow/include
+    - ./airflow/data:/opt/airflow/data
   networks:
     - dqops_lakehouse_network
   depends_on:

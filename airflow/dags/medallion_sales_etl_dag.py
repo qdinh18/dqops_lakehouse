@@ -37,7 +37,6 @@ bronze_ingestion = SparkSubmitOperator(
     task_id='bronze_ingestion',
     application='dags/bronze_ingestion_sc_stats_etl.py',
     conn_id='spark_default',
-    packages="org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262,io.delta:delta-spark_2.12:3.1.0",
     conf={
         "spark.sql.extensions": "io.delta.sql.DeltaSparkSessionExtension",
         "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.delta.catalog.DeltaCatalog",
@@ -57,7 +56,6 @@ bronze_to_silver = SparkSubmitOperator(
     task_id='bronze_to_silver',
     application='dags/bronze_to_silver_sc_stats_etl.py',
     conn_id='spark_default',
-    packages="org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262,io.delta:delta-spark_2.12:3.1.0",
     conf={
         "spark.sql.extensions": "io.delta.sql.DeltaSparkSessionExtension",
         "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.delta.catalog.DeltaCatalog",
@@ -77,7 +75,6 @@ silver_to_gold = SparkSubmitOperator(
     task_id='silver_to_gold',
     application='dags/silver_to_gold_sc_summary_etl.py',
     conn_id='spark_default',
-    packages="org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262,io.delta:delta-spark_2.12:3.1.0",
     conf={
         "spark.sql.extensions": "io.delta.sql.DeltaSparkSessionExtension",
         "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.delta.catalog.DeltaCatalog",
