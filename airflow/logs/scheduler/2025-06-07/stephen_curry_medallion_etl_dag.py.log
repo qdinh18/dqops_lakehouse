@@ -1,0 +1,175 @@
+[2025-06-07T13:10:52.329+0000] {processor.py:186} INFO - Started process (PID=2296) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:10:52.331+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:10:52.332+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:10:52.332+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:10:52.345+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:10:52.400+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:10:52.400+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:10:52.412+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:10:52.411+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:10:52.420+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.097 seconds
+[2025-06-07T13:11:22.661+0000] {processor.py:186} INFO - Started process (PID=2301) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:22.663+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:11:22.664+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:22.664+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:22.676+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:22.695+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:22.695+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:11:22.710+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:22.710+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:11:22.719+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.066 seconds
+[2025-06-07T13:11:24.692+0000] {processor.py:186} INFO - Started process (PID=2306) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:24.693+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:11:24.693+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:24.693+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:24.702+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:24.767+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:24.767+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:11:24.777+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:24.777+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:11:24.788+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.100 seconds
+[2025-06-07T13:11:55.054+0000] {processor.py:186} INFO - Started process (PID=2311) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:55.055+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:11:55.056+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:55.056+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:55.068+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:11:55.091+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:55.091+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:11:55.102+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:11:55.102+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:11:55.110+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.063 seconds
+[2025-06-07T13:12:25.296+0000] {processor.py:186} INFO - Started process (PID=2316) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:12:25.297+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:12:25.298+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:12:25.298+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:12:25.311+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:12:25.334+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:12:25.334+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:12:25.346+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:12:25.346+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:12:25.355+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.067 seconds
+[2025-06-07T13:12:55.655+0000] {processor.py:186} INFO - Started process (PID=2321) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:12:55.656+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:12:55.658+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:12:55.657+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:12:55.670+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:12:55.689+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:12:55.689+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:12:55.703+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:12:55.703+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:12:55.714+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.066 seconds
+[2025-06-07T13:13:26.020+0000] {processor.py:186} INFO - Started process (PID=2326) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:13:26.022+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:13:26.023+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:13:26.022+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:13:26.034+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:13:26.053+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:13:26.053+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:13:26.065+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:13:26.065+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:13:26.073+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.059 seconds
+[2025-06-07T13:13:56.332+0000] {processor.py:186} INFO - Started process (PID=2331) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:13:56.332+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:13:56.333+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:13:56.333+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:13:56.340+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:13:56.359+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:13:56.359+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:13:56.370+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:13:56.370+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:13:56.377+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.049 seconds
+[2025-06-07T13:14:26.673+0000] {processor.py:186} INFO - Started process (PID=2336) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:14:26.674+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:14:26.675+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:14:26.675+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:14:26.687+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:14:26.708+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:14:26.707+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:14:26.719+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:14:26.719+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:14:26.727+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.059 seconds
+[2025-06-07T13:14:29.723+0000] {processor.py:186} INFO - Started process (PID=2341) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:14:29.725+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:14:29.726+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:14:29.725+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:14:29.791+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:14:29.840+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:14:29.840+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:14:29.850+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:14:29.850+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-06 00:00:00+00:00, run_after=2025-06-07 00:00:00+00:00
+[2025-06-07T13:14:29.860+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.145 seconds
+[2025-06-07T13:15:00.054+0000] {processor.py:186} INFO - Started process (PID=2698) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:15:00.055+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:15:00.056+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:15:00.056+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:15:00.131+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:15:00.150+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:15:00.150+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:15:00.162+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:15:00.162+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:15:00.169+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.120 seconds
+[2025-06-07T13:15:30.490+0000] {processor.py:186} INFO - Started process (PID=2703) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:15:30.491+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:15:30.492+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:15:30.491+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:15:30.554+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:15:30.568+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:15:30.568+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:15:30.579+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:15:30.579+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:15:30.586+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.102 seconds
+[2025-06-07T13:16:00.815+0000] {processor.py:186} INFO - Started process (PID=2708) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:16:00.816+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:16:00.817+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:16:00.817+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:16:00.879+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:16:00.894+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:16:00.894+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:16:00.905+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:16:00.905+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:16:00.912+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.107 seconds
+[2025-06-07T13:16:31.232+0000] {processor.py:186} INFO - Started process (PID=2713) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:16:31.233+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:16:31.235+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:16:31.234+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:16:31.301+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:16:31.317+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:16:31.317+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:16:31.330+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:16:31.330+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:16:31.337+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.114 seconds
+[2025-06-07T13:17:01.616+0000] {processor.py:186} INFO - Started process (PID=2718) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:17:01.618+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:17:01.620+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:17:01.619+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:17:01.679+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:17:01.694+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:17:01.694+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:17:01.706+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:17:01.706+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:17:01.713+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.105 seconds
+[2025-06-07T13:17:32.060+0000] {processor.py:186} INFO - Started process (PID=2723) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:17:32.061+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:17:32.062+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:17:32.062+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:17:32.128+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:17:32.145+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:17:32.145+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:17:32.159+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:17:32.158+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:17:32.166+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.114 seconds
+[2025-06-07T13:18:02.379+0000] {processor.py:186} INFO - Started process (PID=2728) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:02.381+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:18:02.383+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:02.382+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:02.449+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:02.467+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:02.467+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:18:02.480+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:02.480+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:18:02.488+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.117 seconds
+[2025-06-07T13:18:32.723+0000] {processor.py:186} INFO - Started process (PID=2733) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:32.725+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:18:32.726+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:32.726+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:32.789+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:32.804+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:32.804+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:18:32.815+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:32.815+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:18:32.822+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.107 seconds
+[2025-06-07T13:18:56.022+0000] {processor.py:186} INFO - Started process (PID=2738) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:56.024+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:18:56.025+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:56.024+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:56.090+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:18:56.147+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:56.147+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:18:56.157+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:18:56.157+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:18:56.167+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.152 seconds
+[2025-06-07T13:19:26.355+0000] {processor.py:186} INFO - Started process (PID=2743) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:19:26.357+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:19:26.358+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:19:26.357+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:19:26.419+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:19:26.435+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:19:26.435+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:19:26.446+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:19:26.446+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:19:26.454+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.106 seconds
+[2025-06-07T13:19:56.715+0000] {processor.py:186} INFO - Started process (PID=2876) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:19:56.716+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:19:56.716+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:19:56.716+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:19:56.778+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:19:56.793+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:19:56.793+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:19:56.804+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:19:56.804+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:19:56.811+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.102 seconds
+[2025-06-07T13:20:26.939+0000] {processor.py:186} INFO - Started process (PID=2945) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:20:26.940+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:20:26.942+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:20:26.941+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:20:27.012+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:20:27.047+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:20:27.046+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:20:27.062+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:20:27.061+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:20:27.071+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.137 seconds
+[2025-06-07T13:20:57.247+0000] {processor.py:186} INFO - Started process (PID=2964) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:20:57.248+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:20:57.249+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:20:57.249+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:20:57.307+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:20:57.322+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:20:57.322+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:20:57.332+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:20:57.332+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:20:57.338+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.096 seconds
+[2025-06-07T13:21:27.513+0000] {processor.py:186} INFO - Started process (PID=2971) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:21:27.514+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:21:27.515+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:21:27.515+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:21:27.576+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:21:27.592+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:21:27.592+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:21:27.604+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:21:27.604+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:21:27.611+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.104 seconds
+[2025-06-07T13:21:57.886+0000] {processor.py:186} INFO - Started process (PID=2976) to work on /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:21:57.887+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/stephen_curry_medallion_etl_dag.py for tasks to queue
+[2025-06-07T13:21:57.888+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:21:57.888+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:21:57.946+0000] {processor.py:925} INFO - DAG(s) 'stephen_curry_stats_medallion_etl' retrieved from /opt/airflow/dags/stephen_curry_medallion_etl_dag.py
+[2025-06-07T13:21:57.962+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:21:57.961+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-06-07T13:21:57.972+0000] {logging_mixin.py:190} INFO - [2025-06-07T13:21:57.972+0000] {dag.py:4180} INFO - Setting next_dagrun for stephen_curry_stats_medallion_etl to 2025-06-07 00:00:00+00:00, run_after=2025-06-08 00:00:00+00:00
+[2025-06-07T13:21:57.981+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/stephen_curry_medallion_etl_dag.py took 0.102 seconds

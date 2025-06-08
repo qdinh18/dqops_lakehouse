@@ -1,0 +1,947 @@
+[2025-06-03T04:03:27.411+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-03T04:03:27.421+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: curry_medallion_etl.submit_bronze_to_silver_job manual__2025-06-03T04:03:07.400599+00:00 [queued]>
+[2025-06-03T04:03:27.425+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: curry_medallion_etl.submit_bronze_to_silver_job manual__2025-06-03T04:03:07.400599+00:00 [queued]>
+[2025-06-03T04:03:27.425+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-06-03T04:03:27.431+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): submit_bronze_to_silver_job> on 2025-06-03 04:03:07.400599+00:00
+[2025-06-03T04:03:27.434+0000] {standard_task_runner.py:72} INFO - Started process 4357 to run task
+[2025-06-03T04:03:27.436+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'curry_medallion_etl', 'submit_bronze_to_silver_job', 'manual__2025-06-03T04:03:07.400599+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/medallion_sales_etl_dag.py', '--cfg-path', '/tmp/tmpwhq89c8v']
+[2025-06-03T04:03:27.438+0000] {standard_task_runner.py:105} INFO - Job 35: Subtask submit_bronze_to_silver_job
+[2025-06-03T04:03:27.467+0000] {task_command.py:467} INFO - Running <TaskInstance: curry_medallion_etl.submit_bronze_to_silver_job manual__2025-06-03T04:03:07.400599+00:00 [running]> on host 083f94398a74
+[2025-06-03T04:03:27.523+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='qdinh18' AIRFLOW_CTX_DAG_ID='curry_medallion_etl' AIRFLOW_CTX_TASK_ID='submit_bronze_to_silver_job' AIRFLOW_CTX_EXECUTION_DATE='2025-06-03T04:03:07.400599+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-06-03T04:03:07.400599+00:00'
+[2025-06-03T04:03:27.524+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-03T04:03:27.558+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2025-06-03T04:03:27.559+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.executor.memory=2g --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --conf spark.hadoop.fs.s3a.access.key=minioadmin --conf spark.hadoop.fs.s3a.secret.key=****** --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262,io.delta:delta-spark_2.12:3.1.0 --name bronze_to_silver_sc_stats_etl --verbose --queue root.default --deploy-mode client /opt/***/dags/bronze_to_silver_sc_stats_etl.py --input_path s3a://mybucket/bronze/curry_raw_data/ --output_path s3a://mybucket/silver/curry_transformed/
+[2025-06-03T04:03:28.538+0000] {spark_submit.py:644} INFO - Using properties file: null
+[2025-06-03T04:03:28.598+0000] {spark_submit.py:644} INFO - Parsed arguments:
+[2025-06-03T04:03:28.599+0000] {spark_submit.py:644} INFO - master                  spark://spark-master:7077
+[2025-06-03T04:03:28.599+0000] {spark_submit.py:644} INFO - remote                  null
+[2025-06-03T04:03:28.599+0000] {spark_submit.py:644} INFO - deployMode              client
+[2025-06-03T04:03:28.599+0000] {spark_submit.py:644} INFO - executorMemory          2g
+[2025-06-03T04:03:28.599+0000] {spark_submit.py:644} INFO - executorCores           null
+[2025-06-03T04:03:28.599+0000] {spark_submit.py:644} INFO - totalExecutorCores      null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - propertiesFile          null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - driverMemory            null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - driverCores             null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - driverExtraClassPath    null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - driverExtraLibraryPath  null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - driverExtraJavaOptions  null
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - supervise               false
+[2025-06-03T04:03:28.600+0000] {spark_submit.py:644} INFO - queue                   root.default
+[2025-06-03T04:03:28.601+0000] {spark_submit.py:644} INFO - numExecutors            null
+[2025-06-03T04:03:28.601+0000] {spark_submit.py:644} INFO - files                   null
+[2025-06-03T04:03:28.601+0000] {spark_submit.py:644} INFO - pyFiles                 null
+[2025-06-03T04:03:28.601+0000] {spark_submit.py:644} INFO - archives                null
+[2025-06-03T04:03:28.601+0000] {spark_submit.py:644} INFO - mainClass               null
+[2025-06-03T04:03:28.601+0000] {spark_submit.py:644} INFO - primaryResource         file:/opt/***/dags/bronze_to_silver_sc_stats_etl.py
+[2025-06-03T04:03:28.602+0000] {spark_submit.py:644} INFO - name                    bronze_to_silver_sc_stats_etl
+[2025-06-03T04:03:28.602+0000] {spark_submit.py:644} INFO - childArgs               [--input_path s3a://mybucket/bronze/curry_raw_data/ --output_path s3a://mybucket/silver/curry_transformed/]
+[2025-06-03T04:03:28.602+0000] {spark_submit.py:644} INFO - jars                    null
+[2025-06-03T04:03:28.602+0000] {spark_submit.py:644} INFO - packages                org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262,io.delta:delta-spark_2.12:3.1.0
+[2025-06-03T04:03:28.602+0000] {spark_submit.py:644} INFO - packagesExclusions      null
+[2025-06-03T04:03:28.602+0000] {spark_submit.py:644} INFO - repositories            null
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - verbose                 true
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - 
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - Spark properties used, including those specified through
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - --conf and those from the properties file null:
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - (spark.executor.memory,2g)
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.access.key,*********(redacted))
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.endpoint,http://minio:9000)
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.path.style.access,true)
+[2025-06-03T04:03:28.603+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.secret.key,*********(redacted))
+[2025-06-03T04:03:28.604+0000] {spark_submit.py:644} INFO - (spark.sql.catalog.spark_catalog,org.apache.spark.sql.delta.catalog.DeltaCatalog)
+[2025-06-03T04:03:28.604+0000] {spark_submit.py:644} INFO - (spark.sql.extensions,io.delta.sql.DeltaSparkSessionExtension)
+[2025-06-03T04:03:28.604+0000] {spark_submit.py:644} INFO - 
+[2025-06-03T04:03:28.604+0000] {spark_submit.py:644} INFO - 
+[2025-06-03T04:03:28.679+0000] {spark_submit.py:644} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.11/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-06-03T04:03:28.726+0000] {spark_submit.py:644} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-06-03T04:03:28.726+0000] {spark_submit.py:644} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-06-03T04:03:28.728+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-06-03T04:03:28.728+0000] {spark_submit.py:644} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-06-03T04:03:28.729+0000] {spark_submit.py:644} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2025-06-03T04:03:28.729+0000] {spark_submit.py:644} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-74459fe6-b853-42ae-833c-0906e3d6e853;1.0
+[2025-06-03T04:03:28.729+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-06-03T04:03:28.827+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-06-03T04:03:28.840+0000] {spark_submit.py:644} INFO - found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+[2025-06-03T04:03:28.853+0000] {spark_submit.py:644} INFO - found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-06-03T04:03:28.862+0000] {spark_submit.py:644} INFO - found io.delta#delta-spark_2.12;3.1.0 in central
+[2025-06-03T04:03:28.872+0000] {spark_submit.py:644} INFO - found io.delta#delta-storage;3.1.0 in central
+[2025-06-03T04:03:28.882+0000] {spark_submit.py:644} INFO - found org.antlr#antlr4-runtime;4.9.3 in central
+[2025-06-03T04:03:28.897+0000] {spark_submit.py:644} INFO - :: resolution report :: resolve 159ms :: artifacts dl 9ms
+[2025-06-03T04:03:28.897+0000] {spark_submit.py:644} INFO - :: modules in use:
+[2025-06-03T04:03:28.897+0000] {spark_submit.py:644} INFO - com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - io.delta#delta-spark_2.12;3.1.0 from central in [default]
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - io.delta#delta-storage;3.1.0 from central in [default]
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-06-03T04:03:28.898+0000] {spark_submit.py:644} INFO - |                  |            modules            ||   artifacts   |
+[2025-06-03T04:03:28.899+0000] {spark_submit.py:644} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-06-03T04:03:28.899+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-06-03T04:03:28.899+0000] {spark_submit.py:644} INFO - |      default     |   6   |   0   |   0   |   0   ||   6   |   0   |
+[2025-06-03T04:03:28.899+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-06-03T04:03:28.900+0000] {spark_submit.py:644} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-74459fe6-b853-42ae-833c-0906e3d6e853
+[2025-06-03T04:03:28.900+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-06-03T04:03:28.904+0000] {spark_submit.py:644} INFO - 0 artifacts copied, 6 already retrieved (0kB/4ms)
+[2025-06-03T04:03:29.044+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-06-03T04:03:29.156+0000] {spark_submit.py:644} INFO - Main class:
+[2025-06-03T04:03:29.156+0000] {spark_submit.py:644} INFO - org.apache.spark.deploy.PythonRunner
+[2025-06-03T04:03:29.157+0000] {spark_submit.py:644} INFO - Arguments:
+[2025-06-03T04:03:29.157+0000] {spark_submit.py:644} INFO - file:/opt/***/dags/bronze_to_silver_sc_stats_etl.py
+[2025-06-03T04:03:29.157+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar,file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar,file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar
+[2025-06-03T04:03:29.157+0000] {spark_submit.py:644} INFO - --input_path
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - s3a://mybucket/bronze/curry_raw_data/
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - --output_path
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - s3a://mybucket/silver/curry_transformed/
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - Spark config:
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - (spark.app.name,bronze_to_silver_sc_stats_etl)
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - (spark.app.submitTime,1748923409147)
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - (spark.executor.memory,2g)
+[2025-06-03T04:03:29.158+0000] {spark_submit.py:644} INFO - (spark.files,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar,file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar,file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar)
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.access.key,*********(redacted))
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.endpoint,http://minio:9000)
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.path.style.access,true)
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.secret.key,*********(redacted))
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.jars,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar,file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar,file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar)
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.master,spark://spark-master:7077)
+[2025-06-03T04:03:29.159+0000] {spark_submit.py:644} INFO - (spark.repl.local.jars,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar,file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar,file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar)
+[2025-06-03T04:03:29.160+0000] {spark_submit.py:644} INFO - (spark.sql.catalog.spark_catalog,org.apache.spark.sql.delta.catalog.DeltaCatalog)
+[2025-06-03T04:03:29.160+0000] {spark_submit.py:644} INFO - (spark.sql.extensions,io.delta.sql.DeltaSparkSessionExtension)
+[2025-06-03T04:03:29.160+0000] {spark_submit.py:644} INFO - (spark.submit.deployMode,client)
+[2025-06-03T04:03:29.160+0000] {spark_submit.py:644} INFO - (spark.submit.pyFiles,/home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,/home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,/home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar,/home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar,/home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar,/home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar)
+[2025-06-03T04:03:29.160+0000] {spark_submit.py:644} INFO - Classpath elements:
+[2025-06-03T04:03:29.160+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-06-03T04:03:29.161+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-06-03T04:03:29.161+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar
+[2025-06-03T04:03:29.161+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-06-03T04:03:29.161+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar
+[2025-06-03T04:03:29.161+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar
+[2025-06-03T04:03:29.161+0000] {spark_submit.py:644} INFO - 
+[2025-06-03T04:03:29.162+0000] {spark_submit.py:644} INFO - 
+[2025-06-03T04:03:29.929+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO SparkContext: Running Spark version 3.5.2
+[2025-06-03T04:03:29.929+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO SparkContext: OS info Linux, 6.10.14-linuxkit, aarch64
+[2025-06-03T04:03:29.929+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO SparkContext: Java version 17.0.15
+[2025-06-03T04:03:29.946+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO ResourceUtils: ==============================================================
+[2025-06-03T04:03:29.947+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-06-03T04:03:29.947+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO ResourceUtils: ==============================================================
+[2025-06-03T04:03:29.947+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO SparkContext: Submitted application: BronzeToSilverStephenCurryStatsETL
+[2025-06-03T04:03:29.961+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 2048, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-06-03T04:03:29.965+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO ResourceProfile: Limiting resource is cpu
+[2025-06-03T04:03:29.965+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:29 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-06-03T04:03:30.007+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SecurityManager: Changing view acls to: ***
+[2025-06-03T04:03:30.007+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SecurityManager: Changing modify acls to: ***
+[2025-06-03T04:03:30.007+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SecurityManager: Changing view acls groups to:
+[2025-06-03T04:03:30.007+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SecurityManager: Changing modify acls groups to:
+[2025-06-03T04:03:30.008+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-06-03T04:03:30.152+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Successfully started service 'sparkDriver' on port 37517.
+[2025-06-03T04:03:30.177+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkEnv: Registering MapOutputTracker
+[2025-06-03T04:03:30.204+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkEnv: Registering BlockManagerMaster
+[2025-06-03T04:03:30.215+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-06-03T04:03:30.215+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-06-03T04:03:30.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-06-03T04:03:30.234+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f51ecb37-e65f-428d-a4fe-4d37fdcb8119
+[2025-06-03T04:03:30.241+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-06-03T04:03:30.251+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-06-03T04:03:30.336+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-06-03T04:03:30.380+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-06-03T04:03:30.408+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://083f94398a74:37517/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.411+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://083f94398a74:37517/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar at spark://083f94398a74:37517/jars/io.delta_delta-spark_2.12-3.1.0.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://083f94398a74:37517/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.413+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar at spark://083f94398a74:37517/jars/io.delta_delta-storage-3.1.0.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.415+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar at spark://083f94398a74:37517/jars/org.antlr_antlr4-runtime-4.9.3.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.415+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://083f94398a74:37517/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.416+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/userFiles-bcff129a-eb6e-46a8-ac78-9679de2e0220/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-06-03T04:03:30.426+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://083f94398a74:37517/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.426+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/userFiles-bcff129a-eb6e-46a8-ac78-9679de2e0220/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-06-03T04:03:30.639+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar at spark://083f94398a74:37517/files/io.delta_delta-spark_2.12-3.1.0.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.642+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Copying /home/***/.ivy2/jars/io.delta_delta-spark_2.12-3.1.0.jar to /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/userFiles-bcff129a-eb6e-46a8-ac78-9679de2e0220/io.delta_delta-spark_2.12-3.1.0.jar
+[2025-06-03T04:03:30.646+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://083f94398a74:37517/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.647+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/userFiles-bcff129a-eb6e-46a8-ac78-9679de2e0220/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-06-03T04:03:30.649+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar at spark://083f94398a74:37517/files/io.delta_delta-storage-3.1.0.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.649+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Copying /home/***/.ivy2/jars/io.delta_delta-storage-3.1.0.jar to /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/userFiles-bcff129a-eb6e-46a8-ac78-9679de2e0220/io.delta_delta-storage-3.1.0.jar
+[2025-06-03T04:03:30.652+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar at spark://083f94398a74:37517/files/org.antlr_antlr4-runtime-4.9.3.jar with timestamp 1748923409925
+[2025-06-03T04:03:30.652+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Copying /home/***/.ivy2/jars/org.antlr_antlr4-runtime-4.9.3.jar to /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/userFiles-bcff129a-eb6e-46a8-ac78-9679de2e0220/org.antlr_antlr4-runtime-4.9.3.jar
+[2025-06-03T04:03:30.701+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-06-03T04:03:30.726+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO TransportClientFactory: Successfully created connection to spark-master/172.18.0.6:7077 after 14 ms (0 ms spent in bootstraps)
+[2025-06-03T04:03:30.776+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250603040330-0014
+[2025-06-03T04:03:30.776+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250603040330-0014/0 on worker-20250603030932-172.18.0.7-43297 (172.18.0.7:43297) with 4 core(s)
+[2025-06-03T04:03:30.777+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO StandaloneSchedulerBackend: Granted executor ID app-20250603040330-0014/0 on hostPort 172.18.0.7:43297 with 4 core(s), 2.0 GiB RAM
+[2025-06-03T04:03:30.781+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44221.
+[2025-06-03T04:03:30.781+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO NettyBlockTransferService: Server created on 083f94398a74:44221
+[2025-06-03T04:03:30.783+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-06-03T04:03:30.788+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 083f94398a74, 44221, None)
+[2025-06-03T04:03:30.790+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManagerMasterEndpoint: Registering block manager 083f94398a74:44221 with 434.4 MiB RAM, BlockManagerId(driver, 083f94398a74, 44221, None)
+[2025-06-03T04:03:30.791+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 083f94398a74, 44221, None)
+[2025-06-03T04:03:30.792+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 083f94398a74, 44221, None)
+[2025-06-03T04:03:30.808+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250603040330-0014/0 is now RUNNING
+[2025-06-03T04:03:30.933+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:30 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-06-03T04:03:31.108+0000] {spark_submit.py:644} INFO - Reading Bronze data from: s3a://mybucket/bronze/curry_raw_data/
+[2025-06-03T04:03:31.113+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:31 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-06-03T04:03:31.198+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:31 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+[2025-06-03T04:03:31.205+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:31 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+[2025-06-03T04:03:31.206+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:31 INFO MetricsSystemImpl: s3a-file-system metrics system started
+[2025-06-03T04:03:31.649+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:31 INFO SharedState: Warehouse path is 's3a://mybucket'.
+[2025-06-03T04:03:32.534+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:32 INFO DelegatingLogStore: LogStore `LogStoreAdapter(io.delta.storage.S3SingleDriverLogStore)` is used for scheme `s3a`
+[2025-06-03T04:03:32.560+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:32 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.18.0.7:34628) with ID 0,  ResourceProfileId 0
+[2025-06-03T04:03:32.591+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:32 INFO DeltaLog: Loading version 0.
+[2025-06-03T04:03:32.607+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:32 INFO BlockManagerMasterEndpoint: Registering block manager 172.18.0.7:37175 with 1048.8 MiB RAM, BlockManagerId(0, 172.18.0.7, 37175, None)
+[2025-06-03T04:03:33.943+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:33 INFO DeltaLogFileIndex: Created DeltaLogFileIndex(JSON, numFilesInSegment: 1, totalFileSize: 3839)
+[2025-06-03T04:03:34.587+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO DataSourceStrategy: Pruning directories with:
+[2025-06-03T04:03:34.591+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO FileSourceStrategy: Pushed Filters:
+[2025-06-03T04:03:34.592+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO FileSourceStrategy: Post-Scan Filters: (isnotnull(protocol#11.minReaderVersion) OR isnotnull(metaData#10.id))
+[2025-06-03T04:03:34.880+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO CodeGenerator: Code generated in 137.763583 ms
+[2025-06-03T04:03:34.924+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 205.2 KiB, free 434.2 MiB)
+[2025-06-03T04:03:34.970+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 36.1 KiB, free 434.2 MiB)
+[2025-06-03T04:03:34.972+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 083f94398a74:44221 (size: 36.1 KiB, free: 434.4 MiB)
+[2025-06-03T04:03:34.978+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO SparkContext: Created broadcast 0 from toString at String.java:4220
+[2025-06-03T04:03:34.995+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:34 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+[2025-06-03T04:03:35.132+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO SparkContext: Starting job: toString at String.java:4220
+[2025-06-03T04:03:35.140+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO DAGScheduler: Got job 0 (toString at String.java:4220) with 1 output partitions
+[2025-06-03T04:03:35.141+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO DAGScheduler: Final stage: ResultStage 0 (toString at String.java:4220)
+[2025-06-03T04:03:35.141+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO DAGScheduler: Parents of final stage: List()
+[2025-06-03T04:03:35.141+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:35.143+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at toString at String.java:4220), which has no missing parents
+[2025-06-03T04:03:35.153+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 40.0 KiB, free 434.1 MiB)
+[2025-06-03T04:03:35.154+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 13.7 KiB, free 434.1 MiB)
+[2025-06-03T04:03:35.154+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 083f94398a74:44221 (size: 13.7 KiB, free: 434.4 MiB)
+[2025-06-03T04:03:35.154+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:35.165+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at toString at String.java:4220) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:35.166+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:35.180+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10836 bytes)
+[2025-06-03T04:03:35.310+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 172.18.0.7:37175 (size: 13.7 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:35.864+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:35 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 172.18.0.7:37175 (size: 36.1 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:36.510+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1336 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:36.511+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:36.514+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO DAGScheduler: ResultStage 0 (toString at String.java:4220) finished in 1.364 s
+[2025-06-03T04:03:36.515+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-06-03T04:03:36.516+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2025-06-03T04:03:36.517+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO DAGScheduler: Job 0 finished: toString at String.java:4220, took 1.385871 s
+[2025-06-03T04:03:36.572+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 172.18.0.7:37175 in memory (size: 13.7 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:36.575+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 083f94398a74:44221 in memory (size: 13.7 KiB, free: 434.4 MiB)
+[2025-06-03T04:03:36.581+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO CodeGenerator: Code generated in 45.342625 ms
+[2025-06-03T04:03:36.585+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO Snapshot: [tableId=24457177-8766-4a36-b617-5adcbf64739a] Created snapshot Snapshot(path=s3a://mybucket/bronze/curry_raw_data/_delta_log, version=0, metadata=Metadata(690a9399-093b-4a72-8d75-1116d6373515,null,null,Format(parquet,Map()),{"type":"struct","fields":[{"name":"Season_year","type":"string","nullable":true,"metadata":{}},{"name":"Season_div","type":"string","nullable":true,"metadata":{}},{"name":"Date","type":"string","nullable":true,"metadata":{}},{"name":"OPP","type":"string","nullable":true,"metadata":{}},{"name":"Result","type":"string","nullable":true,"metadata":{}},{"name":"T_Score","type":"long","nullable":true,"metadata":{}},{"name":"O_Score","type":"long","nullable":true,"metadata":{}},{"name":"MIN","type":"double","nullable":true,"metadata":{}},{"name":"FG","type":"string","nullable":true,"metadata":{}},{"name":"FGM","type":"long","nullable":true,"metadata":{}},{"name":"FGA","type":"long","nullable":true,"metadata":{}},{"name":"FG_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"3PT","type":"string","nullable":true,"metadata":{}},{"name":"3PTM","type":"long","nullable":true,"metadata":{}},{"name":"3PTA","type":"long","nullable":true,"metadata":{}},{"name":"3P_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"FT","type":"string","nullable":true,"metadata":{}},{"name":"FTM","type":"long","nullable":true,"metadata":{}},{"name":"FTA","type":"long","nullable":true,"metadata":{}},{"name":"FT_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"REB","type":"long","nullable":true,"metadata":{}},{"name":"AST","type":"long","nullable":true,"metadata":{}},{"name":"BLK","type":"long","nullable":true,"metadata":{}},{"name":"STL","type":"long","nullable":true,"metadata":{}},{"name":"PF","type":"long","nullable":true,"metadata":{}},{"name":"TO","type":"long","nullable":true,"metadata":{}},{"name":"PTS","type":"long","nullable":true,"metadata":{}}]},List(),Map(),Some(1748923397343)), logSegment=LogSegment(s3a://mybucket/bronze/curry_raw_data/_delta_log,0,WrappedArray(S3AFileStatus{path=s3a://mybucket/bronze/curry_raw_data/_delta_log/00000000000000000000.json; isDirectory=false; length=3839; replication=1; blocksize=33554432; modification_time=1748923402633; access_time=0; owner=***; group=***; permission=rw-rw-rw-; isSymlink=false; hasAcl=false; isEncrypted=true; isErasureCoded=false} isEmptyDirectory=FALSE eTag=fe674a98a069fc9a76d8949198784717 versionId=null),org.apache.spark.sql.delta.EmptyCheckpointProvider$@20f9a85e,1748923402633), checksumOpt=None)
+[2025-06-03T04:03:36.669+0000] {spark_submit.py:644} INFO - Successfully loaded Bronze data.
+[2025-06-03T04:03:36.704+0000] {spark_submit.py:644} INFO - Writing to Silver path: s3a://mybucket/silver/curry_transformed/
+[2025-06-03T04:03:36.845+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO HiveConf: Found configuration file null
+[2025-06-03T04:03:36.851+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO HiveUtils: Initializing HiveMetastoreConnection version 2.3.9 using Spark classes.
+[2025-06-03T04:03:36.990+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:36 INFO HiveClientImpl: Warehouse location for Hive client (version 2.3.9) is s3a://mybucket
+[2025-06-03T04:03:37.020+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO metastore: Trying to connect to metastore with URI thrift://hive-metastore:9083
+[2025-06-03T04:03:37.038+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO metastore: Opened a connection to metastore, current connections: 1
+[2025-06-03T04:03:37.043+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 083f94398a74:44221 in memory (size: 36.1 KiB, free: 434.4 MiB)
+[2025-06-03T04:03:37.045+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 172.18.0.7:37175 in memory (size: 36.1 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:37.067+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO metastore: Connected to metastore.
+[2025-06-03T04:03:37.300+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO InMemoryFileIndex: It took 15 ms to list leaf files for 1 paths.
+[2025-06-03T04:03:37.404+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-06-03T04:03:37.416+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO DelegatingLogStore: LogStore `LogStoreAdapter(io.delta.storage.S3SingleDriverLogStore)` is used for scheme `s3a`
+[2025-06-03T04:03:37.423+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO DeltaLog: Creating initial snapshot without metadata, because the directory is empty
+[2025-06-03T04:03:37.425+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO InitialSnapshot: [tableId=6d137d6e-e74b-4df9-9291-7dff0846e19e] Created snapshot InitialSnapshot(path=s3a://mybucket/silver/curry_transformed/_delta_log, version=-1, metadata=Metadata(ae8a84f3-e772-4e15-87dd-4515b08296c3,null,null,Format(parquet,Map()),null,List(),Map(),Some(1748923417425)), logSegment=LogSegment(s3a://mybucket/silver/curry_transformed/_delta_log,-1,List(),org.apache.spark.sql.delta.EmptyCheckpointProvider$@20f9a85e,-1), checksumOpt=None)
+[2025-06-03T04:03:37.465+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO DeltaLog: No delta log found for the Delta table at s3a://mybucket/silver/curry_transformed/_delta_log
+[2025-06-03T04:03:37.465+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO InitialSnapshot: [tableId=ae8a84f3-e772-4e15-87dd-4515b08296c3] Created snapshot InitialSnapshot(path=s3a://mybucket/silver/curry_transformed/_delta_log, version=-1, metadata=Metadata(0c39e06c-16f6-4e39-99b1-21fd528bcfe2,null,null,Format(parquet,Map()),null,List(),Map(),Some(1748923417465)), logSegment=LogSegment(s3a://mybucket/silver/curry_transformed/_delta_log,-1,List(),org.apache.spark.sql.delta.EmptyCheckpointProvider$@20f9a85e,-1), checksumOpt=None)
+[2025-06-03T04:03:37.491+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO OptimisticTransaction: [tableId=0c39e06c,txnId=a7f4c02c] Updated metadata from - to Metadata(e17432b0-4194-4125-8ad8-ff49c56cf537,null,null,Format(parquet,Map()),{"type":"struct","fields":[{"name":"Season_year","type":"string","nullable":true,"metadata":{}},{"name":"Season_div","type":"string","nullable":true,"metadata":{}},{"name":"Date","type":"string","nullable":true,"metadata":{}},{"name":"OPP","type":"string","nullable":true,"metadata":{}},{"name":"Result","type":"string","nullable":true,"metadata":{}},{"name":"T_Score","type":"long","nullable":true,"metadata":{}},{"name":"O_Score","type":"long","nullable":true,"metadata":{}},{"name":"MIN","type":"double","nullable":true,"metadata":{}},{"name":"FG","type":"string","nullable":true,"metadata":{}},{"name":"FGM","type":"long","nullable":true,"metadata":{}},{"name":"FGA","type":"long","nullable":true,"metadata":{}},{"name":"FG_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"3PT","type":"string","nullable":true,"metadata":{}},{"name":"3PTM","type":"long","nullable":true,"metadata":{}},{"name":"3PTA","type":"long","nullable":true,"metadata":{}},{"name":"3P_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"FT","type":"string","nullable":true,"metadata":{}},{"name":"FTM","type":"long","nullable":true,"metadata":{}},{"name":"FTA","type":"long","nullable":true,"metadata":{}},{"name":"FT_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"REB","type":"long","nullable":true,"metadata":{}},{"name":"AST","type":"long","nullable":true,"metadata":{}},{"name":"BLK","type":"long","nullable":true,"metadata":{}},{"name":"STL","type":"long","nullable":true,"metadata":{}},{"name":"PF","type":"long","nullable":true,"metadata":{}},{"name":"TO","type":"long","nullable":true,"metadata":{}},{"name":"PTS","type":"long","nullable":true,"metadata":{}},{"name":"silver_processing_ts","type":"timestamp","nullable":true,"metadata":{}}]},List(),Map(),Some(1748923417478))
+[2025-06-03T04:03:37.741+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO PrepareDeltaScan: DELTA: Filtering files for query
+[2025-06-03T04:03:37.743+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO Snapshot: [tableId=690a9399-093b-4a72-8d75-1116d6373515] DELTA: Compute snapshot for version: 0
+[2025-06-03T04:03:37.750+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 204.9 KiB, free 434.2 MiB)
+[2025-06-03T04:03:37.757+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 36.0 KiB, free 434.2 MiB)
+[2025-06-03T04:03:37.758+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 083f94398a74:44221 (size: 36.0 KiB, free: 434.4 MiB)
+[2025-06-03T04:03:37.758+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:37 INFO SparkContext: Created broadcast 2 from $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:38.007+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DataSourceStrategy: Pruning directories with:
+[2025-06-03T04:03:38.007+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO FileSourceStrategy: Pushed Filters:
+[2025-06-03T04:03:38.008+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO FileSourceStrategy: Post-Scan Filters:
+[2025-06-03T04:03:38.162+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO CodeGenerator: Code generated in 60.825417 ms
+[2025-06-03T04:03:38.165+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 205.2 KiB, free 434.0 MiB)
+[2025-06-03T04:03:38.170+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 36.1 KiB, free 433.9 MiB)
+[2025-06-03T04:03:38.171+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 083f94398a74:44221 (size: 36.1 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:38.171+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO SparkContext: Created broadcast 3 from $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:38.172+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+[2025-06-03T04:03:38.215+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Registering RDD 7 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) as input to shuffle 0
+[2025-06-03T04:03:38.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Got map stage job 1 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 1 output partitions
+[2025-06-03T04:03:38.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Final stage: ShuffleMapStage 1 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:38.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Parents of final stage: List()
+[2025-06-03T04:03:38.219+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:38.219+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[7] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:38.229+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 105.6 KiB, free 433.8 MiB)
+[2025-06-03T04:03:38.229+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 32.6 KiB, free 433.8 MiB)
+[2025-06-03T04:03:38.230+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 083f94398a74:44221 (size: 32.6 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:38.230+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:38.231+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[7] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:38.231+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:38.233+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10825 bytes)
+[2025-06-03T04:03:38.250+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 172.18.0.7:37175 (size: 32.6 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:38.520+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:38 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 172.18.0.7:37175 (size: 36.1 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:39.082+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 850 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:39.083+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:39.083+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: ShuffleMapStage 1 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 0.862 s
+[2025-06-03T04:03:39.084+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: looking for newly runnable stages
+[2025-06-03T04:03:39.084+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: running: Set()
+[2025-06-03T04:03:39.084+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: waiting: Set()
+[2025-06-03T04:03:39.085+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: failed: Set()
+[2025-06-03T04:03:39.228+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO BlockManagerInfo: Removed broadcast_4_piece0 on 083f94398a74:44221 in memory (size: 32.6 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:39.230+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO BlockManagerInfo: Removed broadcast_4_piece0 on 172.18.0.7:37175 in memory (size: 32.6 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:39.304+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO CodeGenerator: Generated method too long to be JIT compiled: org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage3.serializefromobject_doConsume_0$ is 24899 bytes
+[2025-06-03T04:03:39.304+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO CodeGenerator: Code generated in 131.291083 ms
+[2025-06-03T04:03:39.349+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO CodeGenerator: Code generated in 32.410459 ms
+[2025-06-03T04:03:39.524+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO CodeGenerator: Code generated in 28.885042 ms
+[2025-06-03T04:03:39.531+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Registering RDD 17 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) as input to shuffle 1
+[2025-06-03T04:03:39.531+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Got map stage job 2 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 50 output partitions
+[2025-06-03T04:03:39.531+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Final stage: ShuffleMapStage 3 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:39.532+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
+[2025-06-03T04:03:39.532+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:39.533+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[17] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:39.557+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 602.5 KiB, free 433.3 MiB)
+[2025-06-03T04:03:39.559+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 137.9 KiB, free 433.2 MiB)
+[2025-06-03T04:03:39.559+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 083f94398a74:44221 (size: 137.9 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:39.560+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:39.560+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO DAGScheduler: Submitting 50 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[17] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+[2025-06-03T04:03:39.561+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSchedulerImpl: Adding task set 3.0 with 50 tasks resource profile 0
+[2025-06-03T04:03:39.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSetManager: Starting task 36.0 in stage 3.0 (TID 2) (172.18.0.7, executor 0, partition 36, NODE_LOCAL, 10175 bytes)
+[2025-06-03T04:03:39.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSetManager: Starting task 42.0 in stage 3.0 (TID 3) (172.18.0.7, executor 0, partition 42, NODE_LOCAL, 10175 bytes)
+[2025-06-03T04:03:39.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 4) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:39.565+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 5) (172.18.0.7, executor 0, partition 1, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:39.579+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 172.18.0.7:37175 (size: 137.9 KiB, free: 1048.6 MiB)
+[2025-06-03T04:03:39.784+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:39 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 172.18.0.7:34628
+[2025-06-03T04:03:40.293+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_0 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.294+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_1 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.295+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_36 in memory on 172.18.0.7:37175 (size: 798.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.295+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_42 in memory on 172.18.0.7:37175 (size: 688.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.698+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 6) (172.18.0.7, executor 0, partition 2, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 7) (172.18.0.7, executor 0, partition 3, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 4.0 in stage 3.0 (TID 8) (172.18.0.7, executor 0, partition 4, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.702+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 5.0 in stage 3.0 (TID 9) (172.18.0.7, executor 0, partition 5, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.703+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 4) in 1137 ms on 172.18.0.7 (executor 0) (1/50)
+[2025-06-03T04:03:40.704+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 36.0 in stage 3.0 (TID 2) in 1139 ms on 172.18.0.7 (executor 0) (2/50)
+[2025-06-03T04:03:40.704+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 42.0 in stage 3.0 (TID 3) in 1139 ms on 172.18.0.7 (executor 0) (3/50)
+[2025-06-03T04:03:40.708+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 5) in 1139 ms on 172.18.0.7 (executor 0) (4/50)
+[2025-06-03T04:03:40.806+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_2 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.809+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_3 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.818+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_5 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.819+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_4 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.840+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 6.0 in stage 3.0 (TID 10) (172.18.0.7, executor 0, partition 6, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.842+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 6) in 141 ms on 172.18.0.7 (executor 0) (5/50)
+[2025-06-03T04:03:40.844+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 7.0 in stage 3.0 (TID 11) (172.18.0.7, executor 0, partition 7, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.845+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 7) in 145 ms on 172.18.0.7 (executor 0) (6/50)
+[2025-06-03T04:03:40.848+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 8.0 in stage 3.0 (TID 12) (172.18.0.7, executor 0, partition 8, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.850+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 9.0 in stage 3.0 (TID 13) (172.18.0.7, executor 0, partition 9, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.851+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 5.0 in stage 3.0 (TID 9) in 148 ms on 172.18.0.7 (executor 0) (7/50)
+[2025-06-03T04:03:40.852+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 4.0 in stage 3.0 (TID 8) in 150 ms on 172.18.0.7 (executor 0) (8/50)
+[2025-06-03T04:03:40.884+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_6 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.886+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_7 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.915+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 10.0 in stage 3.0 (TID 14) (172.18.0.7, executor 0, partition 10, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.916+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 6.0 in stage 3.0 (TID 10) in 77 ms on 172.18.0.7 (executor 0) (9/50)
+[2025-06-03T04:03:40.921+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_9 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.922+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_8 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.922+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 11.0 in stage 3.0 (TID 15) (172.18.0.7, executor 0, partition 11, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.924+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 7.0 in stage 3.0 (TID 11) in 81 ms on 172.18.0.7 (executor 0) (10/50)
+[2025-06-03T04:03:40.950+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 12.0 in stage 3.0 (TID 16) (172.18.0.7, executor 0, partition 12, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.951+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 13.0 in stage 3.0 (TID 17) (172.18.0.7, executor 0, partition 13, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.953+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 8.0 in stage 3.0 (TID 12) in 104 ms on 172.18.0.7 (executor 0) (11/50)
+[2025-06-03T04:03:40.955+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 9.0 in stage 3.0 (TID 13) in 104 ms on 172.18.0.7 (executor 0) (12/50)
+[2025-06-03T04:03:40.965+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_10 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.973+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO BlockManagerInfo: Added rdd_14_11 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:40.990+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Starting task 14.0 in stage 3.0 (TID 18) (172.18.0.7, executor 0, partition 14, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:40.991+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:40 INFO TaskSetManager: Finished task 10.0 in stage 3.0 (TID 14) in 77 ms on 172.18.0.7 (executor 0) (13/50)
+[2025-06-03T04:03:41.002+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 15.0 in stage 3.0 (TID 19) (172.18.0.7, executor 0, partition 15, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.002+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_13 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.002+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 11.0 in stage 3.0 (TID 15) in 80 ms on 172.18.0.7 (executor 0) (14/50)
+[2025-06-03T04:03:41.003+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_12 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.025+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 16.0 in stage 3.0 (TID 20) (172.18.0.7, executor 0, partition 16, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.027+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 13.0 in stage 3.0 (TID 17) in 76 ms on 172.18.0.7 (executor 0) (15/50)
+[2025-06-03T04:03:41.031+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 17.0 in stage 3.0 (TID 21) (172.18.0.7, executor 0, partition 17, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.033+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 12.0 in stage 3.0 (TID 16) in 81 ms on 172.18.0.7 (executor 0) (16/50)
+[2025-06-03T04:03:41.035+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_14 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.054+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_15 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.064+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 18.0 in stage 3.0 (TID 22) (172.18.0.7, executor 0, partition 18, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.067+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 14.0 in stage 3.0 (TID 18) in 75 ms on 172.18.0.7 (executor 0) (17/50)
+[2025-06-03T04:03:41.079+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_16 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.087+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 19.0 in stage 3.0 (TID 23) (172.18.0.7, executor 0, partition 19, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.095+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 15.0 in stage 3.0 (TID 19) in 87 ms on 172.18.0.7 (executor 0) (18/50)
+[2025-06-03T04:03:41.103+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_17 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.129+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 20.0 in stage 3.0 (TID 24) (172.18.0.7, executor 0, partition 20, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.138+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 16.0 in stage 3.0 (TID 20) in 104 ms on 172.18.0.7 (executor 0) (19/50)
+[2025-06-03T04:03:41.158+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_18 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.171+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 21.0 in stage 3.0 (TID 25) (172.18.0.7, executor 0, partition 21, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.172+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_19 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.173+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 17.0 in stage 3.0 (TID 21) in 144 ms on 172.18.0.7 (executor 0) (20/50)
+[2025-06-03T04:03:41.186+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 22.0 in stage 3.0 (TID 26) (172.18.0.7, executor 0, partition 22, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.190+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 18.0 in stage 3.0 (TID 22) in 125 ms on 172.18.0.7 (executor 0) (21/50)
+[2025-06-03T04:03:41.203+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 23.0 in stage 3.0 (TID 27) (172.18.0.7, executor 0, partition 23, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.204+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 19.0 in stage 3.0 (TID 23) in 119 ms on 172.18.0.7 (executor 0) (22/50)
+[2025-06-03T04:03:41.205+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_20 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.231+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_21 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.232+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 24.0 in stage 3.0 (TID 28) (172.18.0.7, executor 0, partition 24, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.234+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 20.0 in stage 3.0 (TID 24) in 103 ms on 172.18.0.7 (executor 0) (23/50)
+[2025-06-03T04:03:41.251+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_22 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.270+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_23 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.271+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 25.0 in stage 3.0 (TID 29) (172.18.0.7, executor 0, partition 25, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.278+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 21.0 in stage 3.0 (TID 25) in 107 ms on 172.18.0.7 (executor 0) (24/50)
+[2025-06-03T04:03:41.281+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 26.0 in stage 3.0 (TID 30) (172.18.0.7, executor 0, partition 26, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.283+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 22.0 in stage 3.0 (TID 26) in 96 ms on 172.18.0.7 (executor 0) (25/50)
+[2025-06-03T04:03:41.296+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_24 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.297+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 27.0 in stage 3.0 (TID 31) (172.18.0.7, executor 0, partition 27, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.297+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 23.0 in stage 3.0 (TID 27) in 92 ms on 172.18.0.7 (executor 0) (26/50)
+[2025-06-03T04:03:41.314+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 28.0 in stage 3.0 (TID 32) (172.18.0.7, executor 0, partition 28, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.315+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_25 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.315+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 24.0 in stage 3.0 (TID 28) in 84 ms on 172.18.0.7 (executor 0) (27/50)
+[2025-06-03T04:03:41.318+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_26 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.330+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_27 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.330+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 29.0 in stage 3.0 (TID 33) (172.18.0.7, executor 0, partition 29, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.331+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 25.0 in stage 3.0 (TID 29) in 59 ms on 172.18.0.7 (executor 0) (28/50)
+[2025-06-03T04:03:41.338+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 30.0 in stage 3.0 (TID 34) (172.18.0.7, executor 0, partition 30, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.340+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 26.0 in stage 3.0 (TID 30) in 59 ms on 172.18.0.7 (executor 0) (29/50)
+[2025-06-03T04:03:41.349+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_28 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.350+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 31.0 in stage 3.0 (TID 35) (172.18.0.7, executor 0, partition 31, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.351+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 27.0 in stage 3.0 (TID 31) in 57 ms on 172.18.0.7 (executor 0) (30/50)
+[2025-06-03T04:03:41.368+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_29 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.371+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 32.0 in stage 3.0 (TID 36) (172.18.0.7, executor 0, partition 32, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.372+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 28.0 in stage 3.0 (TID 32) in 59 ms on 172.18.0.7 (executor 0) (31/50)
+[2025-06-03T04:03:41.383+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_30 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.388+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_31 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.393+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 33.0 in stage 3.0 (TID 37) (172.18.0.7, executor 0, partition 33, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.394+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 29.0 in stage 3.0 (TID 33) in 63 ms on 172.18.0.7 (executor 0) (32/50)
+[2025-06-03T04:03:41.406+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 34.0 in stage 3.0 (TID 38) (172.18.0.7, executor 0, partition 34, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.407+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 30.0 in stage 3.0 (TID 34) in 69 ms on 172.18.0.7 (executor 0) (33/50)
+[2025-06-03T04:03:41.411+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 35.0 in stage 3.0 (TID 39) (172.18.0.7, executor 0, partition 35, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 31.0 in stage 3.0 (TID 35) in 61 ms on 172.18.0.7 (executor 0) (34/50)
+[2025-06-03T04:03:41.414+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_32 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.431+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_33 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.433+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 37.0 in stage 3.0 (TID 40) (172.18.0.7, executor 0, partition 37, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.434+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 32.0 in stage 3.0 (TID 36) in 62 ms on 172.18.0.7 (executor 0) (35/50)
+[2025-06-03T04:03:41.447+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_34 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.448+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 38.0 in stage 3.0 (TID 41) (172.18.0.7, executor 0, partition 38, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.448+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 33.0 in stage 3.0 (TID 37) in 55 ms on 172.18.0.7 (executor 0) (36/50)
+[2025-06-03T04:03:41.453+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_35 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.460+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_37 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.463+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 39.0 in stage 3.0 (TID 42) (172.18.0.7, executor 0, partition 39, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.463+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 34.0 in stage 3.0 (TID 38) in 58 ms on 172.18.0.7 (executor 0) (37/50)
+[2025-06-03T04:03:41.470+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 40.0 in stage 3.0 (TID 43) (172.18.0.7, executor 0, partition 40, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.472+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 35.0 in stage 3.0 (TID 39) in 61 ms on 172.18.0.7 (executor 0) (38/50)
+[2025-06-03T04:03:41.479+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 41.0 in stage 3.0 (TID 44) (172.18.0.7, executor 0, partition 41, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.480+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 37.0 in stage 3.0 (TID 40) in 48 ms on 172.18.0.7 (executor 0) (39/50)
+[2025-06-03T04:03:41.485+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_38 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.492+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_39 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.501+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 43.0 in stage 3.0 (TID 45) (172.18.0.7, executor 0, partition 43, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.502+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 38.0 in stage 3.0 (TID 41) in 54 ms on 172.18.0.7 (executor 0) (40/50)
+[2025-06-03T04:03:41.503+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_40 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.509+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 44.0 in stage 3.0 (TID 46) (172.18.0.7, executor 0, partition 44, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.509+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 39.0 in stage 3.0 (TID 42) in 47 ms on 172.18.0.7 (executor 0) (41/50)
+[2025-06-03T04:03:41.516+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_41 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.524+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 45.0 in stage 3.0 (TID 47) (172.18.0.7, executor 0, partition 45, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.527+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 40.0 in stage 3.0 (TID 43) in 55 ms on 172.18.0.7 (executor 0) (42/50)
+[2025-06-03T04:03:41.538+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 46.0 in stage 3.0 (TID 48) (172.18.0.7, executor 0, partition 46, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.539+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 41.0 in stage 3.0 (TID 44) in 59 ms on 172.18.0.7 (executor 0) (43/50)
+[2025-06-03T04:03:41.539+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_43 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.542+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_44 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.556+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 47.0 in stage 3.0 (TID 49) (172.18.0.7, executor 0, partition 47, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.557+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 43.0 in stage 3.0 (TID 45) in 56 ms on 172.18.0.7 (executor 0) (44/50)
+[2025-06-03T04:03:41.558+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_45 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.562+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 48.0 in stage 3.0 (TID 50) (172.18.0.7, executor 0, partition 48, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.563+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 44.0 in stage 3.0 (TID 46) in 55 ms on 172.18.0.7 (executor 0) (45/50)
+[2025-06-03T04:03:41.566+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_46 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.577+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 49.0 in stage 3.0 (TID 51) (172.18.0.7, executor 0, partition 49, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:41.578+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 45.0 in stage 3.0 (TID 47) in 54 ms on 172.18.0.7 (executor 0) (46/50)
+[2025-06-03T04:03:41.581+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 46.0 in stage 3.0 (TID 48) in 43 ms on 172.18.0.7 (executor 0) (47/50)
+[2025-06-03T04:03:41.588+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_47 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.595+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_48 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.602+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 47.0 in stage 3.0 (TID 49) in 47 ms on 172.18.0.7 (executor 0) (48/50)
+[2025-06-03T04:03:41.608+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added rdd_14_49 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:41.609+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 48.0 in stage 3.0 (TID 50) in 45 ms on 172.18.0.7 (executor 0) (49/50)
+[2025-06-03T04:03:41.617+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 49.0 in stage 3.0 (TID 51) in 39 ms on 172.18.0.7 (executor 0) (50/50)
+[2025-06-03T04:03:41.617+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:41.617+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: ShuffleMapStage 3 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 2.077 s
+[2025-06-03T04:03:41.618+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: looking for newly runnable stages
+[2025-06-03T04:03:41.618+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: running: Set()
+[2025-06-03T04:03:41.619+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: waiting: Set()
+[2025-06-03T04:03:41.619+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: failed: Set()
+[2025-06-03T04:03:41.633+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO SparkContext: Starting job: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:41.635+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Got job 3 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 1 output partitions
+[2025-06-03T04:03:41.635+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Final stage: ResultStage 6 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:41.635+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 5)
+[2025-06-03T04:03:41.636+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:41.636+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Submitting ResultStage 6 (MapPartitionsRDD[20] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:41.639+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 533.8 KiB, free 432.7 MiB)
+[2025-06-03T04:03:41.640+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 124.5 KiB, free 432.6 MiB)
+[2025-06-03T04:03:41.640+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 083f94398a74:44221 (size: 124.5 KiB, free: 434.1 MiB)
+[2025-06-03T04:03:41.641+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:41.641+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 6 (MapPartitionsRDD[20] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:41.641+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:41.642+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 52) (172.18.0.7, executor 0, partition 0, NODE_LOCAL, 10186 bytes)
+[2025-06-03T04:03:41.649+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 172.18.0.7:37175 (size: 124.5 KiB, free: 1048.5 MiB)
+[2025-06-03T04:03:41.657+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 1 to 172.18.0.7:34628
+[2025-06-03T04:03:41.699+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 52) in 57 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:41.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:41.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: ResultStage 6 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 0.063 s
+[2025-06-03T04:03:41.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-06-03T04:03:41.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSchedulerImpl: Killing all running tasks in stage 6: Stage finished
+[2025-06-03T04:03:41.701+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Job 3 finished: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128, took 0.066331 s
+[2025-06-03T04:03:41.724+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO CodeGenerator: Code generated in 17.767625 ms
+[2025-06-03T04:03:41.726+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO Snapshot: [tableId=690a9399-093b-4a72-8d75-1116d6373515] DELTA: Done
+[2025-06-03T04:03:41.794+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Removed broadcast_6_piece0 on 083f94398a74:44221 in memory (size: 124.5 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:41.796+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Removed broadcast_6_piece0 on 172.18.0.7:37175 in memory (size: 124.5 KiB, free: 1048.6 MiB)
+[2025-06-03T04:03:41.801+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 083f94398a74:44221 in memory (size: 137.9 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:41.803+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 172.18.0.7:37175 in memory (size: 137.9 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:41.887+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO CodeGenerator: Code generated in 54.525417 ms
+[2025-06-03T04:03:41.898+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO SparkContext: Starting job: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:41.898+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Got job 4 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 50 output partitions
+[2025-06-03T04:03:41.899+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Final stage: ResultStage 8 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:41.899+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 7)
+[2025-06-03T04:03:41.899+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:41.900+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[22] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:41.903+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 684.0 KiB, free 433.3 MiB)
+[2025-06-03T04:03:41.904+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 154.4 KiB, free 433.1 MiB)
+[2025-06-03T04:03:41.905+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 083f94398a74:44221 (size: 154.4 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:41.905+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:41.906+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO DAGScheduler: Submitting 50 missing tasks from ResultStage 8 (MapPartitionsRDD[22] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+[2025-06-03T04:03:41.906+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSchedulerImpl: Adding task set 8.0 with 50 tasks resource profile 0
+[2025-06-03T04:03:41.907+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 53) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:41.908+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 1.0 in stage 8.0 (TID 54) (172.18.0.7, executor 0, partition 1, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:41.908+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 2.0 in stage 8.0 (TID 55) (172.18.0.7, executor 0, partition 2, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:41.908+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO TaskSetManager: Starting task 3.0 in stage 8.0 (TID 56) (172.18.0.7, executor 0, partition 3, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:41.915+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:41 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 172.18.0.7:37175 (size: 154.4 KiB, free: 1048.6 MiB)
+[2025-06-03T04:03:42.045+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 4.0 in stage 8.0 (TID 57) (172.18.0.7, executor 0, partition 4, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.047+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 3.0 in stage 8.0 (TID 56) in 137 ms on 172.18.0.7 (executor 0) (1/50)
+[2025-06-03T04:03:42.051+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 5.0 in stage 8.0 (TID 58) (172.18.0.7, executor 0, partition 5, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.051+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 6.0 in stage 8.0 (TID 59) (172.18.0.7, executor 0, partition 6, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.051+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 2.0 in stage 8.0 (TID 55) in 139 ms on 172.18.0.7 (executor 0) (2/50)
+[2025-06-03T04:03:42.052+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 7.0 in stage 8.0 (TID 60) (172.18.0.7, executor 0, partition 7, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.052+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 53) in 141 ms on 172.18.0.7 (executor 0) (3/50)
+[2025-06-03T04:03:42.052+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 1.0 in stage 8.0 (TID 54) in 141 ms on 172.18.0.7 (executor 0) (4/50)
+[2025-06-03T04:03:42.063+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 8.0 in stage 8.0 (TID 61) (172.18.0.7, executor 0, partition 8, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.065+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 4.0 in stage 8.0 (TID 57) in 18 ms on 172.18.0.7 (executor 0) (5/50)
+[2025-06-03T04:03:42.067+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 9.0 in stage 8.0 (TID 62) (172.18.0.7, executor 0, partition 9, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.067+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 7.0 in stage 8.0 (TID 60) in 17 ms on 172.18.0.7 (executor 0) (6/50)
+[2025-06-03T04:03:42.068+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 10.0 in stage 8.0 (TID 63) (172.18.0.7, executor 0, partition 10, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.068+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 11.0 in stage 8.0 (TID 64) (172.18.0.7, executor 0, partition 11, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.069+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 5.0 in stage 8.0 (TID 58) in 20 ms on 172.18.0.7 (executor 0) (7/50)
+[2025-06-03T04:03:42.069+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 6.0 in stage 8.0 (TID 59) in 20 ms on 172.18.0.7 (executor 0) (8/50)
+[2025-06-03T04:03:42.080+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 12.0 in stage 8.0 (TID 65) (172.18.0.7, executor 0, partition 12, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.081+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 9.0 in stage 8.0 (TID 62) in 17 ms on 172.18.0.7 (executor 0) (9/50)
+[2025-06-03T04:03:42.083+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 13.0 in stage 8.0 (TID 66) (172.18.0.7, executor 0, partition 13, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.085+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 14.0 in stage 8.0 (TID 67) (172.18.0.7, executor 0, partition 14, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.085+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 15.0 in stage 8.0 (TID 68) (172.18.0.7, executor 0, partition 15, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.085+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 8.0 in stage 8.0 (TID 61) in 21 ms on 172.18.0.7 (executor 0) (10/50)
+[2025-06-03T04:03:42.089+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 10.0 in stage 8.0 (TID 63) in 19 ms on 172.18.0.7 (executor 0) (11/50)
+[2025-06-03T04:03:42.090+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 11.0 in stage 8.0 (TID 64) in 20 ms on 172.18.0.7 (executor 0) (12/50)
+[2025-06-03T04:03:42.091+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 16.0 in stage 8.0 (TID 69) (172.18.0.7, executor 0, partition 16, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.094+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 12.0 in stage 8.0 (TID 65) in 10 ms on 172.18.0.7 (executor 0) (13/50)
+[2025-06-03T04:03:42.100+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 17.0 in stage 8.0 (TID 70) (172.18.0.7, executor 0, partition 17, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.101+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 18.0 in stage 8.0 (TID 71) (172.18.0.7, executor 0, partition 18, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.101+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 16.0 in stage 8.0 (TID 69) in 12 ms on 172.18.0.7 (executor 0) (14/50)
+[2025-06-03T04:03:42.102+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 14.0 in stage 8.0 (TID 67) in 18 ms on 172.18.0.7 (executor 0) (15/50)
+[2025-06-03T04:03:42.103+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 13.0 in stage 8.0 (TID 66) in 19 ms on 172.18.0.7 (executor 0) (16/50)
+[2025-06-03T04:03:42.104+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 19.0 in stage 8.0 (TID 72) (172.18.0.7, executor 0, partition 19, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.107+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 20.0 in stage 8.0 (TID 73) (172.18.0.7, executor 0, partition 20, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.108+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 15.0 in stage 8.0 (TID 68) in 21 ms on 172.18.0.7 (executor 0) (17/50)
+[2025-06-03T04:03:42.114+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 21.0 in stage 8.0 (TID 74) (172.18.0.7, executor 0, partition 21, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.115+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 22.0 in stage 8.0 (TID 75) (172.18.0.7, executor 0, partition 22, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.116+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 18.0 in stage 8.0 (TID 71) in 15 ms on 172.18.0.7 (executor 0) (18/50)
+[2025-06-03T04:03:42.116+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 17.0 in stage 8.0 (TID 70) in 15 ms on 172.18.0.7 (executor 0) (19/50)
+[2025-06-03T04:03:42.117+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 23.0 in stage 8.0 (TID 76) (172.18.0.7, executor 0, partition 23, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.118+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 24.0 in stage 8.0 (TID 77) (172.18.0.7, executor 0, partition 24, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.119+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 20.0 in stage 8.0 (TID 73) in 15 ms on 172.18.0.7 (executor 0) (20/50)
+[2025-06-03T04:03:42.119+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 19.0 in stage 8.0 (TID 72) in 16 ms on 172.18.0.7 (executor 0) (21/50)
+[2025-06-03T04:03:42.127+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 25.0 in stage 8.0 (TID 78) (172.18.0.7, executor 0, partition 25, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.128+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 22.0 in stage 8.0 (TID 75) in 13 ms on 172.18.0.7 (executor 0) (22/50)
+[2025-06-03T04:03:42.129+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 26.0 in stage 8.0 (TID 79) (172.18.0.7, executor 0, partition 26, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.130+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 21.0 in stage 8.0 (TID 74) in 14 ms on 172.18.0.7 (executor 0) (23/50)
+[2025-06-03T04:03:42.130+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 27.0 in stage 8.0 (TID 80) (172.18.0.7, executor 0, partition 27, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.130+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 28.0 in stage 8.0 (TID 81) (172.18.0.7, executor 0, partition 28, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.130+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 24.0 in stage 8.0 (TID 77) in 13 ms on 172.18.0.7 (executor 0) (24/50)
+[2025-06-03T04:03:42.131+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 23.0 in stage 8.0 (TID 76) in 13 ms on 172.18.0.7 (executor 0) (25/50)
+[2025-06-03T04:03:42.143+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 29.0 in stage 8.0 (TID 82) (172.18.0.7, executor 0, partition 29, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.143+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 25.0 in stage 8.0 (TID 78) in 16 ms on 172.18.0.7 (executor 0) (26/50)
+[2025-06-03T04:03:42.144+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 30.0 in stage 8.0 (TID 83) (172.18.0.7, executor 0, partition 30, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.146+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 31.0 in stage 8.0 (TID 84) (172.18.0.7, executor 0, partition 31, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.147+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 27.0 in stage 8.0 (TID 80) in 15 ms on 172.18.0.7 (executor 0) (27/50)
+[2025-06-03T04:03:42.148+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 32.0 in stage 8.0 (TID 85) (172.18.0.7, executor 0, partition 32, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.148+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 26.0 in stage 8.0 (TID 79) in 17 ms on 172.18.0.7 (executor 0) (28/50)
+[2025-06-03T04:03:42.148+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 28.0 in stage 8.0 (TID 81) in 16 ms on 172.18.0.7 (executor 0) (29/50)
+[2025-06-03T04:03:42.155+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 33.0 in stage 8.0 (TID 86) (172.18.0.7, executor 0, partition 33, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.155+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 34.0 in stage 8.0 (TID 87) (172.18.0.7, executor 0, partition 34, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.155+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 35.0 in stage 8.0 (TID 88) (172.18.0.7, executor 0, partition 35, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.156+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 30.0 in stage 8.0 (TID 83) in 11 ms on 172.18.0.7 (executor 0) (30/50)
+[2025-06-03T04:03:42.156+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 36.0 in stage 8.0 (TID 89) (172.18.0.7, executor 0, partition 36, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.157+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 29.0 in stage 8.0 (TID 82) in 13 ms on 172.18.0.7 (executor 0) (31/50)
+[2025-06-03T04:03:42.157+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 31.0 in stage 8.0 (TID 84) in 12 ms on 172.18.0.7 (executor 0) (32/50)
+[2025-06-03T04:03:42.158+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 32.0 in stage 8.0 (TID 85) in 12 ms on 172.18.0.7 (executor 0) (33/50)
+[2025-06-03T04:03:42.165+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 37.0 in stage 8.0 (TID 90) (172.18.0.7, executor 0, partition 37, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.166+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 33.0 in stage 8.0 (TID 86) in 11 ms on 172.18.0.7 (executor 0) (34/50)
+[2025-06-03T04:03:42.167+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 38.0 in stage 8.0 (TID 91) (172.18.0.7, executor 0, partition 38, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.167+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 36.0 in stage 8.0 (TID 89) in 11 ms on 172.18.0.7 (executor 0) (35/50)
+[2025-06-03T04:03:42.168+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 39.0 in stage 8.0 (TID 92) (172.18.0.7, executor 0, partition 39, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.169+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 40.0 in stage 8.0 (TID 93) (172.18.0.7, executor 0, partition 40, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.169+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 35.0 in stage 8.0 (TID 88) in 13 ms on 172.18.0.7 (executor 0) (36/50)
+[2025-06-03T04:03:42.169+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 34.0 in stage 8.0 (TID 87) in 13 ms on 172.18.0.7 (executor 0) (37/50)
+[2025-06-03T04:03:42.180+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 41.0 in stage 8.0 (TID 94) (172.18.0.7, executor 0, partition 41, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.181+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 37.0 in stage 8.0 (TID 90) in 15 ms on 172.18.0.7 (executor 0) (38/50)
+[2025-06-03T04:03:42.182+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 42.0 in stage 8.0 (TID 95) (172.18.0.7, executor 0, partition 42, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.182+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 38.0 in stage 8.0 (TID 91) in 15 ms on 172.18.0.7 (executor 0) (39/50)
+[2025-06-03T04:03:42.183+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 43.0 in stage 8.0 (TID 96) (172.18.0.7, executor 0, partition 43, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.183+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 44.0 in stage 8.0 (TID 97) (172.18.0.7, executor 0, partition 44, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.183+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 40.0 in stage 8.0 (TID 93) in 15 ms on 172.18.0.7 (executor 0) (40/50)
+[2025-06-03T04:03:42.183+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 39.0 in stage 8.0 (TID 92) in 15 ms on 172.18.0.7 (executor 0) (41/50)
+[2025-06-03T04:03:42.192+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 45.0 in stage 8.0 (TID 98) (172.18.0.7, executor 0, partition 45, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.193+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 46.0 in stage 8.0 (TID 99) (172.18.0.7, executor 0, partition 46, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.194+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 42.0 in stage 8.0 (TID 95) in 12 ms on 172.18.0.7 (executor 0) (42/50)
+[2025-06-03T04:03:42.194+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 41.0 in stage 8.0 (TID 94) in 13 ms on 172.18.0.7 (executor 0) (43/50)
+[2025-06-03T04:03:42.195+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 47.0 in stage 8.0 (TID 100) (172.18.0.7, executor 0, partition 47, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.196+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 48.0 in stage 8.0 (TID 101) (172.18.0.7, executor 0, partition 48, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.197+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 44.0 in stage 8.0 (TID 97) in 14 ms on 172.18.0.7 (executor 0) (44/50)
+[2025-06-03T04:03:42.198+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 43.0 in stage 8.0 (TID 96) in 15 ms on 172.18.0.7 (executor 0) (45/50)
+[2025-06-03T04:03:42.207+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 49.0 in stage 8.0 (TID 102) (172.18.0.7, executor 0, partition 49, PROCESS_LOCAL, 10186 bytes)
+[2025-06-03T04:03:42.209+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 46.0 in stage 8.0 (TID 99) in 17 ms on 172.18.0.7 (executor 0) (46/50)
+[2025-06-03T04:03:42.209+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 47.0 in stage 8.0 (TID 100) in 14 ms on 172.18.0.7 (executor 0) (47/50)
+[2025-06-03T04:03:42.210+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 45.0 in stage 8.0 (TID 98) in 17 ms on 172.18.0.7 (executor 0) (48/50)
+[2025-06-03T04:03:42.211+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 48.0 in stage 8.0 (TID 101) in 15 ms on 172.18.0.7 (executor 0) (49/50)
+[2025-06-03T04:03:42.216+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Finished task 49.0 in stage 8.0 (TID 102) in 10 ms on 172.18.0.7 (executor 0) (50/50)
+[2025-06-03T04:03:42.217+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:42.217+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: ResultStage 8 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 0.316 s
+[2025-06-03T04:03:42.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Job 4 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-06-03T04:03:42.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSchedulerImpl: Killing all running tasks in stage 8: Stage finished
+[2025-06-03T04:03:42.219+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Job 4 finished: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128, took 0.319344 s
+[2025-06-03T04:03:42.236+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO CodeGenerator: Code generated in 13.848125 ms
+[2025-06-03T04:03:42.237+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO PrepareDeltaScan: DELTA: Done
+[2025-06-03T04:03:42.244+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO FileSourceStrategy: Pushed Filters:
+[2025-06-03T04:03:42.244+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO FileSourceStrategy: Post-Scan Filters:
+[2025-06-03T04:03:42.291+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2025-06-03T04:03:42.320+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO CodeGenerator: Code generated in 11.278542 ms
+[2025-06-03T04:03:42.326+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 209.8 KiB, free 432.9 MiB)
+[2025-06-03T04:03:42.335+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 37.2 KiB, free 432.9 MiB)
+[2025-06-03T04:03:42.336+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 083f94398a74:44221 (size: 37.2 KiB, free: 434.1 MiB)
+[2025-06-03T04:03:42.337+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO SparkContext: Created broadcast 8 from saveAsTable at NativeMethodAccessorImpl.java:0
+[2025-06-03T04:03:42.337+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 083f94398a74:44221 in memory (size: 154.4 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:42.338+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 172.18.0.7:37175 in memory (size: 154.4 KiB, free: 1048.8 MiB)
+[2025-06-03T04:03:42.342+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+[2025-06-03T04:03:42.370+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO SparkContext: Starting job: saveAsTable at NativeMethodAccessorImpl.java:0
+[2025-06-03T04:03:42.370+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Got job 5 (saveAsTable at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2025-06-03T04:03:42.371+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Final stage: ResultStage 9 (saveAsTable at NativeMethodAccessorImpl.java:0)
+[2025-06-03T04:03:42.371+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Parents of final stage: List()
+[2025-06-03T04:03:42.371+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:42.371+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Submitting ResultStage 9 (MapPartitionsRDD[25] at saveAsTable at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-06-03T04:03:42.393+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 392.9 KiB, free 433.3 MiB)
+[2025-06-03T04:03:42.400+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 134.8 KiB, free 433.2 MiB)
+[2025-06-03T04:03:42.401+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 083f94398a74:44221 (size: 134.8 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:42.401+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:42.401+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 9 (MapPartitionsRDD[25] at saveAsTable at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:42.401+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSchedulerImpl: Adding task set 9.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:42.402+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 103) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10853 bytes)
+[2025-06-03T04:03:42.408+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 172.18.0.7:37175 (size: 134.8 KiB, free: 1048.6 MiB)
+[2025-06-03T04:03:42.884+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:42 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 172.18.0.7:37175 (size: 37.2 KiB, free: 1048.6 MiB)
+[2025-06-03T04:03:43.399+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 103) in 997 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:43.399+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:43.400+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: ResultStage 9 (saveAsTable at NativeMethodAccessorImpl.java:0) finished in 1.029 s
+[2025-06-03T04:03:43.400+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-06-03T04:03:43.400+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Killing all running tasks in stage 9: Stage finished
+[2025-06-03T04:03:43.401+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Job 5 finished: saveAsTable at NativeMethodAccessorImpl.java:0, took 1.031175 s
+[2025-06-03T04:03:43.402+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaFileFormatWriter: Start to commit write Job 10eb827e-4f76-4d0b-88f4-656d1efb301a.
+[2025-06-03T04:03:43.403+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaFileFormatWriter: Write Job 10eb827e-4f76-4d0b-88f4-656d1efb301a committed. Elapsed time: 0 ms.
+[2025-06-03T04:03:43.405+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaFileFormatWriter: Finished processing stats for write job 10eb827e-4f76-4d0b-88f4-656d1efb301a.
+[2025-06-03T04:03:43.506+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Starting job: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:43.506+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Job 6 finished: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128, took 0.000163 s
+[2025-06-03T04:03:43.542+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO OptimisticTransaction: [tableId=0c39e06c,txnId=a7f4c02c] Attempting to commit version 0 with 4 actions with Serializable isolation level
+[2025-06-03T04:03:43.657+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaLog: Creating a new snapshot v0 for commit version 0
+[2025-06-03T04:03:43.657+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaLog: Loading version 0.
+[2025-06-03T04:03:43.659+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaLogFileIndex: Created DeltaLogFileIndex(JSON, numFilesInSegment: 1, totalFileSize: 4067)
+[2025-06-03T04:03:43.673+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DataSourceStrategy: Pruning directories with:
+[2025-06-03T04:03:43.673+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO FileSourceStrategy: Pushed Filters:
+[2025-06-03T04:03:43.673+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO FileSourceStrategy: Post-Scan Filters: (isnotnull(protocol#1174.minReaderVersion) OR isnotnull(metaData#1173.id))
+[2025-06-03T04:03:43.679+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 205.4 KiB, free 433.0 MiB)
+[2025-06-03T04:03:43.689+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_9_piece0 on 083f94398a74:44221 in memory (size: 134.8 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:43.692+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_9_piece0 on 172.18.0.7:37175 in memory (size: 134.8 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.692+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 36.2 KiB, free 433.5 MiB)
+[2025-06-03T04:03:43.692+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 083f94398a74:44221 (size: 36.2 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:43.692+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Created broadcast 10 from toString at String.java:4220
+[2025-06-03T04:03:43.692+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+[2025-06-03T04:03:43.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Starting job: toString at String.java:4220
+[2025-06-03T04:03:43.700+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Got job 7 (toString at String.java:4220) with 1 output partitions
+[2025-06-03T04:03:43.701+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Final stage: ResultStage 10 (toString at String.java:4220)
+[2025-06-03T04:03:43.701+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Parents of final stage: List()
+[2025-06-03T04:03:43.701+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:43.701+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Submitting ResultStage 10 (MapPartitionsRDD[33] at toString at String.java:4220), which has no missing parents
+[2025-06-03T04:03:43.702+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 40.0 KiB, free 433.4 MiB)
+[2025-06-03T04:03:43.702+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 13.7 KiB, free 433.4 MiB)
+[2025-06-03T04:03:43.702+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 083f94398a74:44221 (size: 13.7 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:43.703+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:43.703+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 10 (MapPartitionsRDD[33] at toString at String.java:4220) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:43.703+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Adding task set 10.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:43.704+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 104) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10839 bytes)
+[2025-06-03T04:03:43.710+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 172.18.0.7:37175 (size: 13.7 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.718+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 172.18.0.7:37175 (size: 36.2 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.736+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 104) in 32 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:43.737+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Removed TaskSet 10.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:43.741+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: ResultStage 10 (toString at String.java:4220) finished in 0.036 s
+[2025-06-03T04:03:43.741+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-06-03T04:03:43.742+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Killing all running tasks in stage 10: Stage finished
+[2025-06-03T04:03:43.742+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Job 7 finished: toString at String.java:4220, took 0.037115 s
+[2025-06-03T04:03:43.742+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO Snapshot: [tableId=0c39e06c-16f6-4e39-99b1-21fd528bcfe2] Created snapshot Snapshot(path=s3a://mybucket/silver/curry_transformed/_delta_log, version=0, metadata=Metadata(e17432b0-4194-4125-8ad8-ff49c56cf537,null,null,Format(parquet,Map()),{"type":"struct","fields":[{"name":"Season_year","type":"string","nullable":true,"metadata":{}},{"name":"Season_div","type":"string","nullable":true,"metadata":{}},{"name":"Date","type":"string","nullable":true,"metadata":{}},{"name":"OPP","type":"string","nullable":true,"metadata":{}},{"name":"Result","type":"string","nullable":true,"metadata":{}},{"name":"T_Score","type":"long","nullable":true,"metadata":{}},{"name":"O_Score","type":"long","nullable":true,"metadata":{}},{"name":"MIN","type":"double","nullable":true,"metadata":{}},{"name":"FG","type":"string","nullable":true,"metadata":{}},{"name":"FGM","type":"long","nullable":true,"metadata":{}},{"name":"FGA","type":"long","nullable":true,"metadata":{}},{"name":"FG_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"3PT","type":"string","nullable":true,"metadata":{}},{"name":"3PTM","type":"long","nullable":true,"metadata":{}},{"name":"3PTA","type":"long","nullable":true,"metadata":{}},{"name":"3P_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"FT","type":"string","nullable":true,"metadata":{}},{"name":"FTM","type":"long","nullable":true,"metadata":{}},{"name":"FTA","type":"long","nullable":true,"metadata":{}},{"name":"FT_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"REB","type":"long","nullable":true,"metadata":{}},{"name":"AST","type":"long","nullable":true,"metadata":{}},{"name":"BLK","type":"long","nullable":true,"metadata":{}},{"name":"STL","type":"long","nullable":true,"metadata":{}},{"name":"PF","type":"long","nullable":true,"metadata":{}},{"name":"TO","type":"long","nullable":true,"metadata":{}},{"name":"PTS","type":"long","nullable":true,"metadata":{}},{"name":"silver_processing_ts","type":"timestamp","nullable":true,"metadata":{}}]},List(),Map(),Some(1748923417478)), logSegment=LogSegment(s3a://mybucket/silver/curry_transformed/_delta_log,0,WrappedArray(S3AFileStatus{path=s3a://mybucket/silver/curry_transformed/_delta_log/00000000000000000000.json; isDirectory=false; length=4067; replication=1; blocksize=33554432; modification_time=1748923423636; access_time=0; owner=***; group=***; permission=rw-rw-rw-; isSymlink=false; hasAcl=false; isEncrypted=true; isErasureCoded=false} isEmptyDirectory=FALSE eTag=02cabcfb703d7bada239ce94f7b5c0dc versionId=null),org.apache.spark.sql.delta.EmptyCheckpointProvider$@20f9a85e,1748923423636), checksumOpt=None)
+[2025-06-03T04:03:43.742+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DeltaLog: Updated snapshot to Snapshot(path=s3a://mybucket/silver/curry_transformed/_delta_log, version=0, metadata=Metadata(e17432b0-4194-4125-8ad8-ff49c56cf537,null,null,Format(parquet,Map()),{"type":"struct","fields":[{"name":"Season_year","type":"string","nullable":true,"metadata":{}},{"name":"Season_div","type":"string","nullable":true,"metadata":{}},{"name":"Date","type":"string","nullable":true,"metadata":{}},{"name":"OPP","type":"string","nullable":true,"metadata":{}},{"name":"Result","type":"string","nullable":true,"metadata":{}},{"name":"T_Score","type":"long","nullable":true,"metadata":{}},{"name":"O_Score","type":"long","nullable":true,"metadata":{}},{"name":"MIN","type":"double","nullable":true,"metadata":{}},{"name":"FG","type":"string","nullable":true,"metadata":{}},{"name":"FGM","type":"long","nullable":true,"metadata":{}},{"name":"FGA","type":"long","nullable":true,"metadata":{}},{"name":"FG_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"3PT","type":"string","nullable":true,"metadata":{}},{"name":"3PTM","type":"long","nullable":true,"metadata":{}},{"name":"3PTA","type":"long","nullable":true,"metadata":{}},{"name":"3P_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"FT","type":"string","nullable":true,"metadata":{}},{"name":"FTM","type":"long","nullable":true,"metadata":{}},{"name":"FTA","type":"long","nullable":true,"metadata":{}},{"name":"FT_Percentage","type":"double","nullable":true,"metadata":{}},{"name":"REB","type":"long","nullable":true,"metadata":{}},{"name":"AST","type":"long","nullable":true,"metadata":{}},{"name":"BLK","type":"long","nullable":true,"metadata":{}},{"name":"STL","type":"long","nullable":true,"metadata":{}},{"name":"PF","type":"long","nullable":true,"metadata":{}},{"name":"TO","type":"long","nullable":true,"metadata":{}},{"name":"PTS","type":"long","nullable":true,"metadata":{}},{"name":"silver_processing_ts","type":"timestamp","nullable":true,"metadata":{}}]},List(),Map(),Some(1748923417478)), logSegment=LogSegment(s3a://mybucket/silver/curry_transformed/_delta_log,0,WrappedArray(S3AFileStatus{path=s3a://mybucket/silver/curry_transformed/_delta_log/00000000000000000000.json; isDirectory=false; length=4067; replication=1; blocksize=33554432; modification_time=1748923423636; access_time=0; owner=***; group=***; permission=rw-rw-rw-; isSymlink=false; hasAcl=false; isEncrypted=true; isErasureCoded=false} isEmptyDirectory=FALSE eTag=02cabcfb703d7bada239ce94f7b5c0dc versionId=null),org.apache.spark.sql.delta.EmptyCheckpointProvider$@20f9a85e,1748923423636), checksumOpt=None)
+[2025-06-03T04:03:43.748+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO Snapshot: [tableId=e17432b0-4194-4125-8ad8-ff49c56cf537] DELTA: Compute snapshot for version: 0
+[2025-06-03T04:03:43.749+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 205.1 KiB, free 433.2 MiB)
+[2025-06-03T04:03:43.757+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_11_piece0 on 083f94398a74:44221 in memory (size: 13.7 KiB, free: 434.3 MiB)
+[2025-06-03T04:03:43.758+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_11_piece0 on 172.18.0.7:37175 in memory (size: 13.7 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.759+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 36.1 KiB, free 433.2 MiB)
+[2025-06-03T04:03:43.759+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on 083f94398a74:44221 (size: 36.1 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:43.759+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Created broadcast 12 from $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:43.837+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DataSourceStrategy: Pruning directories with:
+[2025-06-03T04:03:43.838+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO FileSourceStrategy: Pushed Filters:
+[2025-06-03T04:03:43.838+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO FileSourceStrategy: Post-Scan Filters:
+[2025-06-03T04:03:43.858+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 205.4 KiB, free 433.0 MiB)
+[2025-06-03T04:03:43.862+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 36.2 KiB, free 433.0 MiB)
+[2025-06-03T04:03:43.863+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on 083f94398a74:44221 (size: 36.2 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:43.864+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Created broadcast 13 from $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:43.864+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+[2025-06-03T04:03:43.868+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Registering RDD 37 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) as input to shuffle 2
+[2025-06-03T04:03:43.869+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Got map stage job 8 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 1 output partitions
+[2025-06-03T04:03:43.869+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Final stage: ShuffleMapStage 11 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:43.869+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Parents of final stage: List()
+[2025-06-03T04:03:43.869+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:43.870+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Submitting ShuffleMapStage 11 (MapPartitionsRDD[37] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:43.871+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_14 stored as values in memory (estimated size 105.6 KiB, free 432.9 MiB)
+[2025-06-03T04:03:43.876+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO MemoryStore: Block broadcast_14_piece0 stored as bytes in memory (estimated size 32.6 KiB, free 432.8 MiB)
+[2025-06-03T04:03:43.877+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on 083f94398a74:44221 (size: 32.6 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:43.877+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_10_piece0 on 083f94398a74:44221 in memory (size: 36.2 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:43.877+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO SparkContext: Created broadcast 14 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:43.877+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 11 (MapPartitionsRDD[37] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:43.878+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:43.878+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 105) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10828 bytes)
+[2025-06-03T04:03:43.879+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_10_piece0 on 172.18.0.7:37175 in memory (size: 36.2 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.884+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_14_piece0 in memory on 172.18.0.7:37175 (size: 32.6 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.900+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on 172.18.0.7:37175 (size: 36.2 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:43.922+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 105) in 43 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:43.922+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:43.923+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: ShuffleMapStage 11 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 0.053 s
+[2025-06-03T04:03:43.923+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: looking for newly runnable stages
+[2025-06-03T04:03:43.923+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: running: Set()
+[2025-06-03T04:03:43.923+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: waiting: Set()
+[2025-06-03T04:03:43.923+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO DAGScheduler: failed: Set()
+[2025-06-03T04:03:43.957+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_14_piece0 on 083f94398a74:44221 in memory (size: 32.6 KiB, free: 434.2 MiB)
+[2025-06-03T04:03:43.958+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:43 INFO BlockManagerInfo: Removed broadcast_14_piece0 on 172.18.0.7:37175 in memory (size: 32.6 KiB, free: 1048.7 MiB)
+[2025-06-03T04:03:44.008+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Registering RDD 47 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) as input to shuffle 3
+[2025-06-03T04:03:44.009+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Got map stage job 9 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 50 output partitions
+[2025-06-03T04:03:44.009+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Final stage: ShuffleMapStage 13 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:44.009+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 12)
+[2025-06-03T04:03:44.010+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:44.010+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Submitting ShuffleMapStage 13 (MapPartitionsRDD[47] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:44.021+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MemoryStore: Block broadcast_15 stored as values in memory (estimated size 602.5 KiB, free 432.6 MiB)
+[2025-06-03T04:03:44.022+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MemoryStore: Block broadcast_15_piece0 stored as bytes in memory (estimated size 138.0 KiB, free 432.5 MiB)
+[2025-06-03T04:03:44.023+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 083f94398a74:44221 (size: 138.0 KiB, free: 434.1 MiB)
+[2025-06-03T04:03:44.023+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SparkContext: Created broadcast 15 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:44.023+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Submitting 50 missing tasks from ShuffleMapStage 13 (MapPartitionsRDD[47] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
+[2025-06-03T04:03:44.023+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSchedulerImpl: Adding task set 13.0 with 50 tasks resource profile 0
+[2025-06-03T04:03:44.024+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 2.0 in stage 13.0 (TID 106) (172.18.0.7, executor 0, partition 2, NODE_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.025+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 42.0 in stage 13.0 (TID 107) (172.18.0.7, executor 0, partition 42, NODE_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.025+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 108) (172.18.0.7, executor 0, partition 0, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.025+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 1.0 in stage 13.0 (TID 109) (172.18.0.7, executor 0, partition 1, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.031+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added broadcast_15_piece0 in memory on 172.18.0.7:37175 (size: 138.0 KiB, free: 1048.6 MiB)
+[2025-06-03T04:03:44.046+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 2 to 172.18.0.7:34628
+[2025-06-03T04:03:44.074+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_1 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.075+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_42 in memory on 172.18.0.7:37175 (size: 727.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.075+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_2 in memory on 172.18.0.7:37175 (size: 847.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.087+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_0 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.089+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 3.0 in stage 13.0 (TID 110) (172.18.0.7, executor 0, partition 3, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.090+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 42.0 in stage 13.0 (TID 107) in 65 ms on 172.18.0.7 (executor 0) (1/50)
+[2025-06-03T04:03:44.093+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 4.0 in stage 13.0 (TID 111) (172.18.0.7, executor 0, partition 4, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.094+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 2.0 in stage 13.0 (TID 106) in 69 ms on 172.18.0.7 (executor 0) (2/50)
+[2025-06-03T04:03:44.099+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 5.0 in stage 13.0 (TID 112) (172.18.0.7, executor 0, partition 5, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.100+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 6.0 in stage 13.0 (TID 113) (172.18.0.7, executor 0, partition 6, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.101+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 1.0 in stage 13.0 (TID 109) in 76 ms on 172.18.0.7 (executor 0) (3/50)
+[2025-06-03T04:03:44.101+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 108) in 76 ms on 172.18.0.7 (executor 0) (4/50)
+[2025-06-03T04:03:44.112+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_3 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.123+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_4 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.130+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 7.0 in stage 13.0 (TID 114) (172.18.0.7, executor 0, partition 7, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.134+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 3.0 in stage 13.0 (TID 110) in 41 ms on 172.18.0.7 (executor 0) (5/50)
+[2025-06-03T04:03:44.134+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_5 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.134+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_6 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.139+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 8.0 in stage 13.0 (TID 115) (172.18.0.7, executor 0, partition 8, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.140+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 4.0 in stage 13.0 (TID 111) in 47 ms on 172.18.0.7 (executor 0) (6/50)
+[2025-06-03T04:03:44.160+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 9.0 in stage 13.0 (TID 116) (172.18.0.7, executor 0, partition 9, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.161+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 5.0 in stage 13.0 (TID 112) in 61 ms on 172.18.0.7 (executor 0) (7/50)
+[2025-06-03T04:03:44.163+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 10.0 in stage 13.0 (TID 117) (172.18.0.7, executor 0, partition 10, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.165+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 6.0 in stage 13.0 (TID 113) in 63 ms on 172.18.0.7 (executor 0) (8/50)
+[2025-06-03T04:03:44.169+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_7 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.182+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_8 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.183+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_9 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.185+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 11.0 in stage 13.0 (TID 118) (172.18.0.7, executor 0, partition 11, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.186+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 7.0 in stage 13.0 (TID 114) in 58 ms on 172.18.0.7 (executor 0) (9/50)
+[2025-06-03T04:03:44.187+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_10 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.193+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 12.0 in stage 13.0 (TID 119) (172.18.0.7, executor 0, partition 12, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.194+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 13.0 in stage 13.0 (TID 120) (172.18.0.7, executor 0, partition 13, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.195+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 8.0 in stage 13.0 (TID 115) in 56 ms on 172.18.0.7 (executor 0) (10/50)
+[2025-06-03T04:03:44.196+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 9.0 in stage 13.0 (TID 116) in 34 ms on 172.18.0.7 (executor 0) (11/50)
+[2025-06-03T04:03:44.199+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 14.0 in stage 13.0 (TID 121) (172.18.0.7, executor 0, partition 14, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.200+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 10.0 in stage 13.0 (TID 117) in 36 ms on 172.18.0.7 (executor 0) (12/50)
+[2025-06-03T04:03:44.206+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_11 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.217+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_12 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.217+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 15.0 in stage 13.0 (TID 122) (172.18.0.7, executor 0, partition 15, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 11.0 in stage 13.0 (TID 118) in 33 ms on 172.18.0.7 (executor 0) (13/50)
+[2025-06-03T04:03:44.218+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_13 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.222+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_14 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.227+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 16.0 in stage 13.0 (TID 123) (172.18.0.7, executor 0, partition 16, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.228+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 12.0 in stage 13.0 (TID 119) in 35 ms on 172.18.0.7 (executor 0) (14/50)
+[2025-06-03T04:03:44.230+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 17.0 in stage 13.0 (TID 124) (172.18.0.7, executor 0, partition 17, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.231+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 13.0 in stage 13.0 (TID 120) in 37 ms on 172.18.0.7 (executor 0) (15/50)
+[2025-06-03T04:03:44.235+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 18.0 in stage 13.0 (TID 125) (172.18.0.7, executor 0, partition 18, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.235+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 14.0 in stage 13.0 (TID 121) in 36 ms on 172.18.0.7 (executor 0) (16/50)
+[2025-06-03T04:03:44.238+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_15 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.249+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_16 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.250+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 19.0 in stage 13.0 (TID 126) (172.18.0.7, executor 0, partition 19, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.250+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 15.0 in stage 13.0 (TID 122) in 32 ms on 172.18.0.7 (executor 0) (17/50)
+[2025-06-03T04:03:44.252+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_17 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.257+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_18 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.259+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 20.0 in stage 13.0 (TID 127) (172.18.0.7, executor 0, partition 20, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.260+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 16.0 in stage 13.0 (TID 123) in 33 ms on 172.18.0.7 (executor 0) (18/50)
+[2025-06-03T04:03:44.261+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 21.0 in stage 13.0 (TID 128) (172.18.0.7, executor 0, partition 21, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.262+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 17.0 in stage 13.0 (TID 124) in 32 ms on 172.18.0.7 (executor 0) (19/50)
+[2025-06-03T04:03:44.269+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 22.0 in stage 13.0 (TID 129) (172.18.0.7, executor 0, partition 22, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.270+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 18.0 in stage 13.0 (TID 125) in 36 ms on 172.18.0.7 (executor 0) (20/50)
+[2025-06-03T04:03:44.271+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_19 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.281+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 23.0 in stage 13.0 (TID 130) (172.18.0.7, executor 0, partition 23, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.282+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 19.0 in stage 13.0 (TID 126) in 32 ms on 172.18.0.7 (executor 0) (21/50)
+[2025-06-03T04:03:44.288+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_21 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.288+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_20 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.292+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_22 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.304+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 24.0 in stage 13.0 (TID 131) (172.18.0.7, executor 0, partition 24, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.305+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 20.0 in stage 13.0 (TID 127) in 45 ms on 172.18.0.7 (executor 0) (22/50)
+[2025-06-03T04:03:44.305+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 25.0 in stage 13.0 (TID 132) (172.18.0.7, executor 0, partition 25, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.305+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 21.0 in stage 13.0 (TID 128) in 44 ms on 172.18.0.7 (executor 0) (23/50)
+[2025-06-03T04:03:44.308+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_23 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.308+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 26.0 in stage 13.0 (TID 133) (172.18.0.7, executor 0, partition 26, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.309+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 22.0 in stage 13.0 (TID 129) in 39 ms on 172.18.0.7 (executor 0) (24/50)
+[2025-06-03T04:03:44.319+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 27.0 in stage 13.0 (TID 134) (172.18.0.7, executor 0, partition 27, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.320+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 23.0 in stage 13.0 (TID 130) in 38 ms on 172.18.0.7 (executor 0) (25/50)
+[2025-06-03T04:03:44.328+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_26 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.328+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_25 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.329+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_24 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.340+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_27 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.341+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 28.0 in stage 13.0 (TID 135) (172.18.0.7, executor 0, partition 28, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.342+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 26.0 in stage 13.0 (TID 133) in 34 ms on 172.18.0.7 (executor 0) (26/50)
+[2025-06-03T04:03:44.343+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 29.0 in stage 13.0 (TID 136) (172.18.0.7, executor 0, partition 29, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.344+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 30.0 in stage 13.0 (TID 137) (172.18.0.7, executor 0, partition 30, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.345+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 24.0 in stage 13.0 (TID 131) in 40 ms on 172.18.0.7 (executor 0) (27/50)
+[2025-06-03T04:03:44.346+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 25.0 in stage 13.0 (TID 132) in 41 ms on 172.18.0.7 (executor 0) (28/50)
+[2025-06-03T04:03:44.350+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 31.0 in stage 13.0 (TID 138) (172.18.0.7, executor 0, partition 31, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.351+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 27.0 in stage 13.0 (TID 134) in 31 ms on 172.18.0.7 (executor 0) (29/50)
+[2025-06-03T04:03:44.363+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_28 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.370+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_30 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.370+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_29 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.374+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_31 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.375+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 32.0 in stage 13.0 (TID 139) (172.18.0.7, executor 0, partition 32, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.376+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 28.0 in stage 13.0 (TID 135) in 35 ms on 172.18.0.7 (executor 0) (30/50)
+[2025-06-03T04:03:44.382+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 33.0 in stage 13.0 (TID 140) (172.18.0.7, executor 0, partition 33, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.383+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 34.0 in stage 13.0 (TID 141) (172.18.0.7, executor 0, partition 34, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.384+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 29.0 in stage 13.0 (TID 136) in 40 ms on 172.18.0.7 (executor 0) (31/50)
+[2025-06-03T04:03:44.385+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 30.0 in stage 13.0 (TID 137) in 39 ms on 172.18.0.7 (executor 0) (32/50)
+[2025-06-03T04:03:44.385+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 35.0 in stage 13.0 (TID 142) (172.18.0.7, executor 0, partition 35, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.385+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 31.0 in stage 13.0 (TID 138) in 34 ms on 172.18.0.7 (executor 0) (33/50)
+[2025-06-03T04:03:44.396+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_32 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.409+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 36.0 in stage 13.0 (TID 143) (172.18.0.7, executor 0, partition 36, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_33 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 32.0 in stage 13.0 (TID 139) in 34 ms on 172.18.0.7 (executor 0) (34/50)
+[2025-06-03T04:03:44.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_35 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.412+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_34 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.433+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 37.0 in stage 13.0 (TID 144) (172.18.0.7, executor 0, partition 37, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.434+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 38.0 in stage 13.0 (TID 145) (172.18.0.7, executor 0, partition 38, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.437+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 39.0 in stage 13.0 (TID 146) (172.18.0.7, executor 0, partition 39, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.438+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 35.0 in stage 13.0 (TID 142) in 50 ms on 172.18.0.7 (executor 0) (35/50)
+[2025-06-03T04:03:44.439+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 34.0 in stage 13.0 (TID 141) in 51 ms on 172.18.0.7 (executor 0) (36/50)
+[2025-06-03T04:03:44.439+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 33.0 in stage 13.0 (TID 140) in 52 ms on 172.18.0.7 (executor 0) (37/50)
+[2025-06-03T04:03:44.439+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_36 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.448+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 40.0 in stage 13.0 (TID 147) (172.18.0.7, executor 0, partition 40, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.449+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 36.0 in stage 13.0 (TID 143) in 40 ms on 172.18.0.7 (executor 0) (38/50)
+[2025-06-03T04:03:44.461+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_39 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.462+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_38 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.462+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_37 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.472+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_40 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.475+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 41.0 in stage 13.0 (TID 148) (172.18.0.7, executor 0, partition 41, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.476+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 37.0 in stage 13.0 (TID 144) in 42 ms on 172.18.0.7 (executor 0) (39/50)
+[2025-06-03T04:03:44.477+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 43.0 in stage 13.0 (TID 149) (172.18.0.7, executor 0, partition 43, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.477+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 39.0 in stage 13.0 (TID 146) in 42 ms on 172.18.0.7 (executor 0) (40/50)
+[2025-06-03T04:03:44.478+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 44.0 in stage 13.0 (TID 150) (172.18.0.7, executor 0, partition 44, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.479+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 38.0 in stage 13.0 (TID 145) in 44 ms on 172.18.0.7 (executor 0) (41/50)
+[2025-06-03T04:03:44.481+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 45.0 in stage 13.0 (TID 151) (172.18.0.7, executor 0, partition 45, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.481+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 40.0 in stage 13.0 (TID 147) in 33 ms on 172.18.0.7 (executor 0) (42/50)
+[2025-06-03T04:03:44.497+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_41 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.501+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_43 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.502+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_45 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.502+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_44 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.509+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 46.0 in stage 13.0 (TID 152) (172.18.0.7, executor 0, partition 46, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.510+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 41.0 in stage 13.0 (TID 148) in 35 ms on 172.18.0.7 (executor 0) (43/50)
+[2025-06-03T04:03:44.511+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 47.0 in stage 13.0 (TID 153) (172.18.0.7, executor 0, partition 47, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.512+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 48.0 in stage 13.0 (TID 154) (172.18.0.7, executor 0, partition 48, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.513+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 43.0 in stage 13.0 (TID 149) in 36 ms on 172.18.0.7 (executor 0) (44/50)
+[2025-06-03T04:03:44.514+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 49.0 in stage 13.0 (TID 155) (172.18.0.7, executor 0, partition 49, PROCESS_LOCAL, 10175 bytes)
+[2025-06-03T04:03:44.515+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 45.0 in stage 13.0 (TID 151) in 31 ms on 172.18.0.7 (executor 0) (45/50)
+[2025-06-03T04:03:44.517+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 44.0 in stage 13.0 (TID 150) in 36 ms on 172.18.0.7 (executor 0) (46/50)
+[2025-06-03T04:03:44.534+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_47 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.535+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_48 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.536+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_46 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.536+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added rdd_44_49 in memory on 172.18.0.7:37175 (size: 46.0 B, free: 1048.6 MiB)
+[2025-06-03T04:03:44.548+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 49.0 in stage 13.0 (TID 155) in 36 ms on 172.18.0.7 (executor 0) (47/50)
+[2025-06-03T04:03:44.549+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 48.0 in stage 13.0 (TID 154) in 37 ms on 172.18.0.7 (executor 0) (48/50)
+[2025-06-03T04:03:44.549+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 46.0 in stage 13.0 (TID 152) in 39 ms on 172.18.0.7 (executor 0) (49/50)
+[2025-06-03T04:03:44.550+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 47.0 in stage 13.0 (TID 153) in 37 ms on 172.18.0.7 (executor 0) (50/50)
+[2025-06-03T04:03:44.550+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSchedulerImpl: Removed TaskSet 13.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:44.550+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: ShuffleMapStage 13 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 0.538 s
+[2025-06-03T04:03:44.550+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: looking for newly runnable stages
+[2025-06-03T04:03:44.550+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: running: Set()
+[2025-06-03T04:03:44.551+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: waiting: Set()
+[2025-06-03T04:03:44.551+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: failed: Set()
+[2025-06-03T04:03:44.563+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SparkContext: Starting job: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128
+[2025-06-03T04:03:44.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Got job 10 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) with 1 output partitions
+[2025-06-03T04:03:44.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Final stage: ResultStage 16 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128)
+[2025-06-03T04:03:44.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 15)
+[2025-06-03T04:03:44.564+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Missing parents: List()
+[2025-06-03T04:03:44.565+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Submitting ResultStage 16 (MapPartitionsRDD[50] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128), which has no missing parents
+[2025-06-03T04:03:44.568+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MemoryStore: Block broadcast_16 stored as values in memory (estimated size 533.9 KiB, free 432.0 MiB)
+[2025-06-03T04:03:44.569+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MemoryStore: Block broadcast_16_piece0 stored as bytes in memory (estimated size 124.6 KiB, free 431.9 MiB)
+[2025-06-03T04:03:44.569+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 083f94398a74:44221 (size: 124.6 KiB, free: 434.0 MiB)
+[2025-06-03T04:03:44.570+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SparkContext: Created broadcast 16 from broadcast at DAGScheduler.scala:1585
+[2025-06-03T04:03:44.570+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 16 (MapPartitionsRDD[50] at $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) (first 15 tasks are for partitions Vector(0))
+[2025-06-03T04:03:44.570+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSchedulerImpl: Adding task set 16.0 with 1 tasks resource profile 0
+[2025-06-03T04:03:44.571+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Starting task 0.0 in stage 16.0 (TID 156) (172.18.0.7, executor 0, partition 0, NODE_LOCAL, 10186 bytes)
+[2025-06-03T04:03:44.577+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerInfo: Added broadcast_16_piece0 in memory on 172.18.0.7:37175 (size: 124.6 KiB, free: 1048.4 MiB)
+[2025-06-03T04:03:44.583+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 3 to 172.18.0.7:34628
+[2025-06-03T04:03:44.599+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSetManager: Finished task 0.0 in stage 16.0 (TID 156) in 29 ms on 172.18.0.7 (executor 0) (1/1)
+[2025-06-03T04:03:44.599+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSchedulerImpl: Removed TaskSet 16.0, whose tasks have all completed, from pool
+[2025-06-03T04:03:44.599+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: ResultStage 16 ($anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128) finished in 0.035 s
+[2025-06-03T04:03:44.600+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Job 10 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-06-03T04:03:44.600+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO TaskSchedulerImpl: Killing all running tasks in stage 16: Stage finished
+[2025-06-03T04:03:44.600+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO DAGScheduler: Job 10 finished: $anonfun$recordDeltaOperationInternal$1 at DatabricksLogging.scala:128, took 0.036887 s
+[2025-06-03T04:03:44.605+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO Snapshot: [tableId=e17432b0-4194-4125-8ad8-ff49c56cf537] DELTA: Done
+[2025-06-03T04:03:44.621+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO OptimisticTransaction: [tableId=0c39e06c,txnId=a7f4c02c] Committed delta #0 to s3a://mybucket/silver/curry_transformed/_delta_log
+[2025-06-03T04:03:44.656+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 WARN HiveExternalCatalog: Couldn't find corresponding Hive SerDe for data source provider delta. Persisting data source table `spark_catalog`.`sc_stats_db`.`silver_sc_stats` into Hive metastore in Spark SQL specific format, which is NOT compatible with Hive.
+[2025-06-03T04:03:44.673+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SQLStdHiveAccessController: Created SQLStdHiveAccessController for session context : HiveAuthzSessionContext [sessionString=ded4d01b-3a8d-4dfd-832d-331351f7da0f, clientType=HIVECLI]
+[2025-06-03T04:03:44.674+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 WARN SessionState: METASTORE_FILTER_HOOK will be ignored, since hive.security.authorization.manager is set to instance of HiveAuthorizerFactory.
+[2025-06-03T04:03:44.674+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Mestastore configuration hive.metastore.filter.hook changed from org.apache.hadoop.hive.metastore.DefaultMetaStoreFilterHookImpl to org.apache.hadoop.hive.ql.security.authorization.plugin.AuthorizationMetaStoreFilterHook
+[2025-06-03T04:03:44.678+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Closed a connection to metastore, current connections: 0
+[2025-06-03T04:03:44.679+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Trying to connect to metastore with URI thrift://hive-metastore:9083
+[2025-06-03T04:03:44.679+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Opened a connection to metastore, current connections: 1
+[2025-06-03T04:03:44.680+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Connected to metastore.
+[2025-06-03T04:03:44.768+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Trying to connect to metastore with URI thrift://hive-metastore:9083
+[2025-06-03T04:03:44.768+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Opened a connection to metastore, current connections: 2
+[2025-06-03T04:03:44.769+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO metastore: Connected to metastore.
+[2025-06-03T04:03:44.878+0000] {spark_submit.py:644} INFO - Successfully wrote to Silver layer and registered table sc_stats_db.silver_sc_stats.
+[2025-06-03T04:03:44.878+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-06-03T04:03:44.888+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SparkUI: Stopped Spark web UI at http://083f94398a74:4040
+[2025-06-03T04:03:44.890+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-06-03T04:03:44.890+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-06-03T04:03:44.904+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-06-03T04:03:44.920+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO MemoryStore: MemoryStore cleared
+[2025-06-03T04:03:44.920+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManager: BlockManager stopped
+[2025-06-03T04:03:44.923+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-06-03T04:03:44.926+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-06-03T04:03:44.932+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:44 INFO SparkContext: Successfully stopped SparkContext
+[2025-06-03T04:03:44.987+0000] {spark_submit.py:644} INFO - Bronze to Silver job completed.
+[2025-06-03T04:03:45.052+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO ShutdownHookManager: Shutdown hook called
+[2025-06-03T04:03:45.052+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO ShutdownHookManager: Deleting directory /tmp/spark-f2ad9d7b-07da-4a42-aa74-18bc294af4c6
+[2025-06-03T04:03:45.054+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO ShutdownHookManager: Deleting directory /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649/pyspark-77940c20-5a52-4bfc-8e55-4b8c4aacea10
+[2025-06-03T04:03:45.056+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO ShutdownHookManager: Deleting directory /tmp/spark-93fdf38b-9547-4e47-ad72-028963514649
+[2025-06-03T04:03:45.060+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO MetricsSystemImpl: Stopping s3a-file-system metrics system...
+[2025-06-03T04:03:45.060+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO MetricsSystemImpl: s3a-file-system metrics system stopped.
+[2025-06-03T04:03:45.060+0000] {spark_submit.py:644} INFO - 25/06/03 04:03:45 INFO MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+[2025-06-03T04:03:45.140+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-03T04:03:45.140+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=curry_medallion_etl, task_id=submit_bronze_to_silver_job, run_id=manual__2025-06-03T04:03:07.400599+00:00, execution_date=20250603T040307, start_date=20250603T040327, end_date=20250603T040345
+[2025-06-03T04:03:45.178+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-03T04:03:45.191+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-06-03T04:03:45.192+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

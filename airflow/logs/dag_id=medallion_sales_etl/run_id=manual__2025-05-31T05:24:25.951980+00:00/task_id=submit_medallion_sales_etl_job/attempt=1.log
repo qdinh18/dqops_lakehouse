@@ -1,0 +1,388 @@
+[2025-05-31T05:24:26.371+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-31T05:24:26.380+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: medallion_sales_etl.submit_medallion_sales_etl_job manual__2025-05-31T05:24:25.951980+00:00 [queued]>
+[2025-05-31T05:24:26.385+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: medallion_sales_etl.submit_medallion_sales_etl_job manual__2025-05-31T05:24:25.951980+00:00 [queued]>
+[2025-05-31T05:24:26.385+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-05-31T05:24:26.391+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): submit_medallion_sales_etl_job> on 2025-05-31 05:24:25.951980+00:00
+[2025-05-31T05:24:26.394+0000] {standard_task_runner.py:72} INFO - Started process 651 to run task
+[2025-05-31T05:24:26.396+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'medallion_sales_etl', 'submit_medallion_sales_etl_job', 'manual__2025-05-31T05:24:25.951980+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/medallion_sales_etl_dag.py', '--cfg-path', '/tmp/tmpgi5cquav']
+[2025-05-31T05:24:26.398+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask submit_medallion_sales_etl_job
+[2025-05-31T05:24:26.428+0000] {task_command.py:467} INFO - Running <TaskInstance: medallion_sales_etl.submit_medallion_sales_etl_job manual__2025-05-31T05:24:25.951980+00:00 [running]> on host eb9714469121
+[2025-05-31T05:24:26.474+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='medallion_sales_etl' AIRFLOW_CTX_TASK_ID='submit_medallion_sales_etl_job' AIRFLOW_CTX_EXECUTION_DATE='2025-05-31T05:24:25.951980+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-31T05:24:25.951980+00:00'
+[2025-05-31T05:24:26.474+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-31T05:24:26.493+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2025-05-31T05:24:26.494+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py
+[2025-05-31T05:24:27.277+0000] {spark_submit.py:644} INFO - Using properties file: null
+[2025-05-31T05:24:27.335+0000] {spark_submit.py:644} INFO - Parsed arguments:
+[2025-05-31T05:24:27.335+0000] {spark_submit.py:644} INFO - master                  spark://spark-master:7077
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - remote                  null
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - deployMode              client
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - executorMemory          null
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - executorCores           null
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - totalExecutorCores      null
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - propertiesFile          null
+[2025-05-31T05:24:27.336+0000] {spark_submit.py:644} INFO - driverMemory            null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - driverCores             null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - driverExtraClassPath    null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - driverExtraLibraryPath  null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - driverExtraJavaOptions  null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - supervise               false
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - queue                   root.default
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - numExecutors            null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - files                   null
+[2025-05-31T05:24:27.337+0000] {spark_submit.py:644} INFO - pyFiles                 null
+[2025-05-31T05:24:27.338+0000] {spark_submit.py:644} INFO - archives                null
+[2025-05-31T05:24:27.338+0000] {spark_submit.py:644} INFO - mainClass               null
+[2025-05-31T05:24:27.338+0000] {spark_submit.py:644} INFO - primaryResource         file:/opt/***/dags/medallion_etl.py
+[2025-05-31T05:24:27.338+0000] {spark_submit.py:644} INFO - name                    medallion_sales_etl_spark_job
+[2025-05-31T05:24:27.338+0000] {spark_submit.py:644} INFO - childArgs               []
+[2025-05-31T05:24:27.338+0000] {spark_submit.py:644} INFO - jars                    null
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - packages                org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - packagesExclusions      null
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - repositories            null
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - verbose                 true
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - Spark properties used, including those specified through
+[2025-05-31T05:24:27.339+0000] {spark_submit.py:644} INFO - --conf and those from the properties file null:
+[2025-05-31T05:24:27.340+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:24:27.340+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:24:27.340+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:24:27.415+0000] {spark_submit.py:644} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.11/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-05-31T05:24:27.460+0000] {spark_submit.py:644} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-05-31T05:24:27.461+0000] {spark_submit.py:644} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-05-31T05:24:27.463+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-05-31T05:24:27.463+0000] {spark_submit.py:644} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-05-31T05:24:27.463+0000] {spark_submit.py:644} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-724d09b2-5493-46a4-9cc3-9308e6e4e0e3;1.0
+[2025-05-31T05:24:27.463+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-05-31T05:24:31.525+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-05-31T05:24:33.164+0000] {spark_submit.py:644} INFO - found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+[2025-05-31T05:24:35.881+0000] {spark_submit.py:644} INFO - found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-05-31T05:24:36.075+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar ...
+[2025-05-31T05:24:36.789+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop#hadoop-aws;3.3.4!hadoop-aws.jar (898ms)
+[2025-05-31T05:24:36.970+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar ...
+[2025-05-31T05:24:49.716+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.amazonaws#aws-java-sdk-bundle;1.12.262!aws-java-sdk-bundle.jar (12925ms)
+[2025-05-31T05:24:49.902+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/wildfly/openssl/wildfly-openssl/1.0.7.Final/wildfly-openssl-1.0.7.Final.jar ...
+[2025-05-31T05:24:50.093+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.wildfly.openssl#wildfly-openssl;1.0.7.Final!wildfly-openssl.jar (375ms)
+[2025-05-31T05:24:50.094+0000] {spark_submit.py:644} INFO - :: resolution report :: resolve 8426ms :: artifacts dl 14205ms
+[2025-05-31T05:24:50.094+0000] {spark_submit.py:644} INFO - :: modules in use:
+[2025-05-31T05:24:50.095+0000] {spark_submit.py:644} INFO - com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+[2025-05-31T05:24:50.095+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-05-31T05:24:50.095+0000] {spark_submit.py:644} INFO - org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-05-31T05:24:50.096+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-05-31T05:24:50.096+0000] {spark_submit.py:644} INFO - |                  |            modules            ||   artifacts   |
+[2025-05-31T05:24:50.096+0000] {spark_submit.py:644} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-05-31T05:24:50.097+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-05-31T05:24:50.097+0000] {spark_submit.py:644} INFO - |      default     |   3   |   3   |   3   |   0   ||   3   |   3   |
+[2025-05-31T05:24:50.097+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-05-31T05:24:50.097+0000] {spark_submit.py:644} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-724d09b2-5493-46a4-9cc3-9308e6e4e0e3
+[2025-05-31T05:24:50.098+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-05-31T05:24:50.332+0000] {spark_submit.py:644} INFO - 3 artifacts copied, 0 already retrieved (275421kB/235ms)
+[2025-05-31T05:24:50.510+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-31T05:24:50.617+0000] {spark_submit.py:644} INFO - Main class:
+[2025-05-31T05:24:50.617+0000] {spark_submit.py:644} INFO - org.apache.spark.deploy.PythonRunner
+[2025-05-31T05:24:50.617+0000] {spark_submit.py:644} INFO - Arguments:
+[2025-05-31T05:24:50.617+0000] {spark_submit.py:644} INFO - file:/opt/***/dags/medallion_etl.py
+[2025-05-31T05:24:50.617+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-05-31T05:24:50.617+0000] {spark_submit.py:644} INFO - Spark config:
+[2025-05-31T05:24:50.618+0000] {spark_submit.py:644} INFO - (spark.app.name,medallion_sales_etl_spark_job)
+[2025-05-31T05:24:50.618+0000] {spark_submit.py:644} INFO - (spark.app.submitTime,1748669090605)
+[2025-05-31T05:24:50.618+0000] {spark_submit.py:644} INFO - (spark.files,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:24:50.618+0000] {spark_submit.py:644} INFO - (spark.jars,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:24:50.618+0000] {spark_submit.py:644} INFO - (spark.master,spark://spark-master:7077)
+[2025-05-31T05:24:50.622+0000] {spark_submit.py:644} INFO - (spark.repl.local.jars,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:24:50.622+0000] {spark_submit.py:644} INFO - (spark.submit.deployMode,client)
+[2025-05-31T05:24:50.622+0000] {spark_submit.py:644} INFO - (spark.submit.pyFiles,/home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,/home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,/home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:24:50.622+0000] {spark_submit.py:644} INFO - Classpath elements:
+[2025-05-31T05:24:50.622+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-05-31T05:24:50.622+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-05-31T05:24:50.623+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-05-31T05:24:50.623+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:24:50.623+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:24:51.209+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Running Spark version 3.5.2
+[2025-05-31T05:24:51.210+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: OS info Linux, 6.10.14-linuxkit, aarch64
+[2025-05-31T05:24:51.210+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Java version 17.0.15
+[2025-05-31T05:24:51.221+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO ResourceUtils: ==============================================================
+[2025-05-31T05:24:51.222+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-05-31T05:24:51.222+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO ResourceUtils: ==============================================================
+[2025-05-31T05:24:51.222+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Submitted application: SampleDataToMinIO
+[2025-05-31T05:24:51.233+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-05-31T05:24:51.237+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO ResourceProfile: Limiting resource is cpu
+[2025-05-31T05:24:51.238+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-05-31T05:24:51.269+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SecurityManager: Changing view acls to: ***
+[2025-05-31T05:24:51.269+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SecurityManager: Changing modify acls to: ***
+[2025-05-31T05:24:51.270+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SecurityManager: Changing view acls groups to:
+[2025-05-31T05:24:51.270+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SecurityManager: Changing modify acls groups to:
+[2025-05-31T05:24:51.270+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-05-31T05:24:51.388+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO Utils: Successfully started service 'sparkDriver' on port 43203.
+[2025-05-31T05:24:51.408+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkEnv: Registering MapOutputTracker
+[2025-05-31T05:24:51.432+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkEnv: Registering BlockManagerMaster
+[2025-05-31T05:24:51.443+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-05-31T05:24:51.444+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-05-31T05:24:51.446+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-05-31T05:24:51.460+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-ef7a4f4e-91bb-4d80-9fdc-d8e882b7e140
+[2025-05-31T05:24:51.468+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-05-31T05:24:51.476+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-05-31T05:24:51.546+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-05-31T05:24:51.585+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-05-31T05:24:51.606+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://eb9714469121:43203/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1748669091205
+[2025-05-31T05:24:51.606+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://eb9714469121:43203/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1748669091205
+[2025-05-31T05:24:51.607+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://eb9714469121:43203/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1748669091205
+[2025-05-31T05:24:51.608+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://eb9714469121:43203/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1748669091205
+[2025-05-31T05:24:51.609+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-987ce0d2-f314-4fd4-891b-9bac55e07dee/userFiles-51a9e528-9d65-465a-a9e5-14e18339eb37/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-05-31T05:24:51.620+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://eb9714469121:43203/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1748669091205
+[2025-05-31T05:24:51.620+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-987ce0d2-f314-4fd4-891b-9bac55e07dee/userFiles-51a9e528-9d65-465a-a9e5-14e18339eb37/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-05-31T05:24:51.761+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://eb9714469121:43203/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1748669091205
+[2025-05-31T05:24:51.761+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-987ce0d2-f314-4fd4-891b-9bac55e07dee/userFiles-51a9e528-9d65-465a-a9e5-14e18339eb37/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-05-31T05:24:51.810+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-05-31T05:24:51.835+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO TransportClientFactory: Successfully created connection to spark-master/172.19.0.5:7077 after 13 ms (0 ms spent in bootstraps)
+[2025-05-31T05:24:51.881+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250531052451-0002
+[2025-05-31T05:24:51.882+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531052451-0002/0 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:24:51.883+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531052451-0002/0 on hostPort 172.19.0.6:36989 with 4 core(s), 1024.0 MiB RAM
+[2025-05-31T05:24:51.887+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40119.
+[2025-05-31T05:24:51.888+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO NettyBlockTransferService: Server created on eb9714469121:40119
+[2025-05-31T05:24:51.888+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-05-31T05:24:51.891+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, eb9714469121, 40119, None)
+[2025-05-31T05:24:51.894+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManagerMasterEndpoint: Registering block manager eb9714469121:40119 with 434.4 MiB RAM, BlockManagerId(driver, eb9714469121, 40119, None)
+[2025-05-31T05:24:51.896+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, eb9714469121, 40119, None)
+[2025-05-31T05:24:51.896+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, eb9714469121, 40119, None)
+[2025-05-31T05:24:51.904+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:51 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/0 is now RUNNING
+[2025-05-31T05:24:52.017+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:52 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-05-31T05:24:52.129+0000] {spark_submit.py:644} INFO - Spark session created and configured for MinIO.
+[2025-05-31T05:24:52.130+0000] {spark_submit.py:644} INFO - Spark version: 3.5.2
+[2025-05-31T05:24:52.624+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:52 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-05-31T05:24:52.625+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:52 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2025-05-31T05:24:53.387+0000] {spark_submit.py:644} INFO - Sample Bronze DataFrame created:
+[2025-05-31T05:24:53.412+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.19.0.6:52576) with ID 0,  ResourceProfileId 0
+[2025-05-31T05:24:53.465+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO BlockManagerMasterEndpoint: Registering block manager 172.19.0.6:43709 with 434.4 MiB RAM, BlockManagerId(0, 172.19.0.6, 43709, None)
+[2025-05-31T05:24:53.955+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO CodeGenerator: Code generated in 132.717583 ms
+[2025-05-31T05:24:53.984+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO SparkContext: Starting job: showString at NativeMethodAccessorImpl.java:0
+[2025-05-31T05:24:53.993+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO DAGScheduler: Got job 0 (showString at NativeMethodAccessorImpl.java:0) with 1 output partitions
+[2025-05-31T05:24:53.994+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO DAGScheduler: Final stage: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0)
+[2025-05-31T05:24:53.994+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-31T05:24:53.995+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO DAGScheduler: Missing parents: List()
+[2025-05-31T05:24:53.997+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:53 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[6] at showString at NativeMethodAccessorImpl.java:0), which has no missing parents
+[2025-05-31T05:24:54.061+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 14.8 KiB, free 434.4 MiB)
+[2025-05-31T05:24:54.098+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 7.6 KiB, free 434.4 MiB)
+[2025-05-31T05:24:54.104+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on eb9714469121:40119 (size: 7.6 KiB, free: 434.4 MiB)
+[2025-05-31T05:24:54.109+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+[2025-05-31T05:24:54.125+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at showString at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-31T05:24:54.129+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2025-05-31T05:24:54.769+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (172.19.0.6, executor 0, partition 0, PROCESS_LOCAL, 9804 bytes)
+[2025-05-31T05:24:54.904+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/0 is now EXITED (Command exited with code 50)
+[2025-05-31T05:24:54.905+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO StandaloneSchedulerBackend: Executor app-20250531052451-0002/0 removed: Command exited with code 50
+[2025-05-31T05:24:54.906+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531052451-0002/1 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:24:54.906+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531052451-0002/1 on hostPort 172.19.0.6:36989 with 4 core(s), 1024.0 MiB RAM
+[2025-05-31T05:24:54.907+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 ERROR TaskSchedulerImpl: Lost executor 0 on 172.19.0.6: Command exited with code 50
+[2025-05-31T05:24:54.912+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 WARN TaskSetManager: Lost task 0.0 in stage 0.0 (TID 0) (172.19.0.6 executor 0): ExecutorLostFailure (executor 0 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:24:54.916+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO DAGScheduler: Executor lost: 0 (epoch 0)
+[2025-05-31T05:24:54.920+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/1 is now RUNNING
+[2025-05-31T05:24:54.923+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO BlockManagerMasterEndpoint: Trying to remove executor 0 from BlockManagerMaster.
+[2025-05-31T05:24:54.926+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO BlockManagerMasterEndpoint: Removing block manager BlockManagerId(0, 172.19.0.6, 43709, None)
+[2025-05-31T05:24:54.926+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO BlockManagerMaster: Removed 0 successfully in removeExecutor
+[2025-05-31T05:24:54.926+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:54 INFO DAGScheduler: Shuffle files lost for executor: 0 (epoch 0)
+[2025-05-31T05:24:56.369+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:56 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.19.0.6:52612) with ID 1,  ResourceProfileId 0
+[2025-05-31T05:24:56.409+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:56 INFO BlockManagerMasterEndpoint: Registering block manager 172.19.0.6:41111 with 434.4 MiB RAM, BlockManagerId(1, 172.19.0.6, 41111, None)
+[2025-05-31T05:24:57.793+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO TaskSetManager: Starting task 0.1 in stage 0.0 (TID 1) (172.19.0.6, executor 1, partition 0, PROCESS_LOCAL, 9804 bytes)
+[2025-05-31T05:24:57.925+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/1 is now EXITED (Command exited with code 50)
+[2025-05-31T05:24:57.926+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO StandaloneSchedulerBackend: Executor app-20250531052451-0002/1 removed: Command exited with code 50
+[2025-05-31T05:24:57.926+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531052451-0002/2 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:24:57.927+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 ERROR TaskSchedulerImpl: Lost executor 1 on 172.19.0.6: Command exited with code 50
+[2025-05-31T05:24:57.927+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531052451-0002/2 on hostPort 172.19.0.6:36989 with 4 core(s), 1024.0 MiB RAM
+[2025-05-31T05:24:57.927+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 WARN TaskSetManager: Lost task 0.1 in stage 0.0 (TID 1) (172.19.0.6 executor 1): ExecutorLostFailure (executor 1 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:24:57.927+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO DAGScheduler: Executor lost: 1 (epoch 1)
+[2025-05-31T05:24:57.928+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO BlockManagerMasterEndpoint: Trying to remove executor 1 from BlockManagerMaster.
+[2025-05-31T05:24:57.928+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO BlockManagerMasterEndpoint: Removing block manager BlockManagerId(1, 172.19.0.6, 41111, None)
+[2025-05-31T05:24:57.928+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO BlockManagerMaster: Removed 1 successfully in removeExecutor
+[2025-05-31T05:24:57.928+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO DAGScheduler: Shuffle files lost for executor: 1 (epoch 1)
+[2025-05-31T05:24:57.939+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:57 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/2 is now RUNNING
+[2025-05-31T05:24:59.462+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:59 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.19.0.6:54694) with ID 2,  ResourceProfileId 0
+[2025-05-31T05:24:59.505+0000] {spark_submit.py:644} INFO - 25/05/31 05:24:59 INFO BlockManagerMasterEndpoint: Registering block manager 172.19.0.6:40339 with 434.4 MiB RAM, BlockManagerId(2, 172.19.0.6, 40339, None)
+[2025-05-31T05:25:00.857+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO TaskSetManager: Starting task 0.2 in stage 0.0 (TID 2) (172.19.0.6, executor 2, partition 0, PROCESS_LOCAL, 9804 bytes)
+[2025-05-31T05:25:00.976+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/2 is now EXITED (Command exited with code 50)
+[2025-05-31T05:25:00.978+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO StandaloneSchedulerBackend: Executor app-20250531052451-0002/2 removed: Command exited with code 50
+[2025-05-31T05:25:00.978+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531052451-0002/3 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:25:00.979+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531052451-0002/3 on hostPort 172.19.0.6:36989 with 4 core(s), 1024.0 MiB RAM
+[2025-05-31T05:25:00.979+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 ERROR TaskSchedulerImpl: Lost executor 2 on 172.19.0.6: Command exited with code 50
+[2025-05-31T05:25:00.979+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 WARN TaskSetManager: Lost task 0.2 in stage 0.0 (TID 2) (172.19.0.6 executor 2): ExecutorLostFailure (executor 2 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:25:00.979+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO DAGScheduler: Executor lost: 2 (epoch 2)
+[2025-05-31T05:25:00.979+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO BlockManagerMasterEndpoint: Trying to remove executor 2 from BlockManagerMaster.
+[2025-05-31T05:25:00.980+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO BlockManagerMasterEndpoint: Removing block manager BlockManagerId(2, 172.19.0.6, 40339, None)
+[2025-05-31T05:25:00.980+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO BlockManagerMaster: Removed 2 successfully in removeExecutor
+[2025-05-31T05:25:00.980+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO DAGScheduler: Shuffle files lost for executor: 2 (epoch 2)
+[2025-05-31T05:25:00.991+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:00 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/3 is now RUNNING
+[2025-05-31T05:25:02.428+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:02 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.19.0.6:54728) with ID 3,  ResourceProfileId 0
+[2025-05-31T05:25:02.484+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:02 INFO BlockManagerMasterEndpoint: Registering block manager 172.19.0.6:39741 with 434.4 MiB RAM, BlockManagerId(3, 172.19.0.6, 39741, None)
+[2025-05-31T05:25:03.829+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO TaskSetManager: Starting task 0.3 in stage 0.0 (TID 3) (172.19.0.6, executor 3, partition 0, PROCESS_LOCAL, 9804 bytes)
+[2025-05-31T05:25:03.955+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/3 is now EXITED (Command exited with code 50)
+[2025-05-31T05:25:03.956+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO StandaloneSchedulerBackend: Executor app-20250531052451-0002/3 removed: Command exited with code 50
+[2025-05-31T05:25:03.957+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 ERROR TaskSchedulerImpl: Lost executor 3 on 172.19.0.6: Command exited with code 50
+[2025-05-31T05:25:03.957+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531052451-0002/4 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:25:03.958+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531052451-0002/4 on hostPort 172.19.0.6:36989 with 4 core(s), 1024.0 MiB RAM
+[2025-05-31T05:25:03.958+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 WARN TaskSetManager: Lost task 0.3 in stage 0.0 (TID 3) (172.19.0.6 executor 3): ExecutorLostFailure (executor 3 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:25:03.958+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 ERROR TaskSetManager: Task 0 in stage 0.0 failed 4 times; aborting job
+[2025-05-31T05:25:03.960+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-05-31T05:25:03.961+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO TaskSchedulerImpl: Cancelling stage 0
+[2025-05-31T05:25:03.961+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage cancelled: Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3) (172.19.0.6 executor 3): ExecutorLostFailure (executor 3 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:25:03.962+0000] {spark_submit.py:644} INFO - Driver stacktrace:
+[2025-05-31T05:25:03.962+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO DAGScheduler: ResultStage 0 (showString at NativeMethodAccessorImpl.java:0) failed in 9.959 s due to Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3) (172.19.0.6 executor 3): ExecutorLostFailure (executor 3 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:25:03.962+0000] {spark_submit.py:644} INFO - Driver stacktrace:
+[2025-05-31T05:25:03.965+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO DAGScheduler: Job 0 failed: showString at NativeMethodAccessorImpl.java:0, took 9.979705 s
+[2025-05-31T05:25:03.966+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO DAGScheduler: Executor lost: 3 (epoch 3)
+[2025-05-31T05:25:03.966+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO BlockManagerMasterEndpoint: Trying to remove executor 3 from BlockManagerMaster.
+[2025-05-31T05:25:03.966+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO BlockManagerMasterEndpoint: Removing block manager BlockManagerId(3, 172.19.0.6, 39741, None)
+[2025-05-31T05:25:03.967+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO BlockManagerMaster: Removed 3 successfully in removeExecutor
+[2025-05-31T05:25:03.967+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO DAGScheduler: Shuffle files lost for executor: 3 (epoch 3)
+[2025-05-31T05:25:03.971+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:03 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531052451-0002/4 is now RUNNING
+[2025-05-31T05:25:04.047+0000] {spark_submit.py:644} INFO - Traceback (most recent call last):
+[2025-05-31T05:25:04.047+0000] {spark_submit.py:644} INFO - File "/opt/***/dags/medallion_etl.py", line 65, in <module>
+[2025-05-31T05:25:04.047+0000] {spark_submit.py:644} INFO - main()
+[2025-05-31T05:25:04.048+0000] {spark_submit.py:644} INFO - ^^^^^^
+[2025-05-31T05:25:04.048+0000] {spark_submit.py:644} INFO - File "/opt/***/dags/medallion_etl.py", line 43, in main
+[2025-05-31T05:25:04.048+0000] {spark_submit.py:644} INFO - bronze_df.show()
+[2025-05-31T05:25:04.048+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/sql/dataframe.py", line 947, in show
+[2025-05-31T05:25:04.049+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/sql/dataframe.py", line 965, in _show_string
+[2025-05-31T05:25:04.056+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2025-05-31T05:25:04.056+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o52.showString.
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - : org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3) (172.19.0.6 executor 3): ExecutorLostFailure (executor 3 exited caused by one of the running tasks) Reason: Command exited with code 50
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - Driver stacktrace:
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+[2025-05-31T05:25:04.057+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at scala.Option.foreach(Option.scala:407)
+[2025-05-31T05:25:04.058+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
+[2025-05-31T05:25:04.059+0000] {spark_submit.py:644} INFO - at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:530)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2025-05-31T05:25:04.060+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.getRows(Dataset.scala:280)
+[2025-05-31T05:25:04.061+0000] {spark_submit.py:644} INFO - at org.apache.spark.sql.Dataset.showString(Dataset.scala:315)
+[2025-05-31T05:25:04.062+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:25:04.063+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:25:04.063+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:25:04.063+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:25:04.064+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:25:04.066+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:25:04.068+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:25:04.070+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:25:04.071+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:25:04.071+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:25:04.072+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:25:04.072+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:25:04.073+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:25:04.138+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO SparkContext: Invoking stop() from shutdown hook
+[2025-05-31T05:25:04.139+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-05-31T05:25:04.148+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO SparkUI: Stopped Spark web UI at http://eb9714469121:4040
+[2025-05-31T05:25:04.149+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-05-31T05:25:04.150+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-05-31T05:25:04.163+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-05-31T05:25:04.177+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO MemoryStore: MemoryStore cleared
+[2025-05-31T05:25:04.178+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO BlockManager: BlockManager stopped
+[2025-05-31T05:25:04.182+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-05-31T05:25:04.183+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-05-31T05:25:04.200+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO SparkContext: Successfully stopped SparkContext
+[2025-05-31T05:25:04.201+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO ShutdownHookManager: Shutdown hook called
+[2025-05-31T05:25:04.201+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO ShutdownHookManager: Deleting directory /tmp/spark-987ce0d2-f314-4fd4-891b-9bac55e07dee
+[2025-05-31T05:25:04.203+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO ShutdownHookManager: Deleting directory /tmp/spark-48809c8e-6df8-46f8-b29f-27d7f0e21f4e
+[2025-05-31T05:25:04.205+0000] {spark_submit.py:644} INFO - 25/05/31 05:25:04 INFO ShutdownHookManager: Deleting directory /tmp/spark-987ce0d2-f314-4fd4-891b-9bac55e07dee/pyspark-d1f848a4-fb87-4639-b5c9-ed1c29068aef
+[2025-05-31T05:25:04.250+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py. Error code is: 1.
+[2025-05-31T05:25:04.255+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=medallion_sales_etl, task_id=submit_medallion_sales_etl_job, run_id=manual__2025-05-31T05:24:25.951980+00:00, execution_date=20250531T052425, start_date=20250531T052426, end_date=20250531T052504
+[2025-05-31T05:25:04.268+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-31T05:25:04.268+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 5 for task submit_medallion_sales_etl_job (Cannot execute: spark-submit --master spark://spark-master:7077 --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py. Error code is: 1.; 651)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py. Error code is: 1.
+[2025-05-31T05:25:04.315+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-31T05:25:04.331+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-31T05:25:04.331+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,379 @@
+[2025-06-07T13:19:50.056+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-07T13:19:50.068+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stephen_curry_stats_medallion_etl.bronze_ingestion scheduled__2025-06-06T00:00:00+00:00 [queued]>
+[2025-06-07T13:19:50.072+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stephen_curry_stats_medallion_etl.bronze_ingestion scheduled__2025-06-06T00:00:00+00:00 [queued]>
+[2025-06-07T13:19:50.074+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 2
+[2025-06-07T13:19:50.083+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): bronze_ingestion> on 2025-06-06 00:00:00+00:00
+[2025-06-07T13:19:50.086+0000] {standard_task_runner.py:72} INFO - Started process 2752 to run task
+[2025-06-07T13:19:50.088+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'stephen_curry_stats_medallion_etl', 'bronze_ingestion', 'scheduled__2025-06-06T00:00:00+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/stephen_curry_medallion_etl_dag.py', '--cfg-path', '/tmp/tmpudxdx1l9']
+[2025-06-07T13:19:50.090+0000] {standard_task_runner.py:105} INFO - Job 83: Subtask bronze_ingestion
+[2025-06-07T13:19:50.122+0000] {task_command.py:467} INFO - Running <TaskInstance: stephen_curry_stats_medallion_etl.bronze_ingestion scheduled__2025-06-06T00:00:00+00:00 [running]> on host 5ebb95484de3
+[2025-06-07T13:19:50.169+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='stephen_curry_stats_medallion_etl' AIRFLOW_CTX_TASK_ID='bronze_ingestion' AIRFLOW_CTX_EXECUTION_DATE='2025-06-06T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-06T00:00:00+00:00'
+[2025-06-07T13:19:50.170+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-06-07T13:19:50.186+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2025-06-07T13:19:50.196+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.driver.memory=2g --conf spark.executor.memory=2g --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --packages io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.2,org.apache.spark:spark-hadoop-cloud_2.12:3.3.0 --name arrow-spark --queue root.default --deploy-mode client dags/bronze_ingestion_sc_stats_etl.py --input_path /opt/***/data/Stephen Curry Stats.parquet --output_path s3a://mybucket/sc_stats_db.db/bronze_sc_stats --output_table sc_stats_db.bronze_sc_stats
+[2025-06-07T13:19:50.996+0000] {spark_submit.py:644} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.11/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-06-07T13:19:51.036+0000] {spark_submit.py:644} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-06-07T13:19:51.037+0000] {spark_submit.py:644} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-06-07T13:19:51.039+0000] {spark_submit.py:644} INFO - io.delta#delta-core_2.12 added as a dependency
+[2025-06-07T13:19:51.040+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-06-07T13:19:51.040+0000] {spark_submit.py:644} INFO - org.apache.spark#spark-hadoop-cloud_2.12 added as a dependency
+[2025-06-07T13:19:51.040+0000] {spark_submit.py:644} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-3f4c6312-4be5-4c1c-bb83-9ad76fdd2ef4;1.0
+[2025-06-07T13:19:51.040+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-06-07T13:19:59.879+0000] {spark_submit.py:644} INFO - found org.apache.spark#spark-hadoop-cloud_2.12;3.3.0 in central
+[2025-06-07T13:20:02.088+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-client-runtime;3.3.2 in central
+[2025-06-07T13:20:02.507+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-client-api;3.3.2 in central
+[2025-06-07T13:20:02.881+0000] {spark_submit.py:644} INFO - found org.xerial.snappy#snappy-java;1.1.8.4 in central
+[2025-06-07T13:20:04.466+0000] {spark_submit.py:644} INFO - found org.slf4j#slf4j-api;1.7.32 in central
+[2025-06-07T13:20:07.235+0000] {spark_submit.py:644} INFO - found commons-logging#commons-logging;1.1.3 in central
+[2025-06-07T13:20:07.246+0000] {spark_submit.py:644} INFO - found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-06-07T13:20:07.267+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-openstack;3.3.2 in central
+[2025-06-07T13:20:07.281+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-annotations;3.3.2 in central
+[2025-06-07T13:20:10.707+0000] {spark_submit.py:644} INFO - found org.apache.httpcomponents#httpcore;4.4.14 in central
+[2025-06-07T13:20:17.918+0000] {spark_submit.py:644} INFO - found com.fasterxml.jackson.core#jackson-databind;2.13.3 in central
+[2025-06-07T13:20:18.291+0000] {spark_submit.py:644} INFO - found com.fasterxml.jackson.core#jackson-core;2.13.3 in central
+[2025-06-07T13:20:18.661+0000] {spark_submit.py:644} INFO - found joda-time#joda-time;2.10.13 in central
+[2025-06-07T13:20:20.327+0000] {spark_submit.py:644} INFO - found com.fasterxml.jackson.dataformat#jackson-dataformat-cbor;2.13.3 in central
+[2025-06-07T13:20:21.869+0000] {spark_submit.py:644} INFO - found org.apache.httpcomponents#httpclient;4.5.13 in central
+[2025-06-07T13:20:23.563+0000] {spark_submit.py:644} INFO - found commons-codec#commons-codec;1.15 in central
+[2025-06-07T13:20:23.944+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-azure;3.3.2 in central
+[2025-06-07T13:20:24.306+0000] {spark_submit.py:644} INFO - found com.microsoft.azure#azure-storage;7.0.1 in central
+[2025-06-07T13:20:25.898+0000] {spark_submit.py:644} INFO - found com.microsoft.azure#azure-keyvault-core;1.0.0 in central
+[2025-06-07T13:20:27.463+0000] {spark_submit.py:644} INFO - found org.apache.hadoop.thirdparty#hadoop-shaded-guava;1.1.1 in central
+[2025-06-07T13:20:27.828+0000] {spark_submit.py:644} INFO - found org.codehaus.jackson#jackson-mapper-asl;1.9.13 in central
+[2025-06-07T13:20:28.188+0000] {spark_submit.py:644} INFO - found org.codehaus.jackson#jackson-core-asl;1.9.13 in central
+[2025-06-07T13:20:28.195+0000] {spark_submit.py:644} INFO - found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-06-07T13:20:37.392+0000] {spark_submit.py:644} INFO - found org.eclipse.jetty#jetty-util-ajax;9.4.46.v20220331 in central
+[2025-06-07T13:20:37.779+0000] {spark_submit.py:644} INFO - found org.eclipse.jetty#jetty-util;9.4.46.v20220331 in central
+[2025-06-07T13:20:38.150+0000] {spark_submit.py:644} INFO - found org.spark-project.spark#unused;1.0.0 in central
+[2025-06-07T13:20:38.332+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-hadoop-cloud_2.12/3.3.0/spark-hadoop-cloud_2.12-3.3.0.jar ...
+[2025-06-07T13:20:38.790+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.spark#spark-hadoop-cloud_2.12;3.3.0!spark-hadoop-cloud_2.12.jar (635ms)
+[2025-06-07T13:20:38.967+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-runtime/3.3.2/hadoop-client-runtime-3.3.2.jar ...
+[2025-06-07T13:20:42.940+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop#hadoop-client-runtime;3.3.2!hadoop-client-runtime.jar (4149ms)
+[2025-06-07T13:20:43.117+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-openstack/3.3.2/hadoop-openstack-3.3.2.jar ...
+[2025-06-07T13:20:43.316+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop#hadoop-openstack;3.3.2!hadoop-openstack.jar (375ms)
+[2025-06-07T13:20:43.496+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/joda-time/joda-time/2.10.13/joda-time-2.10.13.jar ...
+[2025-06-07T13:20:43.774+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] joda-time#joda-time;2.10.13!joda-time.jar (457ms)
+[2025-06-07T13:20:43.959+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.13.3/jackson-databind-2.13.3.jar ...
+[2025-06-07T13:20:44.356+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.fasterxml.jackson.core#jackson-databind;2.13.3!jackson-databind.jar(bundle) (580ms)
+[2025-06-07T13:20:44.535+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.13.3/jackson-dataformat-cbor-2.13.3.jar ...
+[2025-06-07T13:20:44.721+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.fasterxml.jackson.dataformat#jackson-dataformat-cbor;2.13.3!jackson-dataformat-cbor.jar(bundle) (365ms)
+[2025-06-07T13:20:44.901+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar ...
+[2025-06-07T13:20:45.172+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.httpcomponents#httpclient;4.5.13!httpclient.jar (451ms)
+[2025-06-07T13:20:45.349+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.jar ...
+[2025-06-07T13:20:45.565+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.httpcomponents#httpcore;4.4.14!httpcore.jar (393ms)
+[2025-06-07T13:20:45.751+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.3.2/hadoop-azure-3.3.2.jar ...
+[2025-06-07T13:20:45.994+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop#hadoop-azure;3.3.2!hadoop-azure.jar (428ms)
+[2025-06-07T13:20:46.170+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util-ajax/9.4.46.v20220331/jetty-util-ajax-9.4.46.v20220331.jar ...
+[2025-06-07T13:20:46.356+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.eclipse.jetty#jetty-util-ajax;9.4.46.v20220331!jetty-util-ajax.jar (362ms)
+[2025-06-07T13:20:46.532+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/spark-project/spark/unused/1.0.0/unused-1.0.0.jar ...
+[2025-06-07T13:20:46.709+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.spark-project.spark#unused;1.0.0!unused.jar (351ms)
+[2025-06-07T13:20:46.888+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-api/3.3.2/hadoop-client-api-3.3.2.jar ...
+[2025-06-07T13:20:49.664+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop#hadoop-client-api;3.3.2!hadoop-client-api.jar (2955ms)
+[2025-06-07T13:20:49.846+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.8.4/snappy-java-1.1.8.4.jar ...
+[2025-06-07T13:20:50.259+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.8.4!snappy-java.jar(bundle) (594ms)
+[2025-06-07T13:20:50.434+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar ...
+[2025-06-07T13:20:50.614+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.slf4j#slf4j-api;1.7.32!slf4j-api.jar (355ms)
+[2025-06-07T13:20:50.788+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar ...
+[2025-06-07T13:20:50.972+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] commons-logging#commons-logging;1.1.3!commons-logging.jar (357ms)
+[2025-06-07T13:20:51.151+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar ...
+[2025-06-07T13:20:51.335+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.google.code.findbugs#jsr305;3.0.0!jsr305.jar (362ms)
+[2025-06-07T13:20:51.514+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-annotations/3.3.2/hadoop-annotations-3.3.2.jar ...
+[2025-06-07T13:20:51.696+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop#hadoop-annotations;3.3.2!hadoop-annotations.jar (360ms)
+[2025-06-07T13:20:51.874+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.jar ...
+[2025-06-07T13:20:52.117+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.fasterxml.jackson.core#jackson-core;2.13.3!jackson-core.jar(bundle) (420ms)
+[2025-06-07T13:20:52.295+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/commons-codec/commons-codec/1.15/commons-codec-1.15.jar ...
+[2025-06-07T13:20:52.510+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] commons-codec#commons-codec;1.15!commons-codec.jar (392ms)
+[2025-06-07T13:20:52.688+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/microsoft/azure/azure-storage/7.0.1/azure-storage-7.0.1.jar ...
+[2025-06-07T13:20:52.952+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.microsoft.azure#azure-storage;7.0.1!azure-storage.jar (441ms)
+[2025-06-07T13:20:53.129+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/thirdparty/hadoop-shaded-guava/1.1.1/hadoop-shaded-guava-1.1.1.jar ...
+[2025-06-07T13:20:53.724+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.apache.hadoop.thirdparty#hadoop-shaded-guava;1.1.1!hadoop-shaded-guava.jar (770ms)
+[2025-06-07T13:20:53.904+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar ...
+[2025-06-07T13:20:54.159+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.codehaus.jackson#jackson-mapper-asl;1.9.13!jackson-mapper-asl.jar (434ms)
+[2025-06-07T13:20:54.334+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar ...
+[2025-06-07T13:20:54.537+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.codehaus.jackson#jackson-core-asl;1.9.13!jackson-core-asl.jar (377ms)
+[2025-06-07T13:20:54.714+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/com/microsoft/azure/azure-keyvault-core/1.0.0/azure-keyvault-core-1.0.0.jar ...
+[2025-06-07T13:20:54.895+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] com.microsoft.azure#azure-keyvault-core;1.0.0!azure-keyvault-core.jar (357ms)
+[2025-06-07T13:20:55.074+0000] {spark_submit.py:644} INFO - downloading https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.4.46.v20220331/jetty-util-9.4.46.v20220331.jar ...
+[2025-06-07T13:20:55.311+0000] {spark_submit.py:644} INFO - [SUCCESSFUL ] org.eclipse.jetty#jetty-util;9.4.46.v20220331!jetty-util.jar (415ms)
+[2025-06-07T13:20:55.312+0000] {spark_submit.py:644} INFO - :: resolution report :: resolve 47115ms :: artifacts dl 17156ms
+[2025-06-07T13:20:55.312+0000] {spark_submit.py:644} INFO - :: modules in use:
+[2025-06-07T13:20:55.313+0000] {spark_submit.py:644} INFO - com.fasterxml.jackson.core#jackson-core;2.13.3 from central in [default]
+[2025-06-07T13:20:55.313+0000] {spark_submit.py:644} INFO - com.fasterxml.jackson.core#jackson-databind;2.13.3 from central in [default]
+[2025-06-07T13:20:55.314+0000] {spark_submit.py:644} INFO - com.fasterxml.jackson.dataformat#jackson-dataformat-cbor;2.13.3 from central in [default]
+[2025-06-07T13:20:55.314+0000] {spark_submit.py:644} INFO - com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2025-06-07T13:20:55.314+0000] {spark_submit.py:644} INFO - com.microsoft.azure#azure-keyvault-core;1.0.0 from central in [default]
+[2025-06-07T13:20:55.315+0000] {spark_submit.py:644} INFO - com.microsoft.azure#azure-storage;7.0.1 from central in [default]
+[2025-06-07T13:20:55.315+0000] {spark_submit.py:644} INFO - commons-codec#commons-codec;1.15 from central in [default]
+[2025-06-07T13:20:55.316+0000] {spark_submit.py:644} INFO - commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-06-07T13:20:55.316+0000] {spark_submit.py:644} INFO - joda-time#joda-time;2.10.13 from central in [default]
+[2025-06-07T13:20:55.317+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-annotations;3.3.2 from central in [default]
+[2025-06-07T13:20:55.317+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-azure;3.3.2 from central in [default]
+[2025-06-07T13:20:55.317+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-client-api;3.3.2 from central in [default]
+[2025-06-07T13:20:55.318+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-client-runtime;3.3.2 from central in [default]
+[2025-06-07T13:20:55.318+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-openstack;3.3.2 from central in [default]
+[2025-06-07T13:20:55.318+0000] {spark_submit.py:644} INFO - org.apache.hadoop.thirdparty#hadoop-shaded-guava;1.1.1 from central in [default]
+[2025-06-07T13:20:55.319+0000] {spark_submit.py:644} INFO - org.apache.httpcomponents#httpclient;4.5.13 from central in [default]
+[2025-06-07T13:20:55.319+0000] {spark_submit.py:644} INFO - org.apache.httpcomponents#httpcore;4.4.14 from central in [default]
+[2025-06-07T13:20:55.319+0000] {spark_submit.py:644} INFO - org.apache.spark#spark-hadoop-cloud_2.12;3.3.0 from central in [default]
+[2025-06-07T13:20:55.320+0000] {spark_submit.py:644} INFO - org.codehaus.jackson#jackson-core-asl;1.9.13 from central in [default]
+[2025-06-07T13:20:55.320+0000] {spark_submit.py:644} INFO - org.codehaus.jackson#jackson-mapper-asl;1.9.13 from central in [default]
+[2025-06-07T13:20:55.320+0000] {spark_submit.py:644} INFO - org.eclipse.jetty#jetty-util;9.4.46.v20220331 from central in [default]
+[2025-06-07T13:20:55.321+0000] {spark_submit.py:644} INFO - org.eclipse.jetty#jetty-util-ajax;9.4.46.v20220331 from central in [default]
+[2025-06-07T13:20:55.321+0000] {spark_submit.py:644} INFO - org.slf4j#slf4j-api;1.7.32 from central in [default]
+[2025-06-07T13:20:55.321+0000] {spark_submit.py:644} INFO - org.spark-project.spark#unused;1.0.0 from central in [default]
+[2025-06-07T13:20:55.322+0000] {spark_submit.py:644} INFO - org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-06-07T13:20:55.322+0000] {spark_submit.py:644} INFO - org.xerial.snappy#snappy-java;1.1.8.4 from central in [default]
+[2025-06-07T13:20:55.322+0000] {spark_submit.py:644} INFO - :: evicted modules:
+[2025-06-07T13:20:55.322+0000] {spark_submit.py:644} INFO - org.eclipse.jetty#jetty-util-ajax;9.4.43.v20210629 by [org.eclipse.jetty#jetty-util-ajax;9.4.46.v20220331] in [default]
+[2025-06-07T13:20:55.323+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-06-07T13:20:55.323+0000] {spark_submit.py:644} INFO - |                  |            modules            ||   artifacts   |
+[2025-06-07T13:20:55.323+0000] {spark_submit.py:644} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-06-07T13:20:55.323+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-06-07T13:20:55.323+0000] {spark_submit.py:644} INFO - |      default     |   31  |   22  |   22  |   1   ||   26  |   25  |
+[2025-06-07T13:20:55.324+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-06-07T13:20:55.324+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.324+0000] {spark_submit.py:644} INFO - :: problems summary ::
+[2025-06-07T13:20:55.324+0000] {spark_submit.py:644} INFO - :::: WARNINGS
+[2025-06-07T13:20:55.325+0000] {spark_submit.py:644} INFO - io problem while parsing ivy file: https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.4.0/delta-core_2.12-2.4.0.pom (java.io.FileNotFoundException: /home/***/.ivy2/cache/io.delta/delta-core_2.12/ivy-2.4.0.xml.original (No such file or directory))
+[2025-06-07T13:20:55.325+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.325+0000] {spark_submit.py:644} INFO - module not found: io.delta#delta-core_2.12;2.4.0
+[2025-06-07T13:20:55.326+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.326+0000] {spark_submit.py:644} INFO - ==== local-m2-cache: tried
+[2025-06-07T13:20:55.326+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.326+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/io/delta/delta-core_2.12/2.4.0/delta-core_2.12-2.4.0.pom
+[2025-06-07T13:20:55.327+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.327+0000] {spark_submit.py:644} INFO - -- artifact io.delta#delta-core_2.12;2.4.0!delta-core_2.12.jar:
+[2025-06-07T13:20:55.327+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.327+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/io/delta/delta-core_2.12/2.4.0/delta-core_2.12-2.4.0.jar
+[2025-06-07T13:20:55.328+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.328+0000] {spark_submit.py:644} INFO - ==== local-ivy-cache: tried
+[2025-06-07T13:20:55.328+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.329+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/io.delta/delta-core_2.12/2.4.0/ivys/ivy.xml
+[2025-06-07T13:20:55.329+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.329+0000] {spark_submit.py:644} INFO - -- artifact io.delta#delta-core_2.12;2.4.0!delta-core_2.12.jar:
+[2025-06-07T13:20:55.329+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.330+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/io.delta/delta-core_2.12/2.4.0/jars/delta-core_2.12.jar
+[2025-06-07T13:20:55.330+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.330+0000] {spark_submit.py:644} INFO - ==== central: tried
+[2025-06-07T13:20:55.330+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.330+0000] {spark_submit.py:644} INFO - https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.4.0/delta-core_2.12-2.4.0.pom
+[2025-06-07T13:20:55.331+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.331+0000] {spark_submit.py:644} INFO - ==== spark-packages: tried
+[2025-06-07T13:20:55.331+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.331+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/io/delta/delta-core_2.12/2.4.0/delta-core_2.12-2.4.0.pom
+[2025-06-07T13:20:55.331+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.332+0000] {spark_submit.py:644} INFO - -- artifact io.delta#delta-core_2.12;2.4.0!delta-core_2.12.jar:
+[2025-06-07T13:20:55.332+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.332+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/io/delta/delta-core_2.12/2.4.0/delta-core_2.12-2.4.0.jar
+[2025-06-07T13:20:55.332+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.333+0000] {spark_submit.py:644} INFO - problem while downloading module descriptor: https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-project/3.3.2/hadoop-project-3.3.2.pom: Downloaded file size (0) doesn't match expected Content Length (88030) for https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-project/3.3.2/hadoop-project-3.3.2.pom. Please retry. (393ms)
+[2025-06-07T13:20:55.333+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.333+0000] {spark_submit.py:644} INFO - io problem while parsing ivy file: https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.2/hadoop-aws-3.3.2.pom (java.io.IOException: Impossible to load parent for file:/home/***/.ivy2/cache/org.apache.hadoop/hadoop-aws/ivy-3.3.2.xml.original. Parent=org.apache.hadoop#hadoop-project;3.3.2)
+[2025-06-07T13:20:55.334+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.334+0000] {spark_submit.py:644} INFO - module not found: org.apache.hadoop#hadoop-aws;3.3.2
+[2025-06-07T13:20:55.334+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.334+0000] {spark_submit.py:644} INFO - ==== local-m2-cache: tried
+[2025-06-07T13:20:55.334+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.335+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/org/apache/hadoop/hadoop-project/3.3.2/hadoop-project-3.3.2.pom
+[2025-06-07T13:20:55.335+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.335+0000] {spark_submit.py:644} INFO - -- artifact org.apache.hadoop#hadoop-project;3.3.2!hadoop-project.jar:
+[2025-06-07T13:20:55.335+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.335+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/org/apache/hadoop/hadoop-project/3.3.2/hadoop-project-3.3.2.jar
+[2025-06-07T13:20:55.336+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.336+0000] {spark_submit.py:644} INFO - ==== local-ivy-cache: tried
+[2025-06-07T13:20:55.336+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.336+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/org.apache.hadoop/hadoop-project/3.3.2/ivys/ivy.xml
+[2025-06-07T13:20:55.336+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.337+0000] {spark_submit.py:644} INFO - -- artifact org.apache.hadoop#hadoop-project;3.3.2!hadoop-project.jar:
+[2025-06-07T13:20:55.337+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.337+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/org.apache.hadoop/hadoop-project/3.3.2/jars/hadoop-project.jar
+[2025-06-07T13:20:55.337+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.337+0000] {spark_submit.py:644} INFO - ==== central: tried
+[2025-06-07T13:20:55.338+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.338+0000] {spark_submit.py:644} INFO - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-project/3.3.2/hadoop-project-3.3.2.pom
+[2025-06-07T13:20:55.338+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.338+0000] {spark_submit.py:644} INFO - ==== spark-packages: tried
+[2025-06-07T13:20:55.338+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.339+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/org/apache/hadoop/hadoop-aws/3.3.2/hadoop-aws-3.3.2.pom
+[2025-06-07T13:20:55.339+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.339+0000] {spark_submit.py:644} INFO - -- artifact org.apache.hadoop#hadoop-aws;3.3.2!hadoop-aws.jar:
+[2025-06-07T13:20:55.339+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.339+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/org/apache/hadoop/hadoop-aws/3.3.2/hadoop-aws-3.3.2.jar
+[2025-06-07T13:20:55.340+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.340+0000] {spark_submit.py:644} INFO - io problem while parsing ivy file: https://repo1.maven.org/maven2/com/fasterxml/oss-parent/43/oss-parent-43.pom (java.io.IOException: Resetting to invalid mark)
+[2025-06-07T13:20:55.340+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.340+0000] {spark_submit.py:644} INFO - io problem while parsing ivy file: https://repo1.maven.org/maven2/com/fasterxml/jackson/jackson-parent/2.13/jackson-parent-2.13.pom (java.io.IOException: Impossible to load parent for file:/home/***/.ivy2/cache/com.fasterxml.jackson/jackson-parent/ivy-2.13.xml.original. Parent=com.fasterxml#oss-parent;43)
+[2025-06-07T13:20:55.340+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.341+0000] {spark_submit.py:644} INFO - io problem while parsing ivy file: https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.pom (java.io.IOException: Impossible to load parent for file:/home/***/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/ivy-2.13.3.xml.original. Parent=com.fasterxml.jackson#jackson-parent;2.13)
+[2025-06-07T13:20:55.341+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.341+0000] {spark_submit.py:644} INFO - module not found: com.fasterxml.jackson.core#jackson-annotations;2.13.3
+[2025-06-07T13:20:55.341+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.341+0000] {spark_submit.py:644} INFO - ==== local-m2-cache: tried
+[2025-06-07T13:20:55.342+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.342+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/com/fasterxml/oss-parent/43/oss-parent-43.pom
+[2025-06-07T13:20:55.342+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.342+0000] {spark_submit.py:644} INFO - -- artifact com.fasterxml#oss-parent;43!oss-parent.jar:
+[2025-06-07T13:20:55.342+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.343+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/com/fasterxml/oss-parent/43/oss-parent-43.jar
+[2025-06-07T13:20:55.343+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.343+0000] {spark_submit.py:644} INFO - ==== local-ivy-cache: tried
+[2025-06-07T13:20:55.343+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.343+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/com.fasterxml/oss-parent/43/ivys/ivy.xml
+[2025-06-07T13:20:55.344+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.344+0000] {spark_submit.py:644} INFO - -- artifact com.fasterxml#oss-parent;43!oss-parent.jar:
+[2025-06-07T13:20:55.344+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.344+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/com.fasterxml/oss-parent/43/jars/oss-parent.jar
+[2025-06-07T13:20:55.344+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.345+0000] {spark_submit.py:644} INFO - ==== central: tried
+[2025-06-07T13:20:55.345+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.345+0000] {spark_submit.py:644} INFO - https://repo1.maven.org/maven2/com/fasterxml/oss-parent/43/oss-parent-43.pom
+[2025-06-07T13:20:55.345+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.345+0000] {spark_submit.py:644} INFO - ==== spark-packages: tried
+[2025-06-07T13:20:55.345+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.346+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.pom
+[2025-06-07T13:20:55.346+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.346+0000] {spark_submit.py:644} INFO - -- artifact com.fasterxml.jackson.core#jackson-annotations;2.13.3!jackson-annotations.jar:
+[2025-06-07T13:20:55.346+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.346+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.jar
+[2025-06-07T13:20:55.347+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.347+0000] {spark_submit.py:644} INFO - impossible to put metadata file in cache: https://repo1.maven.org/maven2/com/fasterxml/oss-parent/43/oss-parent-43.pom (43) (java.io.FileNotFoundException: /home/***/.ivy2/cache/com.fasterxml/oss-parent/ivy-43.xml.original (No such file or directory))
+[2025-06-07T13:20:55.347+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.347+0000] {spark_submit.py:644} INFO - impossible to put metadata file in cache: https://repo1.maven.org/maven2/org/apache/apache/23/apache-23.pom (23) (java.io.FileNotFoundException: /home/***/.ivy2/cache/org.apache/apache/ivy-23.xml.original (No such file or directory))
+[2025-06-07T13:20:55.347+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.348+0000] {spark_submit.py:644} INFO - problem while downloading module descriptor: https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-cloud-storage/3.3.2/hadoop-cloud-storage-3.3.2.pom: impossible to move part file to definitive one: /home/***/.ivy2/cache/org.apache.hadoop/hadoop-cloud-storage/ivy-3.3.2.xml.original.part -> /home/***/.ivy2/cache/org.apache.hadoop/hadoop-cloud-storage/ivy-3.3.2.xml.original (179ms)
+[2025-06-07T13:20:55.348+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.348+0000] {spark_submit.py:644} INFO - module not found: org.apache.hadoop#hadoop-cloud-storage;3.3.2
+[2025-06-07T13:20:55.348+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.348+0000] {spark_submit.py:644} INFO - ==== local-m2-cache: tried
+[2025-06-07T13:20:55.349+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.349+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/org/apache/hadoop/hadoop-cloud-storage/3.3.2/hadoop-cloud-storage-3.3.2.pom
+[2025-06-07T13:20:55.349+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.349+0000] {spark_submit.py:644} INFO - -- artifact org.apache.hadoop#hadoop-cloud-storage;3.3.2!hadoop-cloud-storage.jar:
+[2025-06-07T13:20:55.349+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.350+0000] {spark_submit.py:644} INFO - file:/home/***/.m2/repository/org/apache/hadoop/hadoop-cloud-storage/3.3.2/hadoop-cloud-storage-3.3.2.jar
+[2025-06-07T13:20:55.350+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.350+0000] {spark_submit.py:644} INFO - ==== local-ivy-cache: tried
+[2025-06-07T13:20:55.350+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.350+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/org.apache.hadoop/hadoop-cloud-storage/3.3.2/ivys/ivy.xml
+[2025-06-07T13:20:55.351+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.351+0000] {spark_submit.py:644} INFO - -- artifact org.apache.hadoop#hadoop-cloud-storage;3.3.2!hadoop-cloud-storage.jar:
+[2025-06-07T13:20:55.351+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.351+0000] {spark_submit.py:644} INFO - /home/***/.ivy2/local/org.apache.hadoop/hadoop-cloud-storage/3.3.2/jars/hadoop-cloud-storage.jar
+[2025-06-07T13:20:55.351+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.351+0000] {spark_submit.py:644} INFO - ==== central: tried
+[2025-06-07T13:20:55.352+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.352+0000] {spark_submit.py:644} INFO - https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-cloud-storage/3.3.2/hadoop-cloud-storage-3.3.2.pom
+[2025-06-07T13:20:55.352+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.352+0000] {spark_submit.py:644} INFO - ==== spark-packages: tried
+[2025-06-07T13:20:55.352+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.353+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/org/apache/hadoop/hadoop-cloud-storage/3.3.2/hadoop-cloud-storage-3.3.2.pom
+[2025-06-07T13:20:55.353+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.353+0000] {spark_submit.py:644} INFO - -- artifact org.apache.hadoop#hadoop-cloud-storage;3.3.2!hadoop-cloud-storage.jar:
+[2025-06-07T13:20:55.353+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.353+0000] {spark_submit.py:644} INFO - https://repos.spark-packages.org/org/apache/hadoop/hadoop-cloud-storage/3.3.2/hadoop-cloud-storage-3.3.2.jar
+[2025-06-07T13:20:55.353+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.354+0000] {spark_submit.py:644} INFO - ::::::::::::::::::::::::::::::::::::::::::::::
+[2025-06-07T13:20:55.354+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.354+0000] {spark_submit.py:644} INFO - ::          UNRESOLVED DEPENDENCIES         ::
+[2025-06-07T13:20:55.354+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.354+0000] {spark_submit.py:644} INFO - ::::::::::::::::::::::::::::::::::::::::::::::
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - :: io.delta#delta-core_2.12;2.4.0: not found
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - :: org.apache.hadoop#hadoop-aws;3.3.2: not found
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - :: com.fasterxml.jackson.core#jackson-annotations;2.13.3: not found
+[2025-06-07T13:20:55.355+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.356+0000] {spark_submit.py:644} INFO - :: org.apache.hadoop#hadoop-cloud-storage;3.3.2: not found
+[2025-06-07T13:20:55.356+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.356+0000] {spark_submit.py:644} INFO - ::::::::::::::::::::::::::::::::::::::::::::::
+[2025-06-07T13:20:55.356+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.356+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.356+0000] {spark_submit.py:644} INFO - 
+[2025-06-07T13:20:55.357+0000] {spark_submit.py:644} INFO - :: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+[2025-06-07T13:20:55.357+0000] {spark_submit.py:644} INFO - Exception in thread "main" java.lang.RuntimeException: [unresolved dependency: io.delta#delta-core_2.12;2.4.0: not found, unresolved dependency: org.apache.hadoop#hadoop-aws;3.3.2: not found, unresolved dependency: com.fasterxml.jackson.core#jackson-annotations;2.13.3: not found, unresolved dependency: org.apache.hadoop#hadoop-cloud-storage;3.3.2: not found]
+[2025-06-07T13:20:55.357+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:1608)
+[2025-06-07T13:20:55.357+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.DependencyUtils$.resolveMavenDependencies(DependencyUtils.scala:185)
+[2025-06-07T13:20:55.357+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:334)
+[2025-06-07T13:20:55.357+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:964)
+[2025-06-07T13:20:55.358+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+[2025-06-07T13:20:55.358+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+[2025-06-07T13:20:55.358+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+[2025-06-07T13:20:55.358+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+[2025-06-07T13:20:55.358+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+[2025-06-07T13:20:55.358+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2025-06-07T13:20:55.366+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.driver.memory=2g --conf spark.executor.memory=2g --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --packages io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.2,org.apache.spark:spark-hadoop-cloud_2.12:3.3.0 --name arrow-spark --queue root.default --deploy-mode client dags/bronze_ingestion_sc_stats_etl.py --input_path /opt/***/data/Stephen Curry Stats.parquet --output_path s3a://mybucket/sc_stats_db.db/bronze_sc_stats --output_table sc_stats_db.bronze_sc_stats. Error code is: 1.
+[2025-06-07T13:20:55.369+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=stephen_curry_stats_medallion_etl, task_id=bronze_ingestion, run_id=scheduled__2025-06-06T00:00:00+00:00, execution_date=20250606T000000, start_date=20250607T131950, end_date=20250607T132055
+[2025-06-07T13:20:55.376+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-06-07T13:20:55.376+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 83 for task bronze_ingestion (Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.driver.memory=2g --conf spark.executor.memory=2g --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --packages io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.2,org.apache.spark:spark-hadoop-cloud_2.12:3.3.0 --name arrow-spark --queue root.default --deploy-mode client dags/bronze_ingestion_sc_stats_etl.py --input_path /opt/***/data/Stephen Curry Stats.parquet --output_path s3a://mybucket/sc_stats_db.db/bronze_sc_stats --output_table sc_stats_db.bronze_sc_stats. Error code is: 1.; 2752)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.driver.memory=2g --conf spark.executor.memory=2g --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --packages io.delta:delta-core_2.12:2.4.0,org.apache.hadoop:hadoop-aws:3.3.2,org.apache.spark:spark-hadoop-cloud_2.12:3.3.0 --name arrow-spark --queue root.default --deploy-mode client dags/bronze_ingestion_sc_stats_etl.py --input_path /opt/***/data/Stephen Curry Stats.parquet --output_path s3a://mybucket/sc_stats_db.db/bronze_sc_stats --output_table sc_stats_db.bronze_sc_stats. Error code is: 1.
+[2025-06-07T13:20:55.391+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-06-07T13:20:55.403+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-07T13:20:55.405+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

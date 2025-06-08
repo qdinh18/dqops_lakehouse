@@ -1,0 +1,630 @@
+[2025-05-31T05:31:26.649+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-05-31T05:31:26.660+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: medallion_sales_etl.submit_medallion_sales_etl_job manual__2025-05-31T05:31:25.968605+00:00 [queued]>
+[2025-05-31T05:31:26.665+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: medallion_sales_etl.submit_medallion_sales_etl_job manual__2025-05-31T05:31:25.968605+00:00 [queued]>
+[2025-05-31T05:31:26.665+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-05-31T05:31:26.671+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): submit_medallion_sales_etl_job> on 2025-05-31 05:31:25.968605+00:00
+[2025-05-31T05:31:26.674+0000] {standard_task_runner.py:72} INFO - Started process 1284 to run task
+[2025-05-31T05:31:26.676+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'medallion_sales_etl', 'submit_medallion_sales_etl_job', 'manual__2025-05-31T05:31:25.968605+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/medallion_sales_etl_dag.py', '--cfg-path', '/tmp/tmpsweb9wc6']
+[2025-05-31T05:31:26.678+0000] {standard_task_runner.py:105} INFO - Job 8: Subtask submit_medallion_sales_etl_job
+[2025-05-31T05:31:26.707+0000] {task_command.py:467} INFO - Running <TaskInstance: medallion_sales_etl.submit_medallion_sales_etl_job manual__2025-05-31T05:31:25.968605+00:00 [running]> on host eb9714469121
+[2025-05-31T05:31:26.749+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='medallion_sales_etl' AIRFLOW_CTX_TASK_ID='submit_medallion_sales_etl_job' AIRFLOW_CTX_EXECUTION_DATE='2025-05-31T05:31:25.968605+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-31T05:31:25.968605+00:00'
+[2025-05-31T05:31:26.750+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-05-31T05:31:26.766+0000] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2025-05-31T05:31:26.767+0000] {spark_submit.py:474} INFO - Spark-Submit cmd: spark-submit --master spark://spark-master:7077 --conf spark.executor.memory=2g --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --conf spark.hadoop.fs.s3a.access.key=minioadmin --conf spark.hadoop.fs.s3a.secret.key=****** --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py
+[2025-05-31T05:31:27.376+0000] {spark_submit.py:644} INFO - Using properties file: null
+[2025-05-31T05:31:27.430+0000] {spark_submit.py:644} INFO - Parsed arguments:
+[2025-05-31T05:31:27.430+0000] {spark_submit.py:644} INFO - master                  spark://spark-master:7077
+[2025-05-31T05:31:27.430+0000] {spark_submit.py:644} INFO - remote                  null
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - deployMode              client
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - executorMemory          2g
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - executorCores           null
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - totalExecutorCores      null
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - propertiesFile          null
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - driverMemory            null
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - driverCores             null
+[2025-05-31T05:31:27.431+0000] {spark_submit.py:644} INFO - driverExtraClassPath    null
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - driverExtraLibraryPath  null
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - driverExtraJavaOptions  null
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - supervise               false
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - queue                   root.default
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - numExecutors            null
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - files                   null
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - pyFiles                 null
+[2025-05-31T05:31:27.432+0000] {spark_submit.py:644} INFO - archives                null
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - mainClass               null
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - primaryResource         file:/opt/***/dags/medallion_etl.py
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - name                    medallion_sales_etl_spark_job
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - childArgs               []
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - jars                    null
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - packages                org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - packagesExclusions      null
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - repositories            null
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - verbose                 true
+[2025-05-31T05:31:27.433+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - Spark properties used, including those specified through
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - --conf and those from the properties file null:
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - (spark.executor.memory,2g)
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.access.key,*********(redacted))
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.endpoint,http://minio:9000)
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.path.style.access,true)
+[2025-05-31T05:31:27.434+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.secret.key,*********(redacted))
+[2025-05-31T05:31:27.435+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:31:27.435+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:31:27.497+0000] {spark_submit.py:644} INFO - :: loading settings :: url = jar:file:/home/***/.local/lib/python3.11/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-05-31T05:31:27.533+0000] {spark_submit.py:644} INFO - Ivy Default Cache set to: /home/***/.ivy2/cache
+[2025-05-31T05:31:27.534+0000] {spark_submit.py:644} INFO - The jars for the packages stored in: /home/***/.ivy2/jars
+[2025-05-31T05:31:27.536+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws added as a dependency
+[2025-05-31T05:31:27.536+0000] {spark_submit.py:644} INFO - com.amazonaws#aws-java-sdk-bundle added as a dependency
+[2025-05-31T05:31:27.536+0000] {spark_submit.py:644} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-c3eab3c0-19ee-433f-af8f-f78fc2135653;1.0
+[2025-05-31T05:31:27.537+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-05-31T05:31:27.621+0000] {spark_submit.py:644} INFO - found org.apache.hadoop#hadoop-aws;3.3.4 in central
+[2025-05-31T05:31:27.636+0000] {spark_submit.py:644} INFO - found com.amazonaws#aws-java-sdk-bundle;1.12.262 in central
+[2025-05-31T05:31:27.647+0000] {spark_submit.py:644} INFO - found org.wildfly.openssl#wildfly-openssl;1.0.7.Final in central
+[2025-05-31T05:31:27.655+0000] {spark_submit.py:644} INFO - :: resolution report :: resolve 116ms :: artifacts dl 3ms
+[2025-05-31T05:31:27.656+0000] {spark_submit.py:644} INFO - :: modules in use:
+[2025-05-31T05:31:27.656+0000] {spark_submit.py:644} INFO - com.amazonaws#aws-java-sdk-bundle;1.12.262 from central in [default]
+[2025-05-31T05:31:27.656+0000] {spark_submit.py:644} INFO - org.apache.hadoop#hadoop-aws;3.3.4 from central in [default]
+[2025-05-31T05:31:27.656+0000] {spark_submit.py:644} INFO - org.wildfly.openssl#wildfly-openssl;1.0.7.Final from central in [default]
+[2025-05-31T05:31:27.657+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-05-31T05:31:27.657+0000] {spark_submit.py:644} INFO - |                  |            modules            ||   artifacts   |
+[2025-05-31T05:31:27.657+0000] {spark_submit.py:644} INFO - |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-05-31T05:31:27.657+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-05-31T05:31:27.657+0000] {spark_submit.py:644} INFO - |      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2025-05-31T05:31:27.657+0000] {spark_submit.py:644} INFO - ---------------------------------------------------------------------
+[2025-05-31T05:31:27.658+0000] {spark_submit.py:644} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-c3eab3c0-19ee-433f-af8f-f78fc2135653
+[2025-05-31T05:31:27.658+0000] {spark_submit.py:644} INFO - confs: [default]
+[2025-05-31T05:31:27.661+0000] {spark_submit.py:644} INFO - 0 artifacts copied, 3 already retrieved (0kB/2ms)
+[2025-05-31T05:31:27.752+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-31T05:31:27.843+0000] {spark_submit.py:644} INFO - Main class:
+[2025-05-31T05:31:27.844+0000] {spark_submit.py:644} INFO - org.apache.spark.deploy.PythonRunner
+[2025-05-31T05:31:27.844+0000] {spark_submit.py:644} INFO - Arguments:
+[2025-05-31T05:31:27.844+0000] {spark_submit.py:644} INFO - file:/opt/***/dags/medallion_etl.py
+[2025-05-31T05:31:27.844+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-05-31T05:31:27.845+0000] {spark_submit.py:644} INFO - Spark config:
+[2025-05-31T05:31:27.845+0000] {spark_submit.py:644} INFO - (spark.app.name,medallion_sales_etl_spark_job)
+[2025-05-31T05:31:27.845+0000] {spark_submit.py:644} INFO - (spark.app.submitTime,1748669487834)
+[2025-05-31T05:31:27.845+0000] {spark_submit.py:644} INFO - (spark.executor.memory,2g)
+[2025-05-31T05:31:27.845+0000] {spark_submit.py:644} INFO - (spark.files,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:31:27.846+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.access.key,*********(redacted))
+[2025-05-31T05:31:27.846+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.endpoint,http://minio:9000)
+[2025-05-31T05:31:27.846+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.impl,org.apache.hadoop.fs.s3a.S3AFileSystem)
+[2025-05-31T05:31:27.846+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.path.style.access,true)
+[2025-05-31T05:31:27.846+0000] {spark_submit.py:644} INFO - (spark.hadoop.fs.s3a.secret.key,*********(redacted))
+[2025-05-31T05:31:27.847+0000] {spark_submit.py:644} INFO - (spark.jars,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:31:27.847+0000] {spark_submit.py:644} INFO - (spark.master,spark://spark-master:7077)
+[2025-05-31T05:31:27.847+0000] {spark_submit.py:644} INFO - (spark.repl.local.jars,file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:31:27.847+0000] {spark_submit.py:644} INFO - (spark.submit.deployMode,client)
+[2025-05-31T05:31:27.848+0000] {spark_submit.py:644} INFO - (spark.submit.pyFiles,/home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar,/home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar,/home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar)
+[2025-05-31T05:31:27.848+0000] {spark_submit.py:644} INFO - Classpath elements:
+[2025-05-31T05:31:27.848+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-05-31T05:31:27.848+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-05-31T05:31:27.848+0000] {spark_submit.py:644} INFO - file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-05-31T05:31:27.849+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:31:27.849+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:31:28.420+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Running Spark version 3.5.2
+[2025-05-31T05:31:28.420+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: OS info Linux, 6.10.14-linuxkit, aarch64
+[2025-05-31T05:31:28.420+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Java version 17.0.15
+[2025-05-31T05:31:28.430+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO ResourceUtils: ==============================================================
+[2025-05-31T05:31:28.430+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-05-31T05:31:28.431+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO ResourceUtils: ==============================================================
+[2025-05-31T05:31:28.431+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Submitted application: SimpleSparkTest
+[2025-05-31T05:31:28.442+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 2048, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-05-31T05:31:28.446+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO ResourceProfile: Limiting resource is cpu
+[2025-05-31T05:31:28.446+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-05-31T05:31:28.479+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SecurityManager: Changing view acls to: ***
+[2025-05-31T05:31:28.480+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SecurityManager: Changing modify acls to: ***
+[2025-05-31T05:31:28.480+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SecurityManager: Changing view acls groups to:
+[2025-05-31T05:31:28.480+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SecurityManager: Changing modify acls groups to:
+[2025-05-31T05:31:28.480+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2025-05-31T05:31:28.590+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO Utils: Successfully started service 'sparkDriver' on port 46279.
+[2025-05-31T05:31:28.605+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkEnv: Registering MapOutputTracker
+[2025-05-31T05:31:28.629+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkEnv: Registering BlockManagerMaster
+[2025-05-31T05:31:28.641+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-05-31T05:31:28.642+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-05-31T05:31:28.644+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-05-31T05:31:28.655+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-27ce8350-740a-418f-a602-d691f0ec2210
+[2025-05-31T05:31:28.664+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-05-31T05:31:28.671+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-05-31T05:31:28.730+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-05-31T05:31:28.764+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-05-31T05:31:28.784+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://eb9714469121:46279/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1748669488416
+[2025-05-31T05:31:28.785+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://eb9714469121:46279/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1748669488416
+[2025-05-31T05:31:28.785+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Added JAR file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://eb9714469121:46279/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1748669488416
+[2025-05-31T05:31:28.787+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar at spark://eb9714469121:46279/files/org.apache.hadoop_hadoop-aws-3.3.4.jar with timestamp 1748669488416
+[2025-05-31T05:31:28.788+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO Utils: Copying /home/***/.ivy2/jars/org.apache.hadoop_hadoop-aws-3.3.4.jar to /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/userFiles-7e01deda-ab8d-44c6-bcdb-7cde9fc6d906/org.apache.hadoop_hadoop-aws-3.3.4.jar
+[2025-05-31T05:31:28.794+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Added file file:///home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar at spark://eb9714469121:46279/files/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar with timestamp 1748669488416
+[2025-05-31T05:31:28.794+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO Utils: Copying /home/***/.ivy2/jars/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar to /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/userFiles-7e01deda-ab8d-44c6-bcdb-7cde9fc6d906/com.amazonaws_aws-java-sdk-bundle-1.12.262.jar
+[2025-05-31T05:31:28.885+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO SparkContext: Added file file:///home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar at spark://eb9714469121:46279/files/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar with timestamp 1748669488416
+[2025-05-31T05:31:28.885+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO Utils: Copying /home/***/.ivy2/jars/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar to /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/userFiles-7e01deda-ab8d-44c6-bcdb-7cde9fc6d906/org.wildfly.openssl_wildfly-openssl-1.0.7.Final.jar
+[2025-05-31T05:31:28.931+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark-master:7077...
+[2025-05-31T05:31:28.954+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO TransportClientFactory: Successfully created connection to spark-master/172.19.0.5:7077 after 12 ms (0 ms spent in bootstraps)
+[2025-05-31T05:31:28.998+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20250531053128-0005
+[2025-05-31T05:31:28.998+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/0 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:28.999+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:28 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/0 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.002+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 42659.
+[2025-05-31T05:31:29.003+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO NettyBlockTransferService: Server created on eb9714469121:42659
+[2025-05-31T05:31:29.003+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-05-31T05:31:29.006+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, eb9714469121, 42659, None)
+[2025-05-31T05:31:29.008+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Registering block manager eb9714469121:42659 with 434.4 MiB RAM, BlockManagerId(driver, eb9714469121, 42659, None)
+[2025-05-31T05:31:29.009+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, eb9714469121, 42659, None)
+[2025-05-31T05:31:29.009+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, eb9714469121, 42659, None)
+[2025-05-31T05:31:29.030+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/0 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/0)
+[2025-05-31T05:31:29.031+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/0 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/0
+[2025-05-31T05:31:29.032+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/1 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.033+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/1 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.034+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/1 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/1)
+[2025-05-31T05:31:29.035+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/1 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/1
+[2025-05-31T05:31:29.035+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/2 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.035+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/2 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.035+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/2 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/2)
+[2025-05-31T05:31:29.035+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/2 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/2
+[2025-05-31T05:31:29.036+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/3 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.038+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/3 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.039+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/3 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/3)
+[2025-05-31T05:31:29.040+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/3 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/3
+[2025-05-31T05:31:29.041+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 0 requested
+[2025-05-31T05:31:29.042+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/4 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.043+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/4 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.044+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 0
+[2025-05-31T05:31:29.044+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 1 requested
+[2025-05-31T05:31:29.046+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 1
+[2025-05-31T05:31:29.046+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 2 requested
+[2025-05-31T05:31:29.046+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 2
+[2025-05-31T05:31:29.047+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 3 requested
+[2025-05-31T05:31:29.047+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 3
+[2025-05-31T05:31:29.047+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/4 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/4)
+[2025-05-31T05:31:29.048+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/4 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/4
+[2025-05-31T05:31:29.048+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/5 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.049+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/5 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.049+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 4 requested
+[2025-05-31T05:31:29.050+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 4
+[2025-05-31T05:31:29.050+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 0 from BlockManagerMaster.
+[2025-05-31T05:31:29.051+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 1 from BlockManagerMaster.
+[2025-05-31T05:31:29.051+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 2 from BlockManagerMaster.
+[2025-05-31T05:31:29.051+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 3 from BlockManagerMaster.
+[2025-05-31T05:31:29.052+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 4 from BlockManagerMaster.
+[2025-05-31T05:31:29.052+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/5 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/5)
+[2025-05-31T05:31:29.052+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/5 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/5
+[2025-05-31T05:31:29.053+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/6 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.053+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/6 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.053+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 5 from BlockManagerMaster.
+[2025-05-31T05:31:29.054+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 5 requested
+[2025-05-31T05:31:29.054+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 5
+[2025-05-31T05:31:29.055+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/6 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/6)
+[2025-05-31T05:31:29.055+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/6 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/6
+[2025-05-31T05:31:29.057+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/7 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.058+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/7 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.058+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 6 requested
+[2025-05-31T05:31:29.059+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 6 from BlockManagerMaster.
+[2025-05-31T05:31:29.060+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 6
+[2025-05-31T05:31:29.060+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/7 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/7)
+[2025-05-31T05:31:29.060+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/7 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/7
+[2025-05-31T05:31:29.061+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/8 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.062+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/8 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.062+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 7 requested
+[2025-05-31T05:31:29.062+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 7
+[2025-05-31T05:31:29.062+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 7 from BlockManagerMaster.
+[2025-05-31T05:31:29.062+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/8 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/8)
+[2025-05-31T05:31:29.063+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/8 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/8
+[2025-05-31T05:31:29.063+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20250531053128-0005/9 on worker-20250531051810-172.19.0.6-36989 (172.19.0.6:36989) with 4 core(s)
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Granted executor ID app-20250531053128-0005/9 on hostPort 172.19.0.6:36989 with 4 core(s), 2.0 GiB RAM
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 8 requested
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 8
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 8 from BlockManagerMaster.
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20250531053128-0005/9 is now FAILED (java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/9)
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Executor app-20250531053128-0005/9 removed: java.io.IOException: Failed to create directory /opt/bitnami/spark/work/app-20250531053128-0005/9
+[2025-05-31T05:31:29.064+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: Removal of executor 9 requested
+[2025-05-31T05:31:29.065+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asked to remove non-existent executor 9
+[2025-05-31T05:31:29.065+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMasterEndpoint: Trying to remove executor 9 from BlockManagerMaster.
+[2025-05-31T05:31:29.065+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: Master removed our application: FAILED
+[2025-05-31T05:31:29.144+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2025-05-31T05:31:29.177+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-74447ffa-063e-42ca-95e9-eb923172dbe3
+[2025-05-31T05:31:29.178+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-74447ffa-063e-42ca-95e9-eb923172dbe3: No space left on device
+[2025-05-31T05:31:29.178+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.178+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.179+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.179+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.179+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.179+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.179+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.179+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.180+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.180+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.180+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.180+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.181+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.181+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.181+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.181+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.182+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.182+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.182+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.182+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.182+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.182+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.183+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.183+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.183+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.183+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-685a314e-388c-436b-bc12-b37eb4ec2c77
+[2025-05-31T05:31:29.183+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-685a314e-388c-436b-bc12-b37eb4ec2c77: No space left on device
+[2025-05-31T05:31:29.184+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.184+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.184+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.184+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.184+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.184+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.185+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.186+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-7fe89712-96bc-4dc9-b9dd-3797752aa701
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-7fe89712-96bc-4dc9-b9dd-3797752aa701: No space left on device
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.187+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.188+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.188+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.188+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.188+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.188+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.189+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.189+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.189+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.189+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.189+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.190+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.190+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.190+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.190+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.190+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.191+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.192+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.192+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-1d6bef3b-bfb8-493c-9c40-aa533922be37
+[2025-05-31T05:31:29.192+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-1d6bef3b-bfb8-493c-9c40-aa533922be37: No space left on device
+[2025-05-31T05:31:29.192+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.192+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.193+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.194+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.195+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.196+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-af00f03b-5b79-4e98-a41c-c8a03fdc2d7d
+[2025-05-31T05:31:29.196+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-af00f03b-5b79-4e98-a41c-c8a03fdc2d7d: No space left on device
+[2025-05-31T05:31:29.196+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.196+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.196+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.196+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.197+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.198+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-8f1e4c92-6b82-4534-85d3-bd699f1a61c0
+[2025-05-31T05:31:29.199+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-8f1e4c92-6b82-4534-85d3-bd699f1a61c0: No space left on device
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.200+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.201+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.202+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-4ba3f6fb-ed3d-4692-90f8-e030c532851b
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-4ba3f6fb-ed3d-4692-90f8-e030c532851b: No space left on device
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.203+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.204+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.204+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.204+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.204+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.204+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.205+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.206+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-ec65031f-6687-401d-a2c9-55787b34b43d
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-ec65031f-6687-401d-a2c9-55787b34b43d: No space left on device
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.207+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.208+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.209+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.209+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.209+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.209+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.209+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.209+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.210+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-179c26fa-0d37-44ec-9447-8157f2b88bb4
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-179c26fa-0d37-44ec-9447-8157f2b88bb4: No space left on device
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.211+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.212+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.213+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.213+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.213+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.213+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.213+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.213+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR JavaUtils: Failed to create directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-e21b6c52-c454-44e9-b742-ece5f5819f03
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - java.nio.file.FileSystemException: /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9/pyspark-e21b6c52-c454-44e9-b742-ece5f5819f03: No space left on device
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:100)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:397)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+[2025-05-31T05:31:29.214+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:397)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.215+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.216+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO SparkUI: Stopped Spark web UI at http://eb9714469121:4040
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2025-05-31T05:31:29.217+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2025-05-31T05:31:29.269+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-05-31T05:31:29.271+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 ERROR Inbox: Ignoring error
+[2025-05-31T05:31:29.271+0000] {spark_submit.py:644} INFO - org.apache.spark.SparkException: Exiting due to error from cluster scheduler: Master removed our application: FAILED
+[2025-05-31T05:31:29.272+0000] {spark_submit.py:644} INFO - at org.apache.spark.errors.SparkCoreErrors$.clusterSchedulerError(SparkCoreErrors.scala:291)
+[2025-05-31T05:31:29.272+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.TaskSchedulerImpl.error(TaskSchedulerImpl.scala:981)
+[2025-05-31T05:31:29.272+0000] {spark_submit.py:644} INFO - at org.apache.spark.scheduler.cluster.StandaloneSchedulerBackend.dead(StandaloneSchedulerBackend.scala:165)
+[2025-05-31T05:31:29.272+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint.markDead(StandaloneAppClient.scala:263)
+[2025-05-31T05:31:29.272+0000] {spark_submit.py:644} INFO - at org.apache.spark.deploy.client.StandaloneAppClient$ClientEndpoint$$anonfun$receive$1.applyOrElse(StandaloneAppClient.scala:170)
+[2025-05-31T05:31:29.273+0000] {spark_submit.py:644} INFO - at org.apache.spark.rpc.netty.Inbox.$anonfun$process$1(Inbox.scala:115)
+[2025-05-31T05:31:29.273+0000] {spark_submit.py:644} INFO - at org.apache.spark.rpc.netty.Inbox.safelyCall(Inbox.scala:213)
+[2025-05-31T05:31:29.273+0000] {spark_submit.py:644} INFO - at org.apache.spark.rpc.netty.Inbox.process(Inbox.scala:100)
+[2025-05-31T05:31:29.273+0000] {spark_submit.py:644} INFO - at org.apache.spark.rpc.netty.MessageLoop.org$apache$spark$rpc$netty$MessageLoop$$receiveLoop(MessageLoop.scala:75)
+[2025-05-31T05:31:29.273+0000] {spark_submit.py:644} INFO - at org.apache.spark.rpc.netty.MessageLoop$$anon$1.run(MessageLoop.scala:41)
+[2025-05-31T05:31:29.273+0000] {spark_submit.py:644} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-05-31T05:31:29.274+0000] {spark_submit.py:644} INFO - at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-05-31T05:31:29.274+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.274+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO SparkContext: SparkContext already stopped.
+[2025-05-31T05:31:29.280+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-05-31T05:31:29.287+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO MemoryStore: MemoryStore cleared
+[2025-05-31T05:31:29.287+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManager: BlockManager stopped
+[2025-05-31T05:31:29.288+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-05-31T05:31:29.289+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-05-31T05:31:29.313+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO SparkContext: Successfully stopped SparkContext
+[2025-05-31T05:31:29.666+0000] {spark_submit.py:644} INFO - Traceback (most recent call last):
+[2025-05-31T05:31:29.668+0000] {spark_submit.py:644} INFO - File "/opt/***/dags/medallion_etl.py", line 27, in <module>
+[2025-05-31T05:31:29.669+0000] {spark_submit.py:644} INFO - main()
+[2025-05-31T05:31:29.669+0000] {spark_submit.py:644} INFO - ^^^^^^
+[2025-05-31T05:31:29.670+0000] {spark_submit.py:644} INFO - File "/opt/***/dags/medallion_etl.py", line 7, in main
+[2025-05-31T05:31:29.671+0000] {spark_submit.py:644} INFO - .getOrCreate()
+[2025-05-31T05:31:29.671+0000] {spark_submit.py:644} INFO - ^^^^^^^^^^^^^
+[2025-05-31T05:31:29.671+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/sql/session.py", line 497, in getOrCreate
+[2025-05-31T05:31:29.672+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 515, in getOrCreate
+[2025-05-31T05:31:29.672+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 203, in __init__
+[2025-05-31T05:31:29.672+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 363, in _do_init
+[2025-05-31T05:31:29.673+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2025-05-31T05:31:29.673+0000] {spark_submit.py:644} INFO - File "/home/***/.local/lib/python3.11/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2025-05-31T05:31:29.674+0000] {spark_submit.py:644} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.util.Utils.createTempDir.
+[2025-05-31T05:31:29.674+0000] {spark_submit.py:644} INFO - : java.io.IOException: Failed to create a temp directory (under /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9) after 10 attempts!
+[2025-05-31T05:31:29.674+0000] {spark_submit.py:644} INFO - at org.apache.spark.network.util.JavaUtils.createDirectory(JavaUtils.java:392)
+[2025-05-31T05:31:29.675+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory(SparkFileUtils.scala:95)
+[2025-05-31T05:31:29.675+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.SparkFileUtils.createDirectory$(SparkFileUtils.scala:94)
+[2025-05-31T05:31:29.676+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createDirectory(Utils.scala:94)
+[2025-05-31T05:31:29.676+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils$.createTempDir(Utils.scala:241)
+[2025-05-31T05:31:29.677+0000] {spark_submit.py:644} INFO - at org.apache.spark.util.Utils.createTempDir(Utils.scala)
+[2025-05-31T05:31:29.677+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-05-31T05:31:29.677+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-05-31T05:31:29.678+0000] {spark_submit.py:644} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-05-31T05:31:29.678+0000] {spark_submit.py:644} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-05-31T05:31:29.678+0000] {spark_submit.py:644} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-05-31T05:31:29.679+0000] {spark_submit.py:644} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-05-31T05:31:29.679+0000] {spark_submit.py:644} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2025-05-31T05:31:29.679+0000] {spark_submit.py:644} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-05-31T05:31:29.679+0000] {spark_submit.py:644} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-05-31T05:31:29.680+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-05-31T05:31:29.680+0000] {spark_submit.py:644} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-05-31T05:31:29.680+0000] {spark_submit.py:644} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-05-31T05:31:29.680+0000] {spark_submit.py:644} INFO - 
+[2025-05-31T05:31:29.716+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO ShutdownHookManager: Shutdown hook called
+[2025-05-31T05:31:29.717+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO ShutdownHookManager: Deleting directory /tmp/spark-f724f83f-6ce7-45f1-8e1f-e995d2c3a2a9
+[2025-05-31T05:31:29.719+0000] {spark_submit.py:644} INFO - 25/05/31 05:31:29 INFO ShutdownHookManager: Deleting directory /tmp/spark-a5f2608a-91a1-4eb5-82e6-71294423a1ef
+[2025-05-31T05:31:29.747+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.executor.memory=2g --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --conf spark.hadoop.fs.s3a.access.key=minioadmin --conf spark.hadoop.fs.s3a.secret.key=****** --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py. Error code is: 1.
+[2025-05-31T05:31:29.753+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=medallion_sales_etl, task_id=submit_medallion_sales_etl_job, run_id=manual__2025-05-31T05:31:25.968605+00:00, execution_date=20250531T053125, start_date=20250531T053126, end_date=20250531T053129
+[2025-05-31T05:31:29.760+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-05-31T05:31:29.761+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 8 for task submit_medallion_sales_etl_job (Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.executor.memory=2g --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --conf spark.hadoop.fs.s3a.access.key=minioadmin --conf spark.hadoop.fs.s3a.secret.key=****** --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py. Error code is: 1.; 1284)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 197, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 566, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://spark-master:7077 --conf spark.executor.memory=2g --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 --conf spark.hadoop.fs.s3a.access.key=minioadmin --conf spark.hadoop.fs.s3a.secret.key=****** --conf spark.hadoop.fs.s3a.path.style.access=true --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --packages org.apache.hadoop:hadoop-aws:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262 --name medallion_sales_etl_spark_job --verbose --queue root.default --deploy-mode client /opt/***/dags/medallion_etl.py. Error code is: 1.
+[2025-05-31T05:31:29.803+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-05-31T05:31:29.817+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-05-31T05:31:29.818+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
