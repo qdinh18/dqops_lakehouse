@@ -17,9 +17,8 @@ default_args = {
 }
 
 dag = DAG(
-    'stephen_curry_stats_medallion_etl',
+    'sales_medallion_etl',
     default_args=default_args,
-    description='Medallion architecture ETL pipeline for Stephen Curry statistics',
     schedule_interval='@daily',
     catchup=False
 )
@@ -47,7 +46,7 @@ bronze_ingestion = SparkSubmitOperator(
         "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
         "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider"
     },
-    application_args=['--output_path', 's3a://mybucket/sc_stats_db/bronze/raw_data'],
+    application_args=['--output_path', 's3a://mybucket/retails_sales_db/bronze/raw_data'],
     dag=dag
 )
 
@@ -66,7 +65,10 @@ bronze_to_silver = SparkSubmitOperator(
         "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
         "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider"
     },
-    application_args=['--output_path', 's3a://mybucket/sc_stats_db/silver/transformed_data'],
+    application_args=["--dim_customer_output_path", 's3a://mybucket/retails_sales_db/silver/dim_customer',
+                      "--dim_store_output_path", 's3a://mybucket/retails_sales_db/silver/dim_store',
+                      "--dim_product_output_path", 's3a://mybucket/retails_sales_db/silver/dim_product',
+                      "--fact_sales_output_path", 's3a://mybucket/retails_sales_db/silver/fact_sales'],
     dag=dag
 )
 
@@ -85,9 +87,9 @@ silver_to_gold = SparkSubmitOperator(
         "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",
         "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider"
     },
-    application_args=['--output_path', 's3a://mybucket/sc_stats_db/gold/summary_data'],
+    application_args=['--output_path', 's3a://mybucket/retails_sales_db/gold/top_sales_data'],
     dag=dag
 )
 
-# Set task dependencies
+# task dependencies
 ensure_bucket >> bronze_ingestion >> bronze_to_silver >> silver_to_gold

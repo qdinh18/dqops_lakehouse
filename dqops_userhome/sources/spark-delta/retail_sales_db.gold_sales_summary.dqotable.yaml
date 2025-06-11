@@ -5,36 +5,297 @@ spec:
   incremental_time_window:
     daily_partitioning_recent_days: 7
     monthly_partitioning_recent_months: 1
+  profiling_checks:
+    volume:
+      profile_row_count:
+        error:
+          min_count: 8915
+    schema:
+      profile_column_count:
+        error:
+          expected_value: 8
   columns:
     transaction_date:
       type_snapshot:
         column_type: DATE
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        datetime:
+          profile_date_in_range_percent:
+            parameters:
+              min_date: 2023-12-30
+              max_date: 2035-02-28
+            error:
+              min_percent: 100.0
     store_id:
       type_snapshot:
         column_type: BIGINT
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        numeric:
+          profile_min_in_range:
+            error:
+              from: 0.9
+              to: 1.1
+          profile_max_in_range:
+            error:
+              from: 90.0
+              to: 110.0
+          profile_mean_in_range:
+            error:
+              from: 45.2
+              to: 55.2
     store_name:
       type_snapshot:
         column_type: STRING
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        text:
+          profile_text_min_length:
+            error:
+              from: 9
+              to: 9
+          profile_text_max_length:
+            error:
+              from: 9
+              to: 9
+          profile_text_mean_length:
+            error:
+              from: 8.1
+              to: 9.9
+        patterns:
+          profile_texts_not_matching_regex_percent:
+            parameters:
+              regex: "^([A-Za-z]+ [0-9]+)$"
+            error:
+              max_percent: 0.0
+        pii:
+          profile_contains_usa_phone_percent:
+            error:
+              max_percent: 0.0
+          profile_contains_email_percent:
+            error:
+              max_percent: 0.0
+        datatype:
+          profile_detected_datatype_in_text:
+            error:
+              expected_datatype: texts
     product_category:
       type_snapshot:
         column_type: STRING
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        uniqueness:
+          profile_distinct_count:
+            error:
+              min_count: 9
+              max_count: 11
+        accepted_values:
+          profile_text_found_in_set_percent:
+            parameters:
+              expected_values:
+              - Beauty
+              - Garden
+              - Automotive
+              - Electronics
+              - Groceries
+              - Toys
+              - Sports
+              - Clothing
+              - Books
+              - Home
+            error:
+              min_percent: 100.0
+        text:
+          profile_text_min_length:
+            error:
+              from: 4
+              to: 4
+          profile_text_max_length:
+            error:
+              from: 10
+              to: 12
+          profile_text_mean_length:
+            error:
+              from: 6.35
+              to: 7.76
+        pii:
+          profile_contains_usa_phone_percent:
+            error:
+              max_percent: 0.0
+          profile_contains_email_percent:
+            error:
+              max_percent: 0.0
+        datatype:
+          profile_detected_datatype_in_text:
+            error:
+              expected_datatype: texts
     total_sales:
       type_snapshot:
         column_type: DOUBLE
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        uniqueness:
+          profile_distinct_percent:
+            error:
+              min_percent: 100.0
+              max_percent: 100.0
+          profile_duplicate_count:
+            error:
+              max_count: 0
+        numeric:
+          profile_min_in_range:
+            error:
+              from: 10600.0
+              to: 13000.0
+          profile_max_in_range:
+            error:
+              from: 6.48E7
+              to: 7.92E7
+          profile_mean_in_range:
+            error:
+              from: 5280000.0
+              to: 6450000.0
     units_sold:
       type_snapshot:
         column_type: BIGINT
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        uniqueness:
+          profile_distinct_percent:
+            error:
+              min_percent: 25.3
+              max_percent: 47.1
+        numeric:
+          profile_min_in_range:
+            error:
+              from: 617.0
+              to: 754.0
+          profile_max_in_range:
+            error:
+              from: 145000.0
+              to: 178000.0
+          profile_mean_in_range:
+            error:
+              from: 20900.0
+              to: 25600.0
     num_transactions:
       type_snapshot:
         column_type: BIGINT
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        uniqueness:
+          profile_distinct_count:
+            error:
+              min_count: 2
+              max_count: 2
+        accepted_values:
+          profile_number_found_in_set_percent:
+            parameters:
+              expected_values:
+              - 1
+            error:
+              min_percent: 100.0
+        numeric:
+          profile_min_in_range:
+            error:
+              from: 0.9
+              to: 1.1
+          profile_max_in_range:
+            error:
+              from: 1.8
+              to: 2.2
+          profile_mean_in_range:
+            error:
+              from: 0.908
+              to: 1.11
     processing_date:
       type_snapshot:
         column_type: DATE
         nullable: true
+      profiling_checks:
+        nulls:
+          profile_nulls_count:
+            error:
+              max_count: 0
+          profile_nulls_percent:
+            error:
+              max_percent: 0.0
+          profile_not_nulls_count:
+            error:
+              min_count: 8910
+        uniqueness:
+          profile_distinct_count:
+            error:
+              min_count: 1
+              max_count: 1

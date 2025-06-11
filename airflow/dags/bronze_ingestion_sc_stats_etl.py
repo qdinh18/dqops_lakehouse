@@ -1,11 +1,11 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType, LongType
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType, LongType, BinaryType
 import argparse
 
 def main(output_path_arg):
     # Create Spark session with MinIO S3A configs
     spark = (SparkSession.builder
-        .appName("BronzeIngestionStephenCurryStats")
+        .appName("BronzeIngestion")
         .config("hive.metastore.uris", "thrift://hive-metastore:9083")
         .enableHiveSupport()
         .getOrCreate())
@@ -14,41 +14,39 @@ def main(output_path_arg):
 
     # Define schema explicitly
     schema = StructType([
-        StructField("Season_year", StringType(), True),
-        StructField("Season_div", StringType(), True),
-        StructField("Date", StringType(), True),
-        StructField("OPP", StringType(), True),
-        StructField("Result", StringType(), True),
-        StructField("T_Score", LongType(), True),
-        StructField("O_Score", LongType(), True),
-        StructField("MIN", DoubleType(), True),
-        StructField("FG", StringType(), True),
-        StructField("FGM", LongType(), True),
-        StructField("FGA", LongType(), True),
-        StructField("FG_Percentage", DoubleType(), True),
-        StructField("3PT", StringType(), True),
-        StructField("3PTM", LongType(), True),
-        StructField("3PTA", LongType(), True),
-        StructField("3P_Percentage", DoubleType(), True),
-        StructField("FT", StringType(), True),
-        StructField("FTM", LongType(), True),
-        StructField("FTA", LongType(), True),
-        StructField("FT_Percentage", DoubleType(), True),
-        StructField("REB", LongType(), True),
-        StructField("AST", LongType(), True),
-        StructField("BLK", LongType(), True),
-        StructField("STL", LongType(), True),
-        StructField("PF", LongType(), True),
-        StructField("TO", LongType(), True),
-        StructField("PTS", LongType(), True),
+        StructField("transaction_id",         LongType(),     False),
+        StructField("transaction_timestamp",  StringType(),False),
+        StructField("quantity",               LongType(),  False),
+        StructField("unit_price",             DoubleType(),   False),
+        StructField("total_amount",           DoubleType(),   False),
+        StructField("payment_method",         StringType(),   True),
+
+        StructField("customer_id",            LongType(),     False),
+        StructField("customer_name",          StringType(),   True),
+        StructField("customer_gender",        StringType(),   True),
+        StructField("customer_dob",           StringType(),     True),
+        StructField("customer_email",         StringType(),   True),
+        StructField("customer_phone",         LongType(),   True),
+        StructField("customer_city",          StringType(),   True),
+        StructField("customer_state",         StringType(),   True),
+
+        StructField("store_id",               LongType(),  False),
+        StructField("store_name",             StringType(),   True),
+        StructField("store_city",             StringType(),   True),
+        StructField("store_state",            StringType(),   True),
+
+        StructField("product_id",             LongType(),  False),
+        StructField("product_name",           StringType(),   True),
+        StructField("product_category",       StringType(),   True),
+        StructField("product_subcategory",    StringType(),   True)
     ])
 
     # Load data
-    local_parquet_path = "/opt/airflow/data/Stephen Curry Stats.parquet"
+    local_parquet_path = "/opt/airflow/data/raw_data.parquet"
 
     try:
         df = spark.read.schema(schema).parquet(local_parquet_path)
-        print(f"Successfully loaded Stephen Curry stats from: {local_parquet_path}")
+        print(f"Successfully loaded customers data from: {local_parquet_path}")
     except Exception as e:
         print(f"Error loading parquet file: {e}")
         spark.stop()
@@ -56,15 +54,17 @@ def main(output_path_arg):
 
     try:
         # Create database if it doesn't exist
-        spark.sql("CREATE DATABASE IF NOT EXISTS sc_stats_db")
+        spark.sql("CREATE DATABASE IF NOT EXISTS retail_sales_db")
 
         # Write data to Minio and register in Hive Metastore
+        spark.sql("DROP TABLE IF EXISTS retail_sales_db.raw_data")
+        
         (df.write.format("delta")
             .mode("overwrite")
             .option("path", output_path_arg)
-            .saveAsTable("sc_stats_db.bronze_raw_data"))
+            .saveAsTable("retail_sales_db.raw_data"))
             
-        print(f"Successfully wrote and registered table sc_stats_db.bronze_raw_data at {output_path_arg}")
+        print(f"Successfully wrote and registered table retail_sales_db.raw_data at {output_path_arg}")
 
     except Exception as e:
         print(f"Error writing data to Minio/Hive: {e}")
@@ -75,8 +75,8 @@ def main(output_path_arg):
     spark.stop()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="PySpark Bronze Ingestion Job for Stephen Curry Stats")
-    parser.add_argument("--output_path", required=True, help="S3A output path for Bronze data (e.g., s3a://bucket/bronze/sc_stats/)")
+    parser = argparse.ArgumentParser(description="...")
+    parser.add_argument("--output_path", required=True, help="...")
     args = parser.parse_args()
 
     main(args.output_path)

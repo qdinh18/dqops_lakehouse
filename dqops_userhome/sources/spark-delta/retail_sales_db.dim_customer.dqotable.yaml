@@ -10,16 +10,25 @@ spec:
       profile_row_count:
         error:
           min_count: 90000
+    timeliness:
+      profile_data_freshness:
+        error:
+          max_days: 2.0
     schema:
       profile_column_count:
         error:
-          expected_value: 8
+          expected_value: 33
+      profile_column_count_changed:
+        error: {}
   monitoring_checks:
     daily:
       volume:
         daily_row_count:
           error:
             min_count: 90000
+        daily_row_count_anomaly:
+          warning:
+            anomaly_percent: 0.1
       schema:
         daily_column_count:
           error:
@@ -506,6 +515,9 @@ spec:
             daily_nulls_percent:
               error:
                 max_percent: 0.0
+            daily_nulls_percent_anomaly:
+              warning:
+                anomaly_percent: 0.1
             daily_not_nulls_count:
               error:
                 min_count: 90000
@@ -719,6 +731,9 @@ spec:
           profile_not_nulls_count:
             error:
               min_count: 90000
+          profile_not_nulls_percent:
+            error:
+              max_percent: 0.0
         uniqueness:
           profile_distinct_count:
             error:
@@ -779,6 +794,9 @@ spec:
             daily_not_nulls_count:
               error:
                 min_count: 90000
+            daily_not_nulls_percent:
+              error:
+                max_percent: 0.0
           uniqueness:
             daily_distinct_count:
               error:
