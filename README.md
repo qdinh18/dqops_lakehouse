@@ -71,3 +71,16 @@ Please refer to the `docker-compose.yaml` and `docker-compose-airflow.yaml` for 
 ├── docker-compose-airflow.yaml # Services for Airflow
 └── README.md
 ```
+
+1. 
+<img width="999" alt="Screenshot 2025-06-23 at 12 53 06" src="https://github.com/user-attachments/assets/da3252e9-fcfe-4c4e-a9e1-8cd3b86edbe5" />
+2.
+<img width="1426" alt="Screenshot 2025-06-23 at 12 55 08" src="https://github.com/user-attachments/assets/4e5119e1-d39f-4b0f-b552-072ec1703f8d" />
+3.
+<img width="1726" alt="Screenshot 2025-06-23 at 12 56 40" src="https://github.com/user-attachments/assets/32d30c79-1f59-4904-a6de-93cbb6250e1f" />
+4.
+<img width="706" alt="Screenshot 2025-06-23 at 12 57 42" src="https://github.com/user-attachments/assets/e317da03-3bcc-4729-8fa3-0f111f81f6ff" />
+5.
+<img width="1594" alt="Screenshot 2025-06-23 at 12 58 23" src="https://github.com/user-attachments/assets/b2477fa8-a80a-4ac7-b415-9ca6e83d8efe" />
+6.
+<img width="1711" alt="Screenshot 2025-06-23 at 12 59 49" src="https://github.com/user-attachments/assets/17ee9319-aa1a-48d7-903d-4cc0463422bc" />
