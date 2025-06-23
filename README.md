@@ -17,7 +17,6 @@ The main components of the architecture are:
     *   **Bronze:** Raw, unprocessed data ingested from source systems.
     *   **Silver:** Cleaned, validated, and enriched data.
     *   **Gold:** Aggregated data, ready for analytics and business intelligence.
-*   **Compute Engine (Apache Spark):** Spark is used for large-scale data processing. It runs in a cluster mode with a master and worker nodes. It processes data from MinIO and executes ETL transformations.
 *   **Metadata Management (Hive Metastore):** Hive Metastore stores the schema and metadata of the tables in the data lake, allowing Spark and other tools to have a centralized schema repository.
 *   **Data Quality (DQOps):** DQOps is integrated to ensure data quality across the lakehouse. It connects to the Spark Thrift Server to retrieve schemas and run data quality checks using SQL.
 *   **Query Engine (Spark Thrift Server):** The Spark Thrift Server provides a JDBC/ODBC interface to the data stored in the lakehouse, allowing BI tools to query the data using standard SQL.
