@@ -72,15 +72,48 @@ Please refer to the `docker-compose.yaml` and `docker-compose-airflow.yaml` for 
 └── README.md
 ```
 
-1. 
+## Demonstration
+
+Here is a step-by-step demonstration of the data flow and data quality process within the lakehouse.
+
+### 1. Medallion ETL Pipeline
+
+The main ETL pipeline is orchestrated by Apache Airflow. This DAG, shown below, is responsible for ingesting raw data and processing it through the different layers of the Medallion architecture.
+
 <img width="999" alt="Screenshot 2025-06-23 at 12 53 06" src="https://github.com/user-attachments/assets/da3252e9-fcfe-4c4e-a9e1-8cd3b86edbe5" />
-2.
+
+The pipeline executes the following steps:
+-   **`ensure_bucket_exists`**: A `PythonOperator` that creates the necessary MinIO buckets if they don't exist.
+-   **`bronze_ingestion`**: A `SparkSubmitOperator` that ingests raw data into the Bronze layer.
+-   **`bronze_to_silver`**: A `SparkSubmitOperator` that cleans and transforms the Bronze data, storing it in the Silver layer.
+-   **`silver_to_gold`**: A `SparkSubmitOperator` that aggregates the Silver data into business-ready tables in the Gold layer.
+
+### 2. Data Storage in MinIO
+
+After the pipeline runs, the processed data is stored in MinIO, organized by the Medallion layers (Bronze, Silver, Gold). The image below shows the `retail_sales_db` inside the `mybucket` bucket, which contains the data for each layer.
+
 <img width="1426" alt="Screenshot 2025-06-23 at 12 55 08" src="https://github.com/user-attachments/assets/4e5119e1-d39f-4b0f-b552-072ec1703f8d" />
-3.
+
+### 3. Data Quality Profiling with DQOps
+
+Data quality is a critical component of this architecture. DQOps is used to profile the data and run quality checks. The screenshot below shows the DQOps UI profiling the `dirty_data` table, providing statistics on total rows, column count, and detailed metrics for each column like null percentage and distinct value counts.
+
 <img width="1726" alt="Screenshot 2025-06-23 at 12 56 40" src="https://github.com/user-attachments/assets/32d30c79-1f59-4904-a6de-93cbb6250e1f" />
-4.
+
+### 4. Exporting Data Quality Results
+
+To make the data quality results available for further analysis and reporting, another Airflow DAG is used to export them from DQOps. This DAG submits a Spark job (`export_dq_results_to_minio`) that extracts the results.
+
 <img width="706" alt="Screenshot 2025-06-23 at 12 57 42" src="https://github.com/user-attachments/assets/e317da03-3bcc-4729-8fa3-0f111f81f6ff" />
-5.
+
+### 5. DQ Results in MinIO
+
+The exported data quality results are stored in a separate MinIO bucket named `dqopsbucket`. This keeps the DQ metrics separate from the primary data and makes them easy to access for reporting tools.
+
 <img width="1594" alt="Screenshot 2025-06-23 at 12 58 23" src="https://github.com/user-attachments/assets/b2477fa8-a80a-4ac7-b415-9ca6e83d8efe" />
-6.
+
+### 6. Visualizing Data Quality in Superset
+
+Finally, the data quality results are visualized in an Apache Superset dashboard. This provides an intuitive and interactive way to monitor the quality of the data, with KPIs for different quality dimensions and charts showing the percentage of executed checks. This enables stakeholders to quickly assess data reliability.
+
 <img width="1711" alt="Screenshot 2025-06-23 at 12 59 49" src="https://github.com/user-attachments/assets/17ee9319-aa1a-48d7-903d-4cc0463422bc" />
