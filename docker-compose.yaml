@@ -101,6 +101,14 @@ services:
       - ./airflow/data:/opt/airflow/data
       - ./spark/conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
       - ./dqops_userhome/.data/check_results:/data/check_results
+    deploy:
+      resources:
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+        limits:
+          cpus: '2.0'
+          memory: 4G
     networks:
       - dqops_lakehouse_network
 
@@ -123,6 +131,14 @@ services:
       - ./airflow/data:/opt/airflow/data
       - ./spark/conf/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
       - ./dqops_userhome/.data/check_results:/data/check_results
+    deploy:
+      resources:
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+        limits:
+          cpus: '2.0'
+          memory: 4G
     networks:
       - dqops_lakehouse_network
 
@@ -150,23 +166,53 @@ services:
     networks:
       - dqops_lakehouse_network
 
+  db:
+    image: postgres:16
+    container_name: superset_db
+    restart: always
+    env_file: .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - superset_db_data:/var/lib/postgresql/data
+    networks:
+      - dqops_lakehouse_network
+
+
   superset:
+    image: apache/superset:latest
     build:
       context: ./superset
-      args:
-        - SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY}
     container_name: superset
-    ports:
-      - "8088:8088"
+    env_file: .env
+    environment:
+      SQLALCHEMY_DATABASE_URI: >-
+        postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@superset_db:5432/${POSTGRES_DB}
+      SUPERSET_LOAD_EXAMPLES: "no"
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
     volumes:
       - superset_data:/app/superset_home
       - ./superset/superset_config.py:/app/superset_config.py
-    environment:
-      - SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY}
+    ports:
+      - "8088:8088"
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - dqops_lakehouse_network
-    depends_on:
-      - spark-thrift
+
+  dqops:
+    image: dqops/dqops
+    container_name: dqops
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./dqops_userhome:/dqops/userhome
+    networks:
+      - dqops_lakehouse_network
 
 networks:
   dqops_lakehouse_network:
@@ -175,5 +221,5 @@ networks:
 volumes:
   minio-data:
   mariadb-data:
+  superset_db_data:
   superset_data:
-

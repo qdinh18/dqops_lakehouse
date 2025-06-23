@@ -10,7 +10,6 @@ RUN apt-get update \
         build-essential \
         openjdk-17-jdk \
         python3-dev \
-        libpq-dev \
         curl \
         procps \
         wget \
@@ -20,6 +19,13 @@ RUN apt-get update \
 # Set JAVA_HOME
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+# Set Airflow environment variables for credentials
+ENV AIRFLOW_WEBSERVER_AUTH_BACKEND=airflow.providers.apache.hive.auth.backend.default_auth
+ENV AIRFLOW_WEBSERVER_AUTHENTICATE=True
+ENV AIRFLOW_WEBSERVER_ADMIN_USERNAME=${AIRFLOW_ADMIN_USER}
+ENV AIRFLOW_WEBSERVER_ADMIN_PASSWORD=${AIRFLOW_ADMIN_PASSWORD}
+ENV AIRFLOW__WEBSERVER__SECRET_KEY="u1UZZLBxgJqpvPSeMTrKZpQxeEzAZmNn_k74FmCmg8="
 
 # Install Spark
 ARG SPARK_VERSION=3.5.2

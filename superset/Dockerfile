@@ -10,5 +10,5 @@ RUN pip install -r /app/requirements.txt
 USER superset
 
 COPY superset_config.py /app/
-RUN superset db upgrade
-RUN superset init
+# RUN superset db upgrade
+# RUN superset init
