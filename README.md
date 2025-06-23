@@ -1,4 +1,4 @@
-# DQOps Lakehouse
+# Data Quality in Lakehouse
 
 This project implements a modern data lakehouse architecture using Docker for containerization. It demonstrates a full data lifecycle, from ingestion and processing to data quality monitoring and business intelligence.
 
