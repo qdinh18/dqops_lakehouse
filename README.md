@@ -6,6 +6,9 @@ This project implements a modern data lakehouse architecture using Docker for co
 
 The architecture is designed to be scalable, modular, and robust, leveraging open-source technologies.
 
+<img width="1020" alt="Screenshot 2025-06-23 at 12 31 46" src="https://github.com/user-attachments/assets/2c8a1c55-0044-4515-b7dd-c48444aacfb8" />
+
+
 The main components of the architecture are:
 
 *   **Infrastructure (Docker):** The entire platform is containerized using Docker and managed with Docker Compose, ensuring portability and ease of deployment.
